@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
+    <meta name="keywords" content="Yao_Xiong,"> 
     <meta name="description" content="Build Personal Network Drive Through NextcloudOneDrive and Google Drive only provide about 15 G fre,"> 
     <meta name="author" content="Yao Xiong"> 
     <link rel="alternative" href="atom.xml" title="Yao Xiong" type="application/atom+xml"> 
@@ -71,7 +71,7 @@
         <div class="content markdown">
             <h1 id="Build-Personal-Network-Drive-Through-Nextcloud"><a href="#Build-Personal-Network-Drive-Through-Nextcloud" class="headerlink" title="Build Personal Network Drive Through Nextcloud"></a>Build Personal Network Drive Through Nextcloud</h1><p>OneDrive and Google Drive only provide about 15 G free space. If I want to use more space, I have to subscribe their services. To save the money, I decide to set up a network drive at home. Through the internet, I notice the combination: <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a></strong> + <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nextcloud">Nextcloud</a></strong>. </p>
 <p>Here is what the final result looks like. </p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" class title="image-20221124233608644">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" class="" title="image-20221124233608644">
 
 
 
@@ -86,7 +86,7 @@
 <li>Go to Ubuntu’s Official Website: <a target="_blank" rel="noopener" href="https://ubuntu.com/#download">https://ubuntu.com/#download</a></li>
 <li>Download Ubuntu Desktop Mirror File</li>
 </ol>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221124234335618.png" class title="image-20221124234335618">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221124234335618.png" class="" title="image-20221124234335618">
 
 <ol start="3">
 <li>Open your Virtual Machine Software in Windows and load the Mirror File.</li>
@@ -121,12 +121,12 @@
 <p>Press enter key when promoted for a password</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql start</span><br><span class="line">sudo mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125000626908.png" class title="image-20221125000626908">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125000626908.png" class="" title="image-20221125000626908">
 
 
 
 <p>After typing enter</p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125000655206.png" class title="image-20221125000655206">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125000655206.png" class="" title="image-20221125000655206">
 
 
 
@@ -151,12 +151,12 @@
 
 <h2 id="Nextcloud"><a href="#Nextcloud" class="headerlink" title="Nextcloud"></a>Nextcloud</h2><p>Go to official website to download the file. Here is the link <a target="_blank" rel="noopener" href="https://nextcloud.com/install">Download</a></p>
 <p>Since we plan to run the server on our laptop or virtual machine or raspberry pi, please choose “DOWNLOAD SERVER”</p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125001401653.png" class title="image-20221125001401653">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125001401653.png" class="" title="image-20221125001401653">
 
 
 
 <p>In community projects, choose <strong>Get ZIP file</strong></p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125001453948.png" class title="image-20221125001453948">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125001453948.png" class="" title="image-20221125001453948">
 
 
 
@@ -174,14 +174,14 @@
 
 
 <p>Now, all the files will be in folder <strong>nextcloud</strong></p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125001836959.png" class title="image-20221125001836959">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125001836959.png" class="" title="image-20221125001836959">
 
 
 
 <p>Move the folder into apache’s (webserver) directory</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r nextcloud /var/www</span><br></pre></td></tr></table></figure>
 
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125002004967.png" class title="image-20221125002004967">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125002004967.png" class="" title="image-20221125002004967">
 
 
 
@@ -216,7 +216,7 @@
 
 <p>Now, you can input your IP address on your browser</p>
 <p><code>192.168../nextcloud/</code></p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" class title="image-20221124233608644">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" class="" title="image-20221124233608644">
 
 
 
@@ -245,17 +245,17 @@
 <h1 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h1><ol>
 <li>Network Error: 99</li>
 </ol>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125004022676.png" class title="image-20221125004022676">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125004022676.png" class="" title="image-20221125004022676">
 
 <p><a target="_blank" rel="noopener" href="https://help.nextcloud.com/t/syncing-client-crashes-with-network-error-99/149047">Problem 1</a></p>
 <p>My solution: </p>
 <p>Increase php memory &amp; file upload size</p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125004346691.png" class title="image-20221125004346691">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125004346691.png" class="" title="image-20221125004346691">
 
 <p> increase mysql sort_buf_size</p>
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125004444666.png" class title="image-20221125004444666">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125004444666.png" class="" title="image-20221125004444666">
 
-<img src="/.io//11/24/2022-11-24-Personal-Network-Drive/image-20221125004502205.png" class title="image-20221125004502205">
+<img src="/2022/11/24/2022-11-24-Personal-Network-Drive/image-20221125004502205.png" class="" title="image-20221125004502205">
 
 
 
@@ -366,6 +366,25 @@
 </div>
 
 
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 
