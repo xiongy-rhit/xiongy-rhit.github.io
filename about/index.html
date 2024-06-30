@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>About Me | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>About Me </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/26
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>Hello! My name is Yao Xiong. My overrall <strong>GPA is 3.89/4.0</strong></p>
+<p>I am 2024 class from Rose-Hulman Institute of Technology.</p>
+<p><br><br><br></p>
+<h2 id="My-College"><a href="#My-College" class="headerlink" title="My College"></a>My College</h2><p>Rose-Hulman Institute of Technology is the NO.1 Undergraduate Engineering College among all colleges which do not provide doctor degrees. It is in the east corner of Terre Haute, Indiana State.  Autumn is the most beautiful season in Rose. At sunset, pink sky and orange trees make rose become a picture.</p>
+<img src="/about/index/rose_hulman.jpg">
+
+
+
+
+
+
+
+<p><br><br><br><br><br><br></p>
+<h2 id="My-Project-Experiences"><a href="#My-Project-Experiences" class="headerlink" title="My Project Experiences"></a>My Project Experiences</h2><p><em>Here are the summary for some of my projects. You can go to the project article part to know more about my projects.</em></p>
+<h4 id="Project-Data-Structure-and-Algorithm-Blog"><a href="#Project-Data-Structure-and-Algorithm-Blog" class="headerlink" title="Project: Data Structure and Algorithm Blog"></a>Project: <strong>Data Structure and Algorithm Blog</strong></h4><p>Date: <strong>April 2021</strong></p>
+<ul>
+<li>Self-learned data structure and achieve them in Java language</li>
+<li>Published the summary to CSDN and GitHub technology communities</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://peter-bear.github.io/">Link to my GitHub Article Page</a></p>
+<p><br><br><br></p>
+<h4 id="Project-Full-Stack-Development-of-a-Shopping-Website"><a href="#Project-Full-Stack-Development-of-a-Shopping-Website" class="headerlink" title="Project: Full Stack Development of a Shopping Website"></a>Project: <strong>Full Stack Development of a Shopping Website</strong></h4><p>Date: <strong>June 2021</strong></p>
+<ul>
+<li>Utilized PHP as backend language and MySQL as database</li>
+<li>Used HTML, CSS, and JavaScript as frontend to display this shopping website</li>
+<li>Learned responsive development technology through this individual project</li>
+</ul>
+<br>
+
+ <img src="/about/index/image-20221127004007332.png">
+
+<p><br><br><br></p>
+<h4 id="Project-JAVA-Memo-App"><a href="#Project-JAVA-Memo-App" class="headerlink" title="Project: JAVA Memo App"></a>Project: <strong>JAVA Memo App</strong></h4><p>Date: <strong>March 2022</strong></p>
+<ul>
+<li>Used Java as language to implement this memo app</li>
+<li>Utilized Object-Oriented Thought to design the app’s architecture</li>
+<li>Encoded memo files with MD5 Encryption to protect the data security</li>
+<li>Being familiar with Java IO and Java network through this project</li>
+</ul>
+<br>
+
+<img src="/about/index/image-20220428162740355.png">
+
+<p><br><br><br></p>
+<h4 id="Project-Network-Music-App"><a href="#Project-Network-Music-App" class="headerlink" title="Project: Network Music App"></a>Project: <strong>Network Music App</strong></h4><p>Date: <strong>May 2022</strong></p>
+<ul>
+<li>Learned stored procedures, triggers, and some basic knowledge related to database</li>
+<li>Worked with a team to design the whole program architectures (MVC architecture)</li>
+<li>Utilized Java as frontend and backend language and connected to SQL server through JDBC</li>
+</ul>
+<br>
+
+<img src="/about/index/image-20221127005512400.png">
+
+<p><br><br><br></p>
+<h4 id="Project-Territory-Blog"><a href="#Project-Territory-Blog" class="headerlink" title="Project: Territory Blog"></a>Project: <strong>Territory Blog</strong></h4><p>Date: <strong>July 2022</strong></p>
+<ul>
+<li>Learned HTML, CSS, and JavaScript</li>
+<li>Deployed project on firebase platform</li>
+<li>Worked as a team to design a blog platform, which has CRUD functions</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://territory-blog.web.app/">Territory Blog Link</a></p>
+<br>
+
+<img src="/about/index/image-20221127005858234.png">
+
+<p><br><br><br></p>
+<h4 id="Project-T34-Tank-Solidworks-Model"><a href="#Project-T34-Tank-Solidworks-Model" class="headerlink" title="Project: T34 Tank Solidworks Model"></a>Project: <strong>T34 Tank Solidworks Model</strong></h4><p>Date: <strong>December 2022</strong></p>
+<ul>
+<li>Learn how to use solidworks to build 3D models</li>
+<li>Being familiar with solidworks basic features: extrude, sweep, cut, circular pattern. etc</li>
+<li>Learn how to use assembler to combine different solidworks models</li>
+</ul>
+<br>
+
+<img src="/about/index/image-20221127010541113.png">
+
+<p><br><br><br></p>
+<h4 id="Project-Smart-Arduino-amp-Raspberry-Pi-Car"><a href="#Project-Smart-Arduino-amp-Raspberry-Pi-Car" class="headerlink" title="Project: Smart Arduino &amp; Raspberry Pi Car"></a>Project: <strong>Smart Arduino &amp; Raspberry Pi Car</strong></h4><p>Date: <strong>December 2022</strong></p>
+<ul>
+<li>Learn how to use serial to communicate two different developer boards</li>
+<li>Be more familiar with H-Bridge structure</li>
+<li>Enhance Solidworks Model Skill</li>
+<li>Utilize Raspberry Pi as server for video stream and Arduino as controller for motors</li>
+</ul>
+<br>
+
+<img src="/about/index/car.jpg">
+
+<br>
+
+<br>
+
+<br>
+
+<h4 id="Project-RITH-I-Instruction-Set"><a href="#Project-RITH-I-Instruction-Set" class="headerlink" title="Project: RITH-I Instruction Set"></a>Project: <strong>RITH-I Instruction Set</strong></h4><p>Date: <strong>December 2022</strong></p>
+<ul>
+<li>Learn how to build a basic CPU which support both integer and floating point</li>
+<li>Enhance the understanding on Computer Instruction Sets, especially RISC-V</li>
+<li>Learn the importance of modular development</li>
+</ul>
+<br>
+
+
+
+<img src="/about/index/image-20221127011406140.png">
+
+
+
+
+
+<p><br><br><br><br><br><br></p>
+<h2 id="My-Skills"><a href="#My-Skills" class="headerlink" title="My Skills"></a>My Skills</h2><ul>
+<li>Experience with Python, Java, SQL, and C</li>
+<li>Frontend JavaScript, HTML, CSS, and Bootstrap</li>
+<li>Business translation level between English and Chinese</li>
+<li>Experience on SOLIDWORKS</li>
+<li>Microprocessor Programming</li>
+<li>Computer Architecture</li>
+<li>Computer Operating System</li>
+</ul>
+<p><br><br><br><br><br><br></p>
+<h2 id="My-Interests"><a href="#My-Interests" class="headerlink" title="My Interests"></a>My Interests</h2><p>I have a lot of hobbies:</p>
+<ul>
+<li>Robotics</li>
+<li>Web Development</li>
+<li>Microcontroller DIY</li>
+<li>3D Printer</li>
+<li>Animation (〃’▽’〃)</li>
+<li>Hiking</li>
+<li>Sleeping (◕ˇ∀ˇ◕。)</li>
+</ul>
+<br>
+
+<br>
+
+<p><a target="_blank" rel="noopener" href="https://peter-bear.github.io/">More About Me</a></p>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
