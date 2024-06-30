@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Personal Network Drive | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Personal Network Drive </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/24
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/DIY/" style="color: #ffa2c4">
+                    DIY
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="Build-Personal-Network-Drive-Through-Nextcloud"><a href="#Build-Personal-Network-Drive-Through-Nextcloud" class="headerlink" title="Build Personal Network Drive Through Nextcloud"></a>Build Personal Network Drive Through Nextcloud</h1><p>OneDrive and Google Drive only provide about 15 G free space. If I want to use more space, I have to subscribe their services. To save the money, I decide to set up a network drive at home. Through the internet, I notice the combination: <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a></strong> + <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nextcloud">Nextcloud</a></strong>. </p>
+<p>Here is what the final result looks like. </p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" alt="image-20221124233608644"></p>
+<span id="more"></span>
+
+
+
+
+
+<h1 id="Step-1-Install-Ubuntu-System"><a href="#Step-1-Install-Ubuntu-System" class="headerlink" title="Step 1. Install Ubuntu System"></a>Step 1. Install Ubuntu System</h1><p>You need to install a Ubuntu System on your <strong>Virtual Machine</strong> or <strong>Raspberry Pi</strong></p>
+<h2 id="Virtual-Machine"><a href="#Virtual-Machine" class="headerlink" title="Virtual Machine"></a>Virtual Machine</h2><ol>
+<li>Go to Ubuntu’s Official Website: <a target="_blank" rel="noopener" href="https://ubuntu.com/#download">https://ubuntu.com/#download</a></li>
+<li>Download Ubuntu Desktop Mirror File</li>
+</ol>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221124234335618.png" alt="image-20221124234335618"></p>
+<ol start="3">
+<li>Open your Virtual Machine Software in Windows and load the Mirror File.</li>
+</ol>
+<p>Here is a reference video for installing ubuntu in virtual machine: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=x5MhydijWmc&ab_channel=ProgrammingKnowledge">https://www.youtube.com/watch?v=x5MhydijWmc&amp;ab_channel=ProgrammingKnowledge</a></p>
+<h2 id="Raspberry-Pi"><a href="#Raspberry-Pi" class="headerlink" title="Raspberry Pi"></a>Raspberry Pi</h2><ol>
+<li>First two steps for Raspberry Pi are similar to virtual machine: go to official website and download mirror file</li>
+<li>Use Raspberry Pi Imager to set up ubuntu system into your SD card. Here is the link for this software: <a target="_blank" rel="noopener" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a></li>
+<li>Put the micro-SD card into Raspberry Pi and start</li>
+</ol>
+<h1 id="Step-2-Install-Related-Software"><a href="#Step-2-Install-Related-Software" class="headerlink" title="Step 2. Install Related Software"></a>Step 2. Install Related Software</h1><p>After installing Ubuntu System, you need to install Apache, MariaDB, and Nextcloud.</p>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><p>Type the following two commends in ubuntu shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install apache2 libapache2-mod-php7.4</span><br></pre></td></tr></table></figure>
+
+
+
+<p>7.4 is the version of PHP. After running the second commend, we need to check our php and apache version.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line">apache2 -v</span><br></pre></td></tr></table></figure>
+
+
+
+<p>if our installed php version is not 7.4, such as 8.1, replace the following php7.4 with php8.1</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl</span><br><span class="line">sudo apt install php7.4-gmp php7.4-bcmath php-imagick php7.4-xml php7.4-zip</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="MySQL-MariaDB"><a href="#MySQL-MariaDB" class="headerlink" title="MySQL &amp; MariaDB"></a>MySQL &amp; MariaDB</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mariadb-server</span><br></pre></td></tr></table></figure>
+
+<p>After installing mariadb, we need to configure our database.</p>
+<p>Press enter key when promoted for a password</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql start</span><br><span class="line">sudo mysql -uroot -p</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125000626908.png" alt="image-20221125000626908"></p>
+<p>After typing enter</p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125000655206.png" alt="image-20221125000655206"></p>
+<p>Typing the following commends after <strong>MariaDB [(none)] &gt;</strong> one by one (<strong>Do not miss ‘;’ in the end of each commend</strong>)</p>
+<p>set <strong>username</strong> as what you want</p>
+<p>set <strong>password</strong> as what you want</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;username&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &#x27;username&#x27;@&#x27;localhost&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Here is my example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;peter&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;12345678&#x27;;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &#x27;username&#x27;@&#x27;peter&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Try to Quit MariaDB</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Nextcloud"><a href="#Nextcloud" class="headerlink" title="Nextcloud"></a>Nextcloud</h2><p>Go to official website to download the file. Here is the link <a target="_blank" rel="noopener" href="https://nextcloud.com/install">Download</a></p>
+<p>Since we plan to run the server on our laptop or virtual machine or raspberry pi, please choose “DOWNLOAD SERVER”</p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001401653.png" alt="image-20221125001401653"></p>
+<p>In community projects, choose <strong>Get ZIP file</strong></p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001453948.png" alt="image-20221125001453948"></p>
+<p>After downloading the file, unzip it in ubuntu</p>
+<p>&#x2F;&#x2F; unzip <strong>tar</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xjvf filename</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F; unzip <strong>zip</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Now, all the files will be in folder <strong>nextcloud</strong></p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001836959.png" alt="image-20221125001836959"></p>
+<p>Move the folder into apache’s (webserver) directory</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r nextcloud /var/www</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125002004967.png" alt="image-20221125002004967"></p>
+<h1 id="Step-3-Set-Software-Parameters"><a href="#Step-3-Set-Software-Parameters" class="headerlink" title="Step 3. Set Software Parameters"></a>Step 3. Set Software Parameters</h1><ol>
+<li>Set up authority for apache2. Otherwise, we cannot write any data to our server. <span style="background-color:yellow;"><strong>It is important</strong></span></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R www-data:www-data nextcloud</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>Config apache server</li>
+</ol>
+<p>we will use vim to add file “nextcloud.conf”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/sites-available</span><br><span class="line">sudo vim nextcloud.conf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Type the following in nextcloud.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Alias /nextcloud &quot;/var/www/nextcloud/&quot;</span><br><span class="line">LoadModule ssl_module modules/mod_ssl.so</span><br><span class="line">&lt;Directory /var/www/nextcloud/&gt;</span><br><span class="line">  Require all granted</span><br><span class="line">  AllowOverride All</span><br><span class="line">  Options FollowSymLinks MultiViews</span><br><span class="line"></span><br><span class="line">  &lt;IfModule mod_dav.c&gt;</span><br><span class="line">    Dav off</span><br><span class="line">  &lt;/IfModule&gt;</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>Check apache status and Done</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status apache2</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Now, you can input your IP address on your browser</p>
+<p><code>192.168../nextcloud/</code></p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" alt="image-20221124233608644"></p>
+<h2 id="Optional-Encrypt-SSL"><a href="#Optional-Encrypt-SSL" class="headerlink" title="Optional (Encrypt SSL)"></a>Optional (Encrypt SSL)</h2><p>How to get SSL for free ? </p>
+<p>Here is the Link: <a target="_blank" rel="noopener" href="https://linuxiac.com/lets-encrypt-free-ssl-certificate/">Free Encrypt SSL</a></p>
+<p>Free Dynamic Domain: <a target="_blank" rel="noopener" href="https://www.noip.com/">Free Dynamic Domain</a></p>
+<p>In the link, the author is using Nginx, but we use Apache, so we need to add the config in our apache server folder.</p>
+<p><strong>Replace ‘Your IP’  &amp; ‘Your Domain’</strong> in the following text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Alias /nextcloud &quot;/var/www/nextcloud/&quot;</span><br><span class="line">LoadModule ssl_module modules/mod_ssl.so</span><br><span class="line">&lt;Directory /var/www/nextcloud/&gt;</span><br><span class="line">  Require all granted</span><br><span class="line">  AllowOverride All</span><br><span class="line">  Options FollowSymLinks MultiViews</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;IfModule mod_dav.c&gt;</span><br><span class="line">    Dav off</span><br><span class="line">  &lt;/IfModule&gt;</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost &#x27;Your IP&#x27;:443&gt;</span><br><span class="line">        DocumentRoot /var/www/nextcloud</span><br><span class="line">        ServerName &#x27;Your Domain&#x27;</span><br><span class="line">        SSLEngine on</span><br><span class="line">        SSLCertificateFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/cert.pem</span><br><span class="line">        SSLCertificateKeyFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/privkey.pem</span><br><span class="line">        SSLCertificateChainFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/chain.pem</span><br><span class="line"></span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Copy these texts and replace ‘nextcloud.conf’</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/sites-available</span><br><span class="line">sudo vim nextcloud.conf</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h1><ol>
+<li>Network Error: 99</li>
+</ol>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125004022676.png" alt="image-20221125004022676"></p>
+<p><a target="_blank" rel="noopener" href="https://help.nextcloud.com/t/syncing-client-crashes-with-network-error-99/149047">Problem 1</a></p>
+<p>My solution: </p>
+<p>Increase php memory &amp; file upload size</p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125004346691.png" alt="image-20221125004346691"></p>
+<p> increase mysql sort_buf_size</p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125004444666.png" alt="image-20221125004444666"></p>
+<p><img src="/2022-11-24-Personal-Network-Drive/image-20221125004502205.png" alt="image-20221125004502205"></p>
+<p>I am not sure it is true, but it works for me.</p>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

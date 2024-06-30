@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Intro to Computer System | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Intro to Computer System </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/3/8
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="color: #00a596">
+                    计算机基础
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="计算机系统入门"><a href="#计算机系统入门" class="headerlink" title="计算机系统入门"></a>计算机系统入门</h1><p>了解计算机系统：二进制编码，内存分配，计算机寻址，C语言基础，C转汇编， CPU进程调度，C语言网络IO</p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220308220946107.png" alt="image-20220308220946107"></p>
+<span id="more"></span>
+
+<h1 id="进制表示"><a href="#进制表示" class="headerlink" title="进制表示"></a>进制表示</h1><p>计算机中进制是二进制，以0和1为主，这里不多做介绍（网上有许多教程）</p>
+<table>
+<thead>
+<tr>
+<th>Unsigned Binary (无符号二进制) 4-bit</th>
+<th>Signed Binary(有符号二进制) 4-bit</th>
+<th>Hexadecimal(16进制)</th>
+<th>Decimal(10进制)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000</td>
+<td>0000</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0001</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0010</td>
+<td>0010</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>0011</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>0100</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>0101</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0110</td>
+<td>0110</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>0111</td>
+<td>0111</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1000</td>
+<td></td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>1001</td>
+<td></td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1010</td>
+<td></td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1011</td>
+<td></td>
+<td>B</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1100</td>
+<td></td>
+<td>C</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1101</td>
+<td></td>
+<td>D</td>
+<td>13</td>
+</tr>
+<tr>
+<td>1110</td>
+<td></td>
+<td>E</td>
+<td>14</td>
+</tr>
+<tr>
+<td>1111</td>
+<td></td>
+<td>F</td>
+<td>15</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Signed Binary (4-bit 有符号型数据)</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1000</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>-7</td>
+</tr>
+<tr>
+<td>1010</td>
+<td>-6</td>
+</tr>
+<tr>
+<td>1011</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>1100</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>4</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0110</td>
+<td>6</td>
+</tr>
+<tr>
+<td>0111</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<p>(Unsigned Binary) 当二进制数据长度为 n 时：</p>
+<p>min: 0										max: 2^n -1</p>
+<p>(Signed Binary) 当二进制数据长度为 n 时：</p>
+<p>min: -2^(n-1)							max：-2^(n-1) -1</p>
+<h1 id="计算机地址与内存"><a href="#计算机地址与内存" class="headerlink" title="计算机地址与内存"></a>计算机地址与内存</h1><p>计算机内部元器件抽象图：</p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220309133038457.png" alt="image-20220309133038457"></p>
+<p>计算机需要读取数据和存储数据，所以本章将介绍在Main Memory内存中，计算机是如何寻找数据以及存储数据的</p>
+<h2 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h2><p>内存中的数据以二进制的方式存储，每8个二进制数据对应1个地址，我们将这1个地址的大小称为1 byte （1字节）</p>
+<p>1 byte &#x3D; 8 bits (1字节 &#x3D; 8 比特)</p>
+<p>indices &#x3D; addresses (location)</p>
+<p>内存地址，每个地址间相差1字节数据，图如下</p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220309134838489.png" alt="image-20220309134838489"></p>
+<p>8-bit CPU 可寻地址大小为 2^8 Byte</p>
+<p>32-bit CPU 可寻地址大小为 2^32 Byte</p>
+<p>需要寻址大小为 N bytes of memory, 至少需要 CEIL[ log_2(N) ] bit 长度</p>
+<h2 id="Locating-Data"><a href="#Locating-Data" class="headerlink" title="Locating Data"></a>Locating Data</h2><p>内存中数据存储分2种，小端存储与大端存储，两种存储方式在计算机内部都行得通，只是顺序不同</p>
+<p>把内存想象成很长的一串数组，每个空位对应一段内存地址，在这段内存地址中存有1 byte （8-bit）的二进制数据</p>
+<p>Little Endian 小端</p>
+<p>低数据位对应低地址，小端机器</p>
+<p>Big Endian 大端</p>
+<p>高数据位对应低地址，大端机器</p>
+<p><span style='color:pink'>举例说明</span></p>
+<p>数据： 0x deadbeef </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MSB (Most Significant Byte)</th>
+<th></th>
+<th></th>
+<th>LSB (Least Significant Byte)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Big Endian</td>
+<td>de</td>
+<td>ad</td>
+<td>be</td>
+<td>ef</td>
+</tr>
+<tr>
+<td></td>
+<td>LSB (Least Significant Byte)</td>
+<td></td>
+<td></td>
+<td>MSB (Most Significant Byte)</td>
+</tr>
+<tr>
+<td>Little Endian</td>
+<td>ef</td>
+<td>be</td>
+<td>ad</td>
+<td>de</td>
+</tr>
+<tr>
+<td>地址</td>
+<td>0x10 (低地址)</td>
+<td>0x11</td>
+<td>0x12</td>
+<td>0x13 （高地址）</td>
+</tr>
+</tbody></table>
+<h1 id="ARM汇编基础"><a href="#ARM汇编基础" class="headerlink" title="ARM汇编基础"></a>ARM汇编基础</h1><h2 id="Program-Path"><a href="#Program-Path" class="headerlink" title="Program Path"></a>Program Path</h2><p>要将C代码转化成可执行文件需要3步</p>
+<ol>
+<li>编译器Compiler将C文件 (.c 文件) 编译转成 .s 的汇编文件</li>
+</ol>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220313222227958.png" alt="image-20220313222227958"></p>
+<ol start="2">
+<li>汇编器Assembler将汇编文件 (.s 文件) 转成机器码 ( .o 文件 obj文件)</li>
+</ol>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220313222246443.png" alt="image-20220313222246443"></p>
+<ol start="3">
+<li>链接器Linker将多个Obj文件连接在一起，转成可**执行文件 **</li>
+</ol>
+<p>有时C文件之间需要相互调用，当其转化成各自的object 文件后， 连接器需要将这些文件整合，转为可执行文件</p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220313222940426.png" alt="image-20220313222940426"></p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220313222006995.png" alt="Source: http://www.eng.hawaii.edu/Tutor/Make/1-2.html"></p>
+<p>所以一个程序的全部工序如下</p>
+<p>Task -&gt; C code -&gt; Assembly -&gt; object code -&gt; executable code</p>
+<p><img src="/2022-3-8-Intro-to-Computer-System/image-20220313222101583.png" alt="image-20220313222101583"></p>
+<h2 id="基础汇编指令"><a href="#基础汇编指令" class="headerlink" title="基础汇编指令"></a>基础汇编指令</h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>例子</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add</td>
+<td>add r0, r1, r2</td>
+<td>add r1 and r2 and assign the result to r0 (ro &#x3D; r1+r2)</td>
+</tr>
+<tr>
+<td>str</td>
+<td>str A, [x] ; str r1, [x, #4]</td>
+<td>store data from register A to address x  ; store</td>
+</tr>
+<tr>
+<td>ldr</td>
+<td>ldr A, [x] ;  ldr r0, [x]</td>
+<td>load data from address x to register A   ;  load data from address x to register r0</td>
+</tr>
+<tr>
+<td>sub</td>
+<td>sub r0, r1, #1</td>
+<td>subtract r1 and #1 and assign the result to r0 (r0 &#x3D; r1-1)</td>
+</tr>
+<tr>
+<td>b</td>
+<td>b .LOOP</td>
+<td>类似于go to</td>
+</tr>
+<tr>
+<td>ble</td>
+<td>ble.LOOP</td>
+<td>less than or equal to;</td>
+</tr>
+<tr>
+<td>blt</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bgt</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bx</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cmp</td>
+<td>cmp r1, r2</td>
+<td>if(r1 &gt; r2)</td>
+</tr>
+<tr>
+<td>mov</td>
+<td>mov r0, #3</td>
+<td>assign number 3 to r0 (r0 &#x3D; 3)</td>
+</tr>
+</tbody></table>
+<h3 id="ldr-指令"><a href="#ldr-指令" class="headerlink" title="ldr 指令"></a>ldr 指令</h3><p>Conditional Branching (if &#x2F; else)</p>
+<p>cmp r0, #3</p>
+<p>ble .LOOP &#x2F;&#x2F;r0 &lt;&#x3D; 3</p>
+<p>ble : less or equal to</p>
+<p>blt : less than</p>
+<p>bgt : greater than</p>
+<p>bge: greater or equal to</p>
+<h1 id="内存层级"><a href="#内存层级" class="headerlink" title="内存层级"></a>内存层级</h1><p>RAM random access memory</p>
+<p>Static RAM </p>
+<ul>
+<li>made: with flip-flop (6 transistors)</li>
+<li>volatile: need power to sustain the data</li>
+<li>size: relatively big</li>
+<li>cost: $ 5000 &#x2F;GB</li>
+<li>where: CPU registers, L1 cache</li>
+</ul>
+<p>Cache</p>
+<ul>
+<li><p>缓存</p>
+</li>
+<li><p>check faster memory, if find the data, done, if not go to dynamic RAM or SSD (flush)</p>
+</li>
+<li><p>Hit rate: % of finding the data in the cache</p>
+</li>
+<li><p>Average speed: P(hit) * t_cache_hit  + (1-P(hit)) * t_miss</p>
+<p>​					 &#x3D; P(hit) * t_cache_hit  + P(cache_miss) * t_miss</p>
+</li>
+</ul>
+<p>Dynamic RAM</p>
+<ul>
+<li>made: transistors and capacitors</li>
+<li>periodically refresh and recharge</li>
+<li>volatile</li>
+<li>size: smaller than SRAM</li>
+<li>where: Main Memory, GPU </li>
+<li>speed: not as fast as static RAM</li>
+</ul>
+<p>SSD</p>
+<ul>
+<li>made: NAND flash</li>
+<li>volatile: non-volatile</li>
+<li>size: smaller than DRAME</li>
+<li>speed: lower</li>
+<li>type: SATA, PCIE, NVME</li>
+<li>limit: unites per page</li>
+</ul>
+<p>Hard Disk</p>
+<ul>
+<li>Magnetic Disk</li>
+<li>Not random</li>
+<li>not volatile</li>
+<li>size: larger than SSD</li>
+<li>speed: 200 MB&#x2F;S</li>
+<li>cost: $ 0.01  &#x2F; GB</li>
+</ul>
+<h1 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>struct_variable.x &#x3D; 1; &#x2F;&#x2F;struct结构体 （stack上的）</p>
+<p>(*struct_variable).x &#x3D; 1;</p>
+<p>struct_pointer-&gt;y &#x3D; ‘d’; &#x2F;&#x2F; struct pointe是结构体指针</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>pointers enable us to access memory addresses in C</p>
+<p>Syntax:</p>
+<ol>
+<li>Declaring a pointer variable: &lt;type&gt;* <variable_name>  (type is the stored data &#x2F; object stored at this address)</li>
+</ol>
+<p>int* xp &#x2F;&#x2F; xp is a pointer of an in object</p>
+<ol start="2">
+<li>Get the address of a variable &#x2F; object: &amp; <variable_name></li>
+</ol>
+<p>int x &#x3D; 5;</p>
+<p>xp &#x3D; &x;</p>
+<ol start="3">
+<li>Access the data with an address :  *&lt;pointer&gt; &#x2F;&#x2F;similar to assembly[ ]</li>
+</ol>
+<p>int y;</p>
+<p>y &#x3D; *xp; &#x2F;&#x2F; 把xp指向的地址的data赋值给y</p>
+<p>*xp &#x3D; 3 &#x2F;&#x2F;write &#x2F; update the data xp points to as 3, 更新指向地址的数据</p>
+<p>在32位机器上，指针大小为4字节</p>
+<p>指针加1，按照指向地址向上移动对应的字节大小</p>
+<p>shot 类型的指针地址 +1, 向上移动2字节</p>
+<p>increase N size of the pointer</p>
+<p>总结出来， *p 代表指针指向地址的值，而 p 本身是指向位置的地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">8</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">5</span>;</span><br><span class="line">   <span class="type">int</span>* p = &amp;a; <span class="comment">//指针p 指向 a的地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p); <span class="comment">//打印地址</span></span><br><span class="line">   p = &amp;b; <span class="comment">//把指针指向 b的地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p); <span class="comment">//打印地址</span></span><br><span class="line"></span><br><span class="line">   *p = a; <span class="comment">//把a的值赋值给指针指向的那个地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, *p, b); <span class="comment">//打印指针指向的值的变化</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>数组与指针</p>
+<p>使用指针比较结构体中2个字符串的大小，并将长的输出</p>
+<p>方法1，使用指针遍历，（不使用数组下标）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">print_longer</span><span class="params">(<span class="keyword">struct</span> two_things* input)</span>&#123;</span><br><span class="line">     </span><br><span class="line">	<span class="type">int</span> firstLength = <span class="number">0</span>, secondLength = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (*input-&gt;thing_one != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        input-&gt;thing_one++;</span><br><span class="line">        firstLength++;</span><br><span class="line">    &#125;</span><br><span class="line">    input-&gt;thing_one -= firstLength;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( *input-&gt;thing_two != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        input-&gt;thing_two++;</span><br><span class="line">        secondLength++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    input-&gt;thing_two -= secondLength;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (firstLength &gt; secondLength)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_one);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_two);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方法2，使用数组下标遍历</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">print_longer</span><span class="params">(<span class="keyword">struct</span> two_things* input)</span>&#123;</span><br><span class="line">   </span><br><span class="line">  <span class="type">int</span> firstLength = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(input-&gt;thing_one[firstLength] != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">      firstLength ++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> secondLength = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(input-&gt;thing_two[secondLength] != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">      secondLength ++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(firstLength &gt; secondLength)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_one);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_two);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="堆与栈-Stack-and-Heap"><a href="#堆与栈-Stack-and-Heap" class="headerlink" title="堆与栈 Stack and Heap"></a>堆与栈 Stack and Heap</h2><p>stack</p>
+<p>​	store local variables, return addresses</p>
+<p>​	static</p>
+<p>​	not persistent (memory space won’t be available after function return)</p>
+<p>scanf</p>
+<p>​	keyboard input to the program</p>
+<p>heap</p>
+<p>​	dynamic</p>
+<p>​	persistent (available in the memory after function return)</p>
+<p>malloc</p>
+<p>​	pointer &#x3D; malloc (# of bytes)</p>
+<p>free</p>
+<p>​	free(pointer)</p>
+<p>sizeof</p>
+<p>​	sizeof(malloc出来的地址，大小就是指针大小)</p>
+<p>​	be sure not to use it to measure the length since it only gives us the size of data type (char, int, sturct结构体)</p>
+<p>​	</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude<span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* array1 = <span class="built_in">malloc</span>(<span class="number">256</span>);</span><br><span class="line">    <span class="type">char</span> array2[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, array1, array2); <span class="comment">//32位机器使用4B 作为指针</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">OUTPUT</span></span><br><span class="line"><span class="comment">4, 128</span></span><br><span class="line"><span class="comment">数组在stack中， array1在heap中</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Memory leakage</p>
+<p>​	be sure to free your malloc</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; stdlib .h &gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; stdio .h &gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; string .h &gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">printOnce</span> <span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">char</span> * c = <span class="built_in">malloc</span> (<span class="number">10</span>) ;</span><br><span class="line">	<span class="built_in">strncpy</span> (c , <span class="string">&quot; Amadeus !&quot;</span>, <span class="number">10</span>) ;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%s\n&quot;</span>, c ) ;</span><br><span class="line">	<span class="built_in">free</span> ( c );</span><br><span class="line">	<span class="keyword">return</span> c ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">( <span class="type">int</span> argc , <span class="type">char</span> ** argv )</span> &#123;</span><br><span class="line">	<span class="type">char</span> * c ;</span><br><span class="line">	c = printOnce () ;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%s\n&quot;</span>, c ) ; <span class="comment">// print again</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

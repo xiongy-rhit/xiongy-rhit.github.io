@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-background" style="background-image: url(/img/background.jpg)"></div>
+<div id="home-head">
+    
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Yao Xiong</h1>
+                <h3>Here is my personal blog ๐•ᴗ•๐ </h3>
+                <h5>莫听穿林打叶声， 何妨吟啸且徐行</h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+<div id="home-posts-wrap" class="">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/Comparator%20And%20Iterator/">
+        <h2 class="post-title">Comparable 与 Iterable 接口</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/3/23
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><em>Interface Comparable<T></em></p>
+<p><img src="/Comparator_And_Iterator/image-20210406201919191.png" alt="image-20210406201919191"></p>
+<p>如果一个类实现Comparable接口，其必须实现CompareTo方法，调用此方法的对象将与里面的o对象进行比较</p>
+<p>例如：</p>
+<p>x.CompareTo(T y) </p>
+<p>x和y进行比较，如果相等返回0；若x&gt;y，返回1；若x&lt;y，返回-1；当然，CompareTo方法的实现由我们自己定义</p>
+<ul>
+<li>实现此接口的对象拥有自然顺序（natural ordering）</li>
+<li>对象之间可以使用CompareTo(T o)来进行比较</li>
+<li>如果对储存此对象的集合调用sort方法，Collections工具类会根据CompareTo方法排序：Collections.sort(list2);</li>
+</ul>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #ffa2c4">
+                java
+            </a>
+        </span>
+        
+    </div>
+    <a href="/Comparator%20And%20Iterator/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/java%E5%85%A5%E9%97%A8/">
+        <h2 class="post-title">Java入门</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/12/9
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>作者：Yao Xiong</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>学习一门编程语言不是一件难事，在本书的前言我要郑重强调一下这件事。学习如逆水行舟，不进则退；只要大家坚持，相信最后定会有所收获。本书作为一本入门的工具书，会侧重讲解JAVA的基础知识，旨在引导读者进入JAVA的学习大门。</p>
+<h2 id="什么是JAVA"><a href="#什么是JAVA" class="headerlink" title="什么是JAVA"></a>什么是JAVA</h2><p>JAVA是一种面向对象的高阶编程语言，在JAVA中有句老话：万物皆对象。对于java的介绍我引用百科的一些解释。（Java具有简单性、面向对象、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F/19276232">分布式</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%81%A5%E5%A3%AE%E6%80%A7/4430133">健壮性</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AE%89%E5%85%A8%E6%80%A7/7664678">安全性</a>、平台独立与可移植性、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%9A%E7%BA%BF%E7%A8%8B/1190404">多线程</a>、动态性等特点 [2] 。Java可以编写<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2331979">桌面应用程序</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">Web应用程序</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/186978">嵌入式系统</a>应用程序等）</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #00bcd4">
+                java
+            </a>
+        </span>
+        
+    </div>
+    <a href="/java%E5%85%A5%E9%97%A8/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2020-11-10-ESL101-Argumentative-Essay-(hole)/">
+        <h2 class="post-title">大一ESL101 Argumentative Essay (Hole)</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/11/10
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p> Is Camp Green Lake actually beneficial for the boys?</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #00a596">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2020-11-10-ESL101-Argumentative-Essay-(hole)/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2020-10-16-ESL101-comparison-essay/">
+        <h2 class="post-title">大一ESL101 Comparison Essay</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/10/16
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Yao Xiong     10&#x2F;7&#x2F;20</p>
+<p>ESL101-OL1</p>
+<p>Ms.Hurdlik</p>
+<p>Draft#2</p>
+<h1 id="Big-University-or-Small-College"><a href="#Big-University-or-Small-College" class="headerlink" title="Big University or Small College"></a>Big University or Small College</h1><p>​    University provides higher education and research opportunities for people. A proper university is related to students’ future developments. However, deciding where to study, a big university or a small college, is a huge task, especially when going abroad. In the past, as a high school student, I was struggling to make such a decision. Finally, I decided to attend a small college, considering activity participation, class size, and intimate community.</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #00a596">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2020-10-16-ESL101-comparison-essay/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2020-05-02-%E8%87%B3%E9%AB%98%E4%B8%AD%E7%9A%84%E4%B8%89%E5%B9%B4/">
+        <h2 class="post-title">致高中的三年</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/5/2
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>这里是一段视频，充满高中三年的回忆，再见了高中，Goodbye我的青春；</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #ffa2c4">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2020-05-02-%E8%87%B3%E9%AB%98%E4%B8%AD%E7%9A%84%E4%B8%89%E5%B9%B4/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2020-4-30-%E6%9C%AC%E7%A7%91offer%E5%85%A8%E9%9B%86/">
+        <h2 class="post-title">本科Offer全集</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/4/30
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>高中辛苦（快乐）三年，斩获这些offer,留此随笔以作纪念</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #03a9f4">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2020-4-30-%E6%9C%AC%E7%A7%91offer%E5%85%A8%E9%9B%86/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/HighSchoolGraduation/">
+        <h2 class="post-title">高中毕业感想</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/3/3
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>时光荏苒，白驹过隙。3年，我们马上要毕业了，真快。仿佛早晨才刚刚相遇，此时又即将分别。高中时光转瞬即逝，留下的是美好的回忆。以前的我胆小害羞，但如今我逐渐变得自信阳光。这得益于国际部出色的教学方法：国际部是中西合璧的产物。它坚守着中国传统教学的质量，同时融入西方先进教育的思想。学生上课与老师积极互动，课下一起合作完成project。Emily老师与Jeff老师令我印象深刻。 Emily在物理课上与我们激烈讨论现代物理的杰出成果，课后一同布置教室，老师和我们就像亲人，其乐融融。Jeff老师关心同学，即便在周末也不忘发来邮件以示慰问。</p>
+<p>这三年的学习生活有苦也有甜。如今依稀记得那成堆的书本和厚厚的笔记，它们承载着我高中奋斗的时光。寒窗苦读三年载，终迎金榜题名时。努力学习终有回报，收到满意的offer，仿佛之前的投入一切都是值得的。路漫漫其修远兮，吾将上下而求索。Yesterday is a history, future is a mystery, and today is a present. 天行健君子以自强不息，地势坤君子以厚德载物。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #ff7d73">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/HighSchoolGraduation/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2020-02-29-High-School-Extended-Essay/">
+        <h2 class="post-title">高中毕业前夕文学课Extended Essay</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/2/29
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Peter</p>
+<p>Professor Jeff</p>
+<p>Literature</p>
+<p>2 February 2020</p>
+<h1 id="To-what-extent-procrastination-affects-our-life-and-which-factors-cause-procrastination"><a href="#To-what-extent-procrastination-affects-our-life-and-which-factors-cause-procrastination" class="headerlink" title="To what extent procrastination affects our life and which factors cause procrastination?"></a><strong>To what extent procrastination affects our life and which factors cause procrastination?</strong></h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h2><p>In the daily life, everyone has the experience on finishing projects. Normally, organized people prefer to divide time and complete work as quickly as possible. However, most of us tend to start action till the deadline. Some students even enjoy the pleasant sensation at the last gasp. In psychology, this phenomenon is called “procrastination.” To what extent procrastination affects our life and which factors cause procrastination? Does procrastination really have no benefits? </p>
+<p>To achieve this goal, I have organized my paper into five main sections, each of which has few sub-sections. In the first section, I provide the history of the world “procrastination”, how ancient people view procrastination, and procrastination in our daily life. In the second section, I will describe the causation of procrastination from two aspects: external factors and internal factors. In the third section, it includes the analysis on the advantages and disadvantages of having procrastination. In the forth section, I list several solutions to help people if procrastination has brought problems to their life. What’s more, at the end of this article, I have listed few methods to practice the solutions in real life. Among two of the chapters, I cite one experiment to introduce procrastination and one method to solve procrastination problem. </p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #00a596">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2020-02-29-High-School-Extended-Essay/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/pythonDrawing/">
+        <h2 class="post-title">画樱花树，使用Python</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2020/2/15
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>春节期间，疫情突发，闲着无聊，自学python；</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%9A%8F%E7%AC%94/" style="color: #00bcd4">
+                随笔
+            </a>
+        </span>
+        
+    </div>
+    <a href="/pythonDrawing/" class="go-post">阅读全文</a>
+</div>
+
+            <div class="page-current">
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-left fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+                
+                <a href="/">
+                    <span class="page-num">1</span>
+                </a>
+                
+                
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+        <span class="current">
+            3
+        </span>
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/favicon.png " alt="avatar">
+        </div>
+        <div class="name">
+            Yao Xiong
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                <p>(˶˚ ᗨ ˚˶)</p>
+
+            </div>
+            
+            <div class="description">
+                <p><a target="_blank" rel="noopener" href="https://peter-bear.github.io/">https://peter-bear.github.io</a></p>
+
+            </div>
+            
+            <div class="description">
+                <p>谁怕？一蓑烟雨任平生</p>
+
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="mailto:xiongy@rose-hulman.edu">
+                    <i class="fa-solid fa-envelope fa-fw"></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/peter-bear">
+                    <i class="fa-brands fa-github fa-fw"></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/227000512">
+                    <i class="fa-brands fa-bilibili fa-fw"></i>
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

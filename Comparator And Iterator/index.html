@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Comparable 与 Iterable 接口 | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Comparable 与 Iterable 接口 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/3/23
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/java/" style="color: #00bcd4">
+                    java
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><em>Interface Comparable<T></em></p>
+<p><img src="/Comparator_And_Iterator/image-20210406201919191.png" alt="image-20210406201919191"></p>
+<p>如果一个类实现Comparable接口，其必须实现CompareTo方法，调用此方法的对象将与里面的o对象进行比较</p>
+<p>例如：</p>
+<p>x.CompareTo(T y) </p>
+<p>x和y进行比较，如果相等返回0；若x&gt;y，返回1；若x&lt;y，返回-1；当然，CompareTo方法的实现由我们自己定义</p>
+<ul>
+<li>实现此接口的对象拥有自然顺序（natural ordering）</li>
+<li>对象之间可以使用CompareTo(T o)来进行比较</li>
+<li>如果对储存此对象的集合调用sort方法，Collections工具类会根据CompareTo方法排序：Collections.sort(list2);</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//节点实现Comparable接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Node&gt; &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">	Node(<span class="type">int</span> num)&#123;</span><br><span class="line">		<span class="built_in">this</span>.num = num;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Node arg0)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> arg0.num;</span><br><span class="line">		<span class="keyword">return</span> num - num2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> num+<span class="string">&quot;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在主程序中调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NaturalOrderTest</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		LinkedList&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		list.add(<span class="number">66</span>);</span><br><span class="line">		list.add(<span class="number">33</span>);</span><br><span class="line">		list.add(<span class="number">66</span>);</span><br><span class="line">		list.add(<span class="number">68</span>);</span><br><span class="line">		list.add(<span class="number">23</span>);</span><br><span class="line">		list.add(<span class="number">78</span>);</span><br><span class="line">		LinkedList&lt;Node&gt; list2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(Integer i:list) &#123;</span><br><span class="line">			list2.add(<span class="keyword">new</span> <span class="title class_">Node</span>(i));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>(<span class="number">23</span>);</span><br><span class="line">		Collections.sort(list2);</span><br><span class="line">		System.out.println(list2);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Comparator_And_Iterator/image-20210406215842517.png" alt="image-20210406215842517"></p>
+<h3 id="集合调用进行排序"><a href="#集合调用进行排序" class="headerlink" title="集合调用进行排序"></a>集合调用进行排序</h3><p>假如我们需要对一组集合中的对象进行2种不同的排序方法</p>
+<p>Collections.sort(…)有2种形式           &#x2F;&#x2F; Collections指集合工具类</p>
+<ol>
+<li><p>Sort by the natural order: Collections.sort(todoList); todoList里面的对象必须是Comparable的</p>
+<ul>
+<li>Collections.sort(list2);</li>
+</ul>
+</li>
+<li><p>Sort according to a specified order</p>
+<ul>
+<li>Collections.sort(list2, ComparatorClass);</li>
+<li>ComparatorClass是一个类，实现了Comparator接口</li>
+</ul>
+</li>
+</ol>
+<p>Comparator也是一个接口</p>
+<p><em>Interface Comparator<T></em></p>
+<p><img src="/Comparator_And_Iterator/image-20210406204319601.png" alt="image-20210406204319601"></p>
+<p>要实现compare(T o1, T o2)方法，返回值是int，与Comparable类似</p>
+<p>o1是前一个元素， o2是后一个元素</p>
+<p>针对第2中形式(Comparator)，我写了一个例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现Comparator接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ComparatorClass</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Node&gt;&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Node arg0, Node arg1)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> arg1.num-arg0.num; <span class="comment">//进行逆序排列</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//原来实现Comparable接口的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Node&gt; &#123;</span><br><span class="line">	<span class="type">int</span> num;</span><br><span class="line">	Node(<span class="type">int</span> num)&#123;</span><br><span class="line">		<span class="built_in">this</span>.num = num;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Node arg0)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> arg0.num;</span><br><span class="line">		<span class="keyword">return</span> num - num2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> num+<span class="string">&quot;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//测试类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NaturalOrderTest</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		LinkedList&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		list.add(<span class="number">66</span>);</span><br><span class="line">		list.add(<span class="number">33</span>);</span><br><span class="line">		list.add(<span class="number">66</span>);</span><br><span class="line">		list.add(<span class="number">68</span>);</span><br><span class="line">		list.add(<span class="number">23</span>);</span><br><span class="line">		list.add(<span class="number">78</span>);</span><br><span class="line">		</span><br><span class="line">		LinkedList&lt;Node&gt; list2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(Integer i:list) &#123;</span><br><span class="line">			list2.add(<span class="keyword">new</span> <span class="title class_">Node</span>(i));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//进行排序</span></span><br><span class="line">		Collections.sort(list2, <span class="keyword">new</span> <span class="title class_">ComparatorClass</span>());</span><br><span class="line">		System.out.println(list2);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Comparator_And_Iterator/image-20210406220909648.png" alt="image-20210406220909648"></p>
+<p>有了Comparator接口的实现类，我们可以对已有的集合中的元素(<em>元素属性足够多</em>)进行各种指定的排序，如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(list, <span class="keyword">new</span> <span class="title class_">BigToSmallComparator</span>()); <span class="comment">//从大到小</span></span><br><span class="line"></span><br><span class="line">Collections.sort(list, <span class="keyword">new</span> <span class="title class_">LftToRtComparator</span>());<span class="comment">//从左到右</span></span><br><span class="line"></span><br><span class="line">Collections.sort(list, <span class="keyword">new</span> <span class="title class_">TopToBotComparator</span>());<span class="comment">//从上到下</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comparator-和Comparable总结"><a href="#Comparator-和Comparable总结" class="headerlink" title="Comparator 和Comparable总结"></a>Comparator 和Comparable总结</h2><p>Comparable</p>
+<ul>
+<li>interface for objects that can be compared</li>
+<li>control classes’ natural ordering</li>
+<li>实现方法：int compareTo(T o1);</li>
+</ul>
+<p>Comparator</p>
+<ul>
+<li>still an interface for objects but used to defined the rule</li>
+<li>use Comparator to sort objects in an order other than their natural ordering</li>
+<li>实现方法：int compare(T o1, T o2);</li>
+</ul>
+<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p><img src="/Comparator_And_Iterator/image-20210406223042219.png" alt="image-20210406223042219"></p>
+<p><img src="/Comparator_And_Iterator/image-20210406223100699.png" alt="image-20210406223100699"></p>
+<p>Iterable也是一个接口</p>
+<p>实现这个接口，必须实现其Iterator方法，返回一个迭代器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyList</span> <span class="keyword">implements</span> <span class="title class_">Iterable</span>&lt;MyList&gt;&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> Iterator <span class="title function_">iterator</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时，实现了iterable接口的集合都可以进行for-each-loop（增强for），当然还要返回有效的iterator()</p>
+<p>所以同时我们也要实现iterator接口（一般使用内部类来实现此接口）</p>
+<p><img src="/Comparator_And_Iterator/image-20210406224454050.png" alt="image-20210406224454050"></p>
+<p><img src="/Comparator_And_Iterator/image-20210406224515646.png" alt="image-20210406224515646"></p>
+<p>实现Iterator接口</p>
+<ul>
+<li>boolean	hasNext()</li>
+<li>E     next()</li>
+<li>void    remove()</li>
+</ul>
+<p>使用内部类来实现</p>
+<p><img src="/Comparator_And_Iterator/image-20210406224841672.png" alt="image-20210406224841672"></p>
+<p>外部类实现Iterable接口，内部类实现Iterator接口</p>
+<p><strong>为什么要用内部类？</strong></p>
+<blockquote>
+<p>引用Data Structure and Algorithm Analysis in Java的原话</p>
+<p>The inner class is useful in a situation in which each inner class object is associated</p>
+<p>with exactly one instance of an outer class object. In such a case, the inner class object can</p>
+<p>never exist without having an outer class object with which to be associated.</p>
+<p>翻译过来就是：当一个类需要使用另一个类里面的元素时，同时要保证被引用的类的元素是私有的，此时我们就可以使用内部类；在这种情况下，如果没有外部类，内部类就无法存在。</p>
+</blockquote>
+<h2 id="Iterator和Iterable总结"><a href="#Iterator和Iterable总结" class="headerlink" title="Iterator和Iterable总结"></a>Iterator和Iterable总结</h2><p>Iterator与Iterable两个接口缺一不可</p>
+<p>Iterator接口让实现Iterable的对象返回一个迭代器对象</p>
+<p>Iterable为Iterator的使用创造条件</p>
+<ul>
+<li>实现Iterable接口后，集合就可以进行for-each循环</li>
+<li>Iterable is an interface specification for a class that is equipped with an Iterator</li>
+<li>Iterator is an interface specification for a class that can generate iterative elements</li>
+<li>Each Collection class needs an associated Iterator class</li>
+<li>Iterator may access inside of collection</li>
+<li>Iterator provides elements one at a time.</li>
+</ul>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

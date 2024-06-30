@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-background" style="background-image: url(/img/background.jpg)"></div>
+<div id="home-head">
+    
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Yao Xiong</h1>
+                <h3>Here is my personal blog ๐•ᴗ•๐ </h3>
+                <h5>莫听穿林打叶声， 何妨吟啸且徐行</h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+<div id="home-posts-wrap" class="">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/2021-10-17-%E6%95%B0%E5%AD%A6Maple%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
+        <h2 class="post-title">数学Maple使用手册</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>学习数学时需要用到名叫Maple的软件，但是有些指令不太熟悉，在网上也找不到中文教程，于是决定写下这篇blog，用于记录我学到的Maple指令</p>
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_BgitVfmZXrY0mSYGNCINs5Cl30Fv_ZX6A&usqp=CAU" alt="Maple (software) | LinkedIn"></p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #ffa2c4">
+                数学
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Maple/" style="color: #00bcd4">
+                Maple
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2021-10-17-%E6%95%B0%E5%AD%A6Maple%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2021-10-15-Calculus-3-Partial-Derivative/">
+        <h2 class="post-title">Calculus 3-Partial Derivative</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/15
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>学习微积分的重点在微分与积分，正式进入微分后，我们将把微分与几何（前面学到的众多矢量）相结合。</p>
+<p>本章将侧重在微分的操作上，如何计算极限；如何计算对应函数的偏微分；偏微分的应用：Gradient梯度；寻找判断某函数的（相对或绝对）最大、最小点；</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #03a9f4">
+                数学
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #ffa2c4">
+                微积分
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2021-10-15-Calculus-3-Partial-Derivative/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2021-10-3-Calculus-3-Vector-Application/">
+        <h2 class="post-title">Calculus 3-Vector Application</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/3
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>矢量也可以被进行参数化，如之前提到的Line Equation,线等式其实也是矢量进行参数化的一种表现形式。若我们将矢量进行参数化，我们就能用矢量方程去模拟X,Y,Z平面的物体运动变化。本节将介绍矢量方程以及随着矢量方程衍生的其他矢量。</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #ff7d73">
+                数学
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #ff7d73">
+                微积分
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2021-10-3-Calculus-3-Vector-Application/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2021-9-9-Calculus-3-Vector-Introduction/">
+        <h2 class="post-title">Calculus 3-Vector Introduction</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/9/9
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>微积分3内容主要是围绕多维空间展开，本章节为矢量引入，将包含unit vector (单位向量), dot product (点乘), cross product (叉乘), line and plane equation (如何通过矢量获得线等式和平面等式)</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #ff7d73">
+                数学
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #ff7d73">
+                微积分
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2021-9-9-Calculus-3-Vector-Introduction/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2021-08-23-JAVA%E5%B1%80%E5%9F%9F%E7%BD%91%E8%81%8A%E5%A4%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+        <h2 class="post-title">JAVA局域网聊天小程序</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/8/23
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="（局域网聊天）TCP-IP协议的局域网Socket通信"><a href="#（局域网聊天）TCP-IP协议的局域网Socket通信" class="headerlink" title="（局域网聊天）TCP&#x2F;IP协议的局域网Socket通信"></a>（局域网聊天）TCP&#x2F;IP协议的局域网Socket通信</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>马上开学了，闲着没事做，决定重新温习JAVA功课，于是想起了曾经见过的一个项目：基于JAVA语言的局域网通信，可以参考QQ，如下</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/JAVA/" style="color: #00a596">
+                JAVA
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/TCP-IP%E5%8D%8F%E8%AE%AE/" style="color: #03a9f4">
+                TCP/IP协议
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2021-08-23-JAVA%E5%B1%80%E5%9F%9F%E7%BD%91%E8%81%8A%E5%A4%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/">
+        <h2 class="post-title">Java数据结构与算法汇总</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/7/23
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>作者:Yao Xiong</p>
+<p>[TOC]</p>
+<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>学习计算机主要是了解计算机组成结构与如何灵活运用计算机；在灵活运用计算机时，数据结构与算法起到重中之重的作用。要想成为计算机大神，数据结构与算法是必须跨过的坎。Good Luck👍。</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #00bcd4">
+                java
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="color: #00bcd4">
+                数据结构与算法
+            </a>
+        </span>
+        
+    </div>
+    <a href="/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E4%BC%9A%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95/">
+        <h2 class="post-title">程序员必会十大算法</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/5/16
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="1-二分查找算法"><a href="#1-二分查找算法" class="headerlink" title="1. 二分查找算法"></a>1. 二分查找算法</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>二分查找是常见的查找算法，使用二分查找的前提是要拥有一组有序的数组，查找时我们根据数组下标，把数组一分为二，通过比较中间的数来确认目标的位置，如下图</p>
+<p><img src="/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E4%BC%9A%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95/image-20210419111722840.png" alt="image-20210419111722840"></p>
+<p>这样查找相比于一般的for循环遍历，效率大大提高，时间可达log(N)</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #03a9f4">
+                java
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="color: #ffa2c4">
+                数据结构与算法
+            </a>
+        </span>
+        
+    </div>
+    <a href="/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E4%BC%9A%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/%E9%83%A8%E5%88%86%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96/">
+        <h2 class="post-title">部分排序算法可视化</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/4/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="程序介绍"><a href="#程序介绍" class="headerlink" title="程序介绍"></a>程序介绍</h2><p>最近复习排序算法闲着无聊，做了一个可视化小程序，这个程序支持部分排序算法，当然有兴趣可以自己扩展</p>
+<p>我将冒泡排序，选择排序，插入排序，希尔排序，快速排序做了可视化，展示一下最终效果</p>
+<p><img src="/%E9%83%A8%E5%88%86%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96/image-20210426093157864.png" alt="image-20210426093157864"></p>
+<p>感兴趣可以看看我原来写的排序算法的链接（归并排序，桶排序）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/peterbearXY/article/details/114648428">https://blog.csdn.net/peterbearXY/article/details/114648428</a></p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #ff7d73">
+                java
+            </a>
+        </span>
+        
+    </div>
+    <a href="/%E9%83%A8%E5%88%86%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/DisjointSet/">
+        <h2 class="post-title">Disjoint Set并查集</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/4/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="/DisjointSet/image-20210501132259731.png" alt="image-20210501132259731"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>并查集是一种数据结构，其实现简单，仅仅需要几行代码与一个数组就可以实现；</p>
+<ol>
+<li>创建一个数组，用于储存每个顶点的父结点，默认都是自己</li>
+<li>union合并方法，用于将2个顶点合并在一起</li>
+<li>find方法，用于寻找最终的根节点</li>
+</ol>
+<p>克鲁斯卡尔算法中就运用到并查集的知识，用于寻找2个顶点之间是否构成回路</p>
+<p>我们自动生成迷宫时，也会需要使用disjoint方法，当入口与出口构成回路时，我们就完成了迷宫的设计</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/java/" style="color: #00a596">
+                java
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="color: #03a9f4">
+                数据结构与算法
+            </a>
+        </span>
+        
+    </div>
+    <a href="/DisjointSet/" class="go-post">阅读全文</a>
+</div>
+
+            <div class="page-current">
+    <div class="prev">
+        
+        <a href="/">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-left fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+            <a href="/">
+                <span class="page-num">
+                    1
+                </span>
+            </a>
+        </span>
+        
+        <span class="current">
+            2
+        </span>
+        
+        <span>
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+            <a href="/page/4">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a href="/page/3/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/favicon.png " alt="avatar">
+        </div>
+        <div class="name">
+            Yao Xiong
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                <p>(˶˚ ᗨ ˚˶)</p>
+
+            </div>
+            
+            <div class="description">
+                <p><a target="_blank" rel="noopener" href="https://peter-bear.github.io/">https://peter-bear.github.io</a></p>
+
+            </div>
+            
+            <div class="description">
+                <p>谁怕？一蓑烟雨任平生</p>
+
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="mailto:xiongy@rose-hulman.edu">
+                    <i class="fa-solid fa-envelope fa-fw"></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/peter-bear">
+                    <i class="fa-brands fa-github fa-fw"></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/227000512">
+                    <i class="fa-brands fa-bilibili fa-fw"></i>
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

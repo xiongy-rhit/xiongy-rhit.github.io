@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>GitHub 远程仓库托管(上传)操作 | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>GitHub 远程仓库托管(上传)操作 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/11/11
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Git/" style="color: #ffa2c4">
+                    Git
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/github.png"></p>
+<p>最近想着把文件上传到远程仓库，进而可以多设备协同操作，但是在搭建远程仓库的过程中遇到了一些问题，所以想把这些问题记录下来，既可以分享给他人，也方便自己以后遇到相同问题好查看。</p>
+<p>本博客将介绍我是如何上传代码到GitHub，以及我遇到的一些问题与总结</p>
+<span id="more"></span>
+
+<p>由于是新手教程，步骤会比较多，但是讲了可能会遇到的问题以及部分细节</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111234500616.png" alt="image-20211111234500616"></p>
+<h2 id="如何上传"><a href="#如何上传" class="headerlink" title="如何上传"></a>如何上传</h2><p>我将上传代码分为2个部分：</p>
+<ol>
+<li>在GitHub上建仓库</li>
+<li>在本地进行Git Bash上传</li>
+</ol>
+<h3 id="在GitHub上创建仓库"><a href="#在GitHub上创建仓库" class="headerlink" title="在GitHub上创建仓库"></a>在GitHub上创建仓库</h3><p>进入GitHub进入 Repositories  发现了一个绿色按钮，点击创建新的仓库</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111223918357.png" alt="image-20211111223918357"></p>
+<p>填写想要创建的仓库的名称与是否添加readme文档</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111224112985.png" alt="image-20211111224112985"></p>
+<p>完成后向下滑动，点击<img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111224137566.png" alt="image-20211111224137566"></p>
+<p><mark>远程就创建完成了</mark>接着可以从本地通过Git上传</p>
+<p><strong>记得复制Code下的SSH或者HTTPS</strong></p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111224345271.png" alt="image-20211111224345271"></p>
+<h3 id="本地bash操作"><a href="#本地bash操作" class="headerlink" title="本地bash操作"></a>本地bash操作</h3><h4 id="步骤1：下载Git"><a href="#步骤1：下载Git" class="headerlink" title="步骤1：下载Git"></a>步骤1：下载Git</h4><p>先下载Git软件，这个就不多介绍了（有手就行），<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git下载链接</a></p>
+<h4 id="步骤2：进入目录"><a href="#步骤2：进入目录" class="headerlink" title="步骤2：进入目录"></a>步骤2：进入目录</h4><p>安装好后进入<strong>想要使用Git上传的目录</strong>，<mark>单击右键</mark></p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111224520769.png" alt="image-20211111224520769"></p>
+<h4 id="步骤3：进入Git-Bash"><a href="#步骤3：进入Git-Bash" class="headerlink" title="步骤3：进入Git Bash"></a>步骤3：进入Git Bash</h4><p>进入Git Bash Here</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111225133175.png" alt="image-20211111225133175"></p>
+<h4 id="步骤5：初始化本地仓库"><a href="#步骤5：初始化本地仓库" class="headerlink" title="步骤5：初始化本地仓库"></a>步骤5：初始化本地仓库</h4><p>然后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">初始化git文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111225405906.png" alt="image-20211111225405906"></p>
+<p>由于我这里以及初始化完成了，所以有下面这行字，如果没有，则说明init成功</p>
+<p><strong>会看到想要git的文件夹里面有个.git文件</strong></p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111225537771.png" alt="image-20211111225537771"></p>
+<p><mark>如果没有看到，打开windows的隐藏文件夹选项看看</mark></p>
+<h4 id="步骤6：把所有要上传文件名加载到Git目录"><a href="#步骤6：把所有要上传文件名加载到Git目录" class="headerlink" title="步骤6：把所有要上传文件名加载到Git目录"></a>步骤6：把所有要上传文件名加载到Git目录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">我这里意思是全部加载到Git中（因为我想要全部加入进去），</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111230315732.png" alt="image-20211111230315732"></p>
+<p>如果不想全部加入， 可以参考下面的链接（或者搜索引擎），修改add后面的参数</p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-add">https://git-scm.com/docs/git-add</a></p>
+<p>加进去后可以检查一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git ls-files</span><br><span class="line">展示所有在git中的文件名</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111220727240.png" alt="image-20211111220727240"></p>
+<h4 id="步骤7：输入远程仓库url"><a href="#步骤7：输入远程仓库url" class="headerlink" title="步骤7：输入远程仓库url"></a>步骤7：输入远程仓库url</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add 自己取个变量名（一般使用origin） 远程仓库的链接（GitHub Code那边）</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111222509762.png" alt="image-20211111222509762"></p>
+<h4 id="步骤8：Commit"><a href="#步骤8：Commit" class="headerlink" title="步骤8：Commit"></a>步骤8：Commit</h4><p>Commit，相当于要告诉别人，谁做了什么，怎么做的,然后准备上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;init repo&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111231344553.png" alt="image-20211111231344553"></p>
+<p><mark>问题</mark></p>
+<p>开始没有commit，直接进行后面的操作，一堆Bug，如下</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111230922932.png" alt="image-20211111230922932"></p>
+<p>然后commit时没有输入 -m  或者 没有输入 commit 后面的信息， 问题如下</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111231510332.png" alt="image-20211111231510332"></p>
+<p><strong>注意</strong></p>
+<p>没有输入commit后面的信息会进入bash shell文档，类似于这种</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111231617095.png" alt="image-20211111231617095"></p>
+<p>其实输入<mark>:q! </mark>可以退出这个文档不保存（这是linux vm命令）</p>
+<h4 id="步骤9：创建分支"><a href="#步骤9：创建分支" class="headerlink" title="步骤9：创建分支"></a>步骤9：创建分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br><span class="line">我这里创建的本地分支名称是main</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111232122372.png" alt="image-20211111232122372"></p>
+<h4 id="步骤10：配置上传用户名"><a href="#步骤10：配置上传用户名" class="headerlink" title="步骤10：配置上传用户名"></a>步骤10：配置上传用户名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your_email@example.com&quot;</span><br><span class="line">git config --global user.name &quot;your_user_name&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>配置完检查</p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111233240255.png" alt="image-20211111233240255"></p>
+<h4 id="步骤11：最后一步Push"><a href="#步骤11：最后一步Push" class="headerlink" title="步骤11：最后一步Push"></a>步骤11：最后一步Push</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br><span class="line">origin 是之前写的 remote url</span><br><span class="line">main 是之前写的本地分支</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111233351941.png" alt="image-20211111233351941"></p>
+<p>为了避免本地分支与远程分支不一样的情况，可以使用下面代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/453a56923028">参考链接</a></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111233754417.png" alt="image-20211111233754417"></p>
+<h2 id="总结常用命令"><a href="#总结常用命令" class="headerlink" title="总结常用命令"></a>总结常用命令</h2><h3 id="查看本地Git目录中的文件"><a href="#查看本地Git目录中的文件" class="headerlink" title="查看本地Git目录中的文件"></a>查看本地Git目录中的文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git ls-files</span><br><span class="line">查看在Git中，之后会上传的文件有哪些</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111220727240.png" alt="image-20211111220727240"></p>
+<h3 id="重置Git"><a href="#重置Git" class="headerlink" title="重置Git"></a>重置Git</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">重置Git中要上传的文件，虽然重置了，但是git remote中的url并没有重置</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111220915195.png" alt="image-20211111220915195"></p>
+<p>将文件全部清空可以达到类似效果，只是有些部分没有重置</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clean -xdf</span><br><span class="line">把文件删除清空</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111223046499.png" alt="image-20211111223046499"></p>
+<h3 id="Remote-url操作"><a href="#Remote-url操作" class="headerlink" title="Remote url操作"></a>Remote url操作</h3><h4 id="添加remote-url"><a href="#添加remote-url" class="headerlink" title="添加remote url"></a>添加remote url</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/peter-bear/JavaFundationPractice.git</span><br><span class="line">添加remote url， 换句话说就是把url存到某个变量中，以便后面使用</span><br><span class="line">git remote add 变量 远程仓库地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111222509762.png" alt="image-20211111222509762"></p>
+<h4 id="查看remote-url"><a href="#查看remote-url" class="headerlink" title="查看remote url"></a>查看remote url</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line">查看remote url</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111220126935.png" alt="image-20211111220126935"></p>
+<h4 id="修改remote-url"><a href="#修改remote-url" class="headerlink" title="修改remote url"></a>修改remote url</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:peter-bear/JavaPractice.git</span><br><span class="line"></span><br><span class="line">修改url：</span><br><span class="line">origion 是 remote url变量名， </span><br><span class="line">git@github.com:peter-bear/JavaPractice.git 是 远程仓库地址</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111221117429.png" alt="image-20211111221117429"></p>
+<p><strong>修改url需要知道url变量的名字，这个变量需要存在， 不然结果如下</strong></p>
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111221351672.png" alt="image-20211111221351672"></p>
+<h4 id="删除remote-url"><a href="#删除remote-url" class="headerlink" title="删除remote url"></a>删除remote url</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote rm main</span><br><span class="line">当有些url我们不想用时，我们可以使用此命令删除</span><br><span class="line">main 在这里指的是 之前我们设置的url变量</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111221709710.png" alt="image-20211111221709710"></p>
+<h4 id="其他关于remote的操作的中文版-GitHub"><a href="#其他关于remote的操作的中文版-GitHub" class="headerlink" title="其他关于remote的操作的中文版 (GitHub)"></a>其他关于remote的操作的中文版 (GitHub)</h4><p><a target="_blank" rel="noopener" href="https://docs.github.com/cn/get-started/getting-started-with-git/managing-remote-repositories">https://docs.github.com/cn/get-started/getting-started-with-git/managing-remote-repositories</a></p>
+<h3 id="Branch-分支"><a href="#Branch-分支" class="headerlink" title="Branch 分支"></a>Branch 分支</h3><h4 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111232122372.png" alt="image-20211111232122372"></p>
+<h4 id="查看本地分支"><a href="#查看本地分支" class="headerlink" title="查看本地分支"></a>查看本地分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">查看本地分支</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111234245247.png" alt="image-20211111234245247"></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-branch.html">关于分支的介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/be/v2/Git-Branching-Branch-Management">Git 文档</a></p>
+<h3 id="Config-配置"><a href="#Config-配置" class="headerlink" title="Config 配置"></a>Config 配置</h3><h4 id="config-用户名与邮箱"><a href="#config-用户名与邮箱" class="headerlink" title="config 用户名与邮箱"></a>config 用户名与邮箱</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your_email@example.com&quot;</span><br><span class="line">git config --global user.name &quot;your_user_name&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="获取config的结果"><a href="#获取config的结果" class="headerlink" title="获取config的结果"></a>获取config的结果</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --get user.name</span><br><span class="line">get config --get user.email</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021-11-11-GitHub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E4%B8%8E%E6%89%98%E7%AE%A1/image-20211111234048120.png" alt="image-20211111234048120"></p>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

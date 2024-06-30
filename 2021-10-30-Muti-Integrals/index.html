@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Muti-Integrals | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Muti-Integrals </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/30
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #00a596">
+                    数学
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #00bcd4">
+                    微积分
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><mark>多重积分</mark>是对于普通积分的衍生，多用于解决高维的问题。常用的多重积分有二重积分与三重积分。  本章将介绍二重、三重积分的解法，以及它们在几何上的意义</p>
+<span id="more"></span>
+
+<h2 id="Double-Integral"><a href="#Double-Integral" class="headerlink" title="Double Integral"></a>Double Integral</h2><p>二重积分的表现形式如下</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211030224906541.png" alt="image-20211030224906541"></p>
+<p>直接看代数，其实有点不好理解，所以我们要像普通积分一样，结合几何图形一起理解</p>
+<p>普通积分可以看作是很多个长方形加在一起求面积的和，如图</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031135733509.png" alt="image-20211031135733509"></p>
+<p>当长方形的个数达到无数时，我们就能找出这个函数在某段区间的面积</p>
+<p>多重积分同理，我们以二重积分为例，二重积分由于有2个积分符号，说明我们要有2个坐标轴方向的积分，换算成几何意义就是，二重积分需要我们求出函数在某段区间的体积，如图</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031140618555.png" alt="image-20211031140618555"></p>
+<p>和普通的积分一样，这个体积也可以由无数个长方体组成<img src="/2021-10-30-Muti-Integrals/image-20211031140720817.png" alt="image-20211031140720817"></p>
+<p>所有长方体加起来就是函数在这个范围内的体积</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031140631262.png" alt="image-20211031140631262"></p>
+<h3 id="Double-Integral-Over-Rectangles"><a href="#Double-Integral-Over-Rectangles" class="headerlink" title="Double Integral Over Rectangles"></a>Double Integral Over Rectangles</h3><p>Double Integral Over Rectangles就是说求一个函数在2段不同轴方向的函数的体积</p>
+<p>按照基本的求积分公式代值即可，由内而外</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031141332905.png" alt="image-20211031141332905"></p>
+<p>按照<mark>Fubini’s Theorem</mark>: 函数f(x,y)若在区间 <mark>a&lt;&#x3D; x &lt;&#x3D; b, c &lt;&#x3D; y &lt;&#x3D; d</mark> 内 continuous连续，则x,y求积分的顺序可以交换，图如下</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031141642781.png" alt="image-20211031141642781"></p>
+<p>当我们求积分，一个方向不好开始时，可以换一个方向，按照Fubini理论，指不定柳暗花明又一村</p>
+<h3 id="Double-Integral-Over-Regions"><a href="#Double-Integral-Over-Regions" class="headerlink" title="Double Integral Over Regions"></a>Double Integral Over Regions</h3><p>根据被包围的范围，求出函数在这个范围内的体积。判断范围，根据范围列式是多重积分的一大难点</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031142557765.png" alt="image-20211031142557765"></p>
+<p><mark>注意</mark></p>
+<p>求积分按照常数求，得出的范围是一段长方形的范围，而不是包围边界的大小</p>
+<p>所以我们要根据给出的关系列式，画图</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031142652729.png" alt="image-20211031142652729"></p>
+<p><mark>Fubini Theorem</mark>增强版</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031142804291.png" alt="image-20211031142804291"></p>
+<p>根据提示找出范围 ，列式计算</p>
+<h4 id="例题1"><a href="#例题1" class="headerlink" title="例题1."></a>例题1.</h4><p>函数x^2 *y +1 在由(0,0),(4,0),(4,2)围成的三角形中，求出这段三角形覆盖下的体积</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031143501153.png" alt="image-20211031143501153"></p>
+<p>看着很麻烦，其实我们只需要关注这个三角形的部分就好了，应为z轴部分是由x,y轴部分共同决定</p>
+<p>根据Fubini法则，我们既可以先从y出发，也可以从x出发，计算过程，如图所示</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031143908621.png" alt="image-20211031143908621"></p>
+<h4 id="例题2"><a href="#例题2" class="headerlink" title="例题2."></a>例题2.</h4><p>有时候我们只知道函数公式，同时给出的式子无法帮助我们直接求出答案</p>
+<p>为了求出这段体积，我们需要根据给出的范围画出图像，然后根据Fubini法则变换计算的顺序</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211031144335878.png" alt="image-20211031144335878"></p>
+<p>hint： 把式子转为int(int(sqrt(x^5)+1,x&#x3D;y^(1&#x2F;4)..2),y&#x3D;0..16) 对于判断范围其实更为直观一点</p>
+<h3 id="Double-Integral-Geometry-Meaning"><a href="#Double-Integral-Geometry-Meaning" class="headerlink" title="Double Integral (Geometry Meaning)"></a>Double Integral (Geometry Meaning)</h3><p>1重积分，当函数为1时，计算的是线段的长度（1维）</p>
+<p>2重积分，当函数为1时，计算的是包围的面积（2维）</p>
+<p>图如下<img src="/2021-10-30-Muti-Integrals/image-20211101115536575.png" alt="image-20211101115536575"></p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101115557880.png" alt="image-20211101115557880"></p>
+<p>此做法和我们之前1重积分计算面积的方法一样，之前求面积，就是目前的第三步</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101115709746.png" alt="image-20211101115709746"></p>
+<h4 id="Average-Value"><a href="#Average-Value" class="headerlink" title="Average Value"></a>Average Value</h4><p>1重积分计算平均值（Average Value）</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101120605715.png" alt="image-20211101120605715"></p>
+<p>平均值算的是范围内的平均高度</p>
+<p>2重积分同理</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101120735253.png" alt="image-20211101120735253"></p>
+<p>我们可以想象一下：</p>
+<p>The region as being the base of a tank with vertical walls around the boundary of the region, and imagining that the tank is filled with water that is sloshing around. The value f(x,y) is then the height of the water that is directly above the point (x,y). The average height of the water in the tank can be found by letting the water settle down to a constant height. This height is equal to the volume of water in the tank divided by the area of R. </p>
+<p><mark>(翻译过来)</mark></p>
+<p>有一个大水箱，水箱中水的体积可以形成式子f(x,y)，二重积分计算的是箱子中水的体积；若水的体积除以水的底面积（箱子的底面积），则计算的是平均值（水高于底面的高度）（平均高度）</p>
+<h2 id="Polar-Coordinate"><a href="#Polar-Coordinate" class="headerlink" title="Polar Coordinate"></a>Polar Coordinate</h2><p>有许多坐标系，不同的坐标系表示的方法也不一样，他们能够帮助我们解决不一样的问题（有时Cartesian Coordinate不行，不如试试Polar Coordinate）</p>
+<p>Polar Coordinate,极坐标，原点到函数的距离称之为r， r与x轴形成的角称之为 theta </p>
+<p>所以，根据这个特征，我们能够将Polar Coordinate与Cartesian Coordinate进行转化</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101122145772.png" alt="image-20211101122145772"></p>
+<h3 id="Polar-Coordinate-Integral"><a href="#Polar-Coordinate-Integral" class="headerlink" title="Polar Coordinate Integral"></a>Polar Coordinate Integral</h3><p>极坐标求积分</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101133541772.png" alt="image-20211101133541772"></p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101133620233.png" alt="image-20211101133620233"></p>
+<p>扇形面积公式</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101133728360.png" alt="image-20211101133728360"></p>
+<p>最终公式</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101133825199.png" alt="image-20211101133825199"></p>
+<p><mark>注意，极坐标无法改变积分顺序</mark></p>
+<h3 id="Relationship-Between-Double-Integral-and-Polar-Integral"><a href="#Relationship-Between-Double-Integral-and-Polar-Integral" class="headerlink" title="Relationship Between Double Integral and Polar Integral"></a>Relationship Between Double Integral and Polar Integral</h3><p>由于Polar Coordinate与Cartesian Coordinate可以转换，有时我们在Cartesian坐标系无法解决，可以转到Polar Coordinate</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101134757262.png" alt="image-20211101134757262"></p>
+<p>尤其是遇到圆的情况时，使用Polar Coordinate 很方便</p>
+<h5 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h5><p><img src="/2021-10-30-Muti-Integrals/image-20211101135113588.png" alt="image-20211101135113588"></p>
+<h5 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h5><p><img src="/2021-10-30-Muti-Integrals/image-20211101135139153.png" alt="image-20211101135139153"></p>
+<h2 id="Triple-Integral"><a href="#Triple-Integral" class="headerlink" title="Triple Integral"></a>Triple Integral</h2><p>三重积分得出的答案位于4维空间</p>
+<p>计算方法与二重积分类似，在Cartesian Coordinate中满足Fubini定理，可以变换积分顺序</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101140902935.png" alt="image-20211101140902935"></p>
+<h3 id="Triple-Integral-Over-Rectangles-Or-Regions"><a href="#Triple-Integral-Over-Rectangles-Or-Regions" class="headerlink" title="Triple Integral Over Rectangles Or Regions"></a>Triple Integral Over Rectangles Or Regions</h3><p><img src="/2021-10-30-Muti-Integrals/image-20211101140241417.png" alt="image-20211101140241417"></p>
+<h5 id="例子1-1"><a href="#例子1-1" class="headerlink" title="例子1"></a>例子1</h5><p><img src="/2021-10-30-Muti-Integrals/image-20211101140335721.png" alt="image-20211101140335721"></p>
+<h5 id="例子2-1"><a href="#例子2-1" class="headerlink" title="例子2"></a>例子2</h5><p>求4个点围成的三角体的体积</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101140509752.png" alt="image-20211101140509752"></p>
+<h5 id="例子3"><a href="#例子3" class="headerlink" title="例子3"></a>例子3</h5><p><img src="/2021-10-30-Muti-Integrals/image-20211101140642801.png" alt="image-20211101140642801"></p>
+<p><mark>注意，遇到圆方程时，可考虑使用Polar Coordinate</mark></p>
+<h3 id="Triple-Integral-Geometry-Meaning"><a href="#Triple-Integral-Geometry-Meaning" class="headerlink" title="Triple Integral (Geometry Meaning)"></a>Triple Integral (Geometry Meaning)</h3><p>三重积分计算的是4维空间的事物，当函数为1时，计算的结果是3维空间在此范围中的体积</p>
+<p><img src="/2021-10-30-Muti-Integrals/image-20211101140831193.png" alt="image-20211101140831193"></p>
+<h3 id="Convenient-Way-To-Solve-Problems"><a href="#Convenient-Way-To-Solve-Problems" class="headerlink" title="Convenient Way To Solve Problems"></a>Convenient Way To Solve Problems</h3><ol>
+<li>找出边界（boundary）</li>
+<li>确定好x, y, z的顺序</li>
+<li>区分好Rectangle Boundary和Function Boundary</li>
+<li>遇到圆，注意转换坐标系</li>
+</ol>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

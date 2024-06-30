@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Calculus 3-Vector Application | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Calculus 3-Vector Application </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/3
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #00bcd4">
+                    数学
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #ffa2c4">
+                    微积分
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>矢量也可以被进行参数化，如之前提到的Line Equation,线等式其实也是矢量进行参数化的一种表现形式。若我们将矢量进行参数化，我们就能用矢量方程去模拟X,Y,Z平面的物体运动变化。本节将介绍矢量方程以及随着矢量方程衍生的其他矢量。</p>
+<span id="more"></span>
+
+
+
+<h2 id="矢量方程-Vector-Function"><a href="#矢量方程-Vector-Function" class="headerlink" title="矢量方程 Vector Function"></a>矢量方程 Vector Function</h2><p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003184135670.png" alt="image-20211003184135670"></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003184151943.png" alt="image-20211003184151943"></p>
+<p>矢量方程，r(t), x,y,z方向变化随着参数t变化而变化</p>
+<p>矢量方程x,y,z各个方向都有指定的函数，如f(t), g(t), h(t).</p>
+<p>矢量方程同样可以进行求导，求积分，算极限</p>
+<p><strong>极限</strong></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003184633317.png" alt="image-20211003184633317"></p>
+<p><strong>求导</strong></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003184713187.png" alt="image-20211003184713187"></p>
+<p><strong>矢量方程的求导法则</strong></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003184819198.png" alt="image-20211003184819198"></p>
+<p><strong>求积分</strong></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003194536698.png" alt="image-20211003194536698"></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003194551180.png" alt="image-20211003194551180"></p>
+<h2 id="Arc-Length-In-The-Space"><a href="#Arc-Length-In-The-Space" class="headerlink" title="Arc Length In The Space"></a>Arc Length In The Space</h2><p>计算线段在空间中随着时间所行走的长度</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003195314848.png" alt="image-20211003195314848"></p>
+<p>化简</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003195529004.png" alt="image-20211003195529004"></p>
+<p>换句话</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003195646457.png" alt="image-20211003195646457"></p>
+<h2 id="Unit-Tangent-Vector-and-Unit-Normal-Vector"><a href="#Unit-Tangent-Vector-and-Unit-Normal-Vector" class="headerlink" title="Unit Tangent Vector and Unit Normal Vector"></a>Unit Tangent Vector and Unit Normal Vector</h2><p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003195802373.png" alt="image-20211003195802373"></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214321142.png" alt="image-20211003214321142"></p>
+<p>Unit Normal Vector</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214156188.png" alt="image-20211003214156188"></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214447168.png" alt="image-20211003214447168"></p>
+<p>Normal 和 Tangent 在图中的表现形式 （T的方向与V速度的方向一致）：</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214247936.png" alt="image-20211003214247936"></p>
+<h2 id="Curvature"><a href="#Curvature" class="headerlink" title="Curvature"></a>Curvature</h2><p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003213952288.png" alt="image-20211003213952288"></p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214002111.png" alt="image-20211003214002111"></p>
+<p>一般计算Curvature都是通过电脑maple计算，Curvature(r(t))</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214030017.png" alt="image-20211003214030017"></p>
+<p>k &#x3D; 1&#x2F; R, 直线的curvature为1</p>
+<h2 id="Acceleration"><a href="#Acceleration" class="headerlink" title="Acceleration"></a>Acceleration</h2><p>Acceleration其实分为Tangential Acceleration 与 Normal Acceleration (分别对应Tangent方向与Normal方向)</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003214841508.png" alt="image-20211003214841508"></p>
+<p>|v|是speed， 速率</p>
+<p>d|v|&#x2F;dt 是the rate of speed, speed up or slow</p>
+<p>aT 为tangential 方向的acceleration大小</p>
+<p>aN为normal方向acceleration大小</p>
+<h2 id="Questions-and-Examples"><a href="#Questions-and-Examples" class="headerlink" title="Questions and Examples"></a>Questions and Examples</h2><p>下面是关于Acceleration和Tangential Vector与Normal Vector的例题</p>
+<p>Q1 </p>
+<p>A satellite is travelling at a constant speed in a circular orbit 400 miles above the surface of earth where the acceleration of gravity is g &#x3D; 30 ft&#x2F;s^2. What is the speed of the satellite ? (Assumptions: radius of the earth 4000  miles; 1 mile is 5280ft)</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/Q1.png" alt="Q1"></p>
+<p>Q2</p>
+<p>At a point     P in the xy-plane, where distances are measured in meters, the unit  tangent vector of an object’s path is &lt;3&#x2F;5, 4&#x2F;5&gt;, the curvature is 1 meter^-1, and its acceleration vector is &lt;3,5&gt; meters&#x2F;second^2. At  what rate is the object changing speed at P? What is the object’s speed at     P?</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/Q2.png" alt="Q2"></p>
+<p>Q3</p>
+<p>An object is traveling in a clockwise direction around the ellipse 4x^2+9y^2 &#x3D; 36.  When it reaches the point x &#x3D;0, y&#x3D;2 meters, its acceleration vector is 3i+5j meter&#x2F;s^2. What is its speed and at what rate is it speeding up or  slowing down at that time?</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/Q3.png" alt="Q3"></p>
+<p>Q4</p>
+<p>What is the  maximum magnitude of the force required to cause an 5kg object to move at  a constant speed of 4 meters&#x2F;second along the parabola y &#x3D; x^2?</p>
+<p><img src="/2021-10-3-Calculus-3-Vector-Application/image-20211003215605751.png" alt="image-20211003215605751"></p>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>

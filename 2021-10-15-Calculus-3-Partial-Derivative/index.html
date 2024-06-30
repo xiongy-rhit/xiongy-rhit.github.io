@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Calculus 3-Partial Derivative | Yao Xiong</title>
+        <meta name="author" content="Yao Xiong">
+        <meta name="description" content="莫听穿林打叶声， 何妨吟啸且徐行">
+        <meta name="keywords" content="Yao Xiong Projects">
+        <link rel="icon" href="/img/favicon.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="showpage" style="display: -not-none">
+                    <div id="menushow">
+                        <nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yao Xiong</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;projects</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menushow" id="phone-menu">
+        <div class="curtain" @click="menushow = !menushow" v-show="menushow"></div>
+        <div class="title" @click="menushow = !menushow">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yao Xiong</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menushow">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">projects</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div class="article">
+    <div>
+        <h1>Calculus 3-Partial Derivative </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2021/10/15
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #00a596">
+                    数学
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #03a9f4">
+                    微积分
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>学习微积分的重点在微分与积分，正式进入微分后，我们将把微分与几何（前面学到的众多矢量）相结合。</p>
+<p>本章将侧重在微分的操作上，如何计算极限；如何计算对应函数的偏微分；偏微分的应用：Gradient梯度；寻找判断某函数的（相对或绝对）最大、最小点；</p>
+<span id="more"></span>
+
+
+
+<h2 id="多变量函数（domain-和range）"><a href="#多变量函数（domain-和range）" class="headerlink" title="多变量函数（domain 和range）"></a>多变量函数（domain 和range）</h2><p>F(x) &#x3D; x^2拥有1个变量x, 将此函数绘制出来，我们会得出一个二维平面的图像</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000037410.png" alt="image-20211016000037410"></p>
+<p>当函数的变量扩展至2个及以上时，这便是<strong>多变量函数</strong>；而此时画出的图像将不再局限与2维平面，而是多维平面</p>
+<p>F(x,y) &#x3D; x^2 + y^2,</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/clip_image002.png" alt="Chart, surface chart  Description automatically generated"></p>
+<p>原来我们只有1个变量时，定义域Domain取决于那1个变量，值域Range也只是变量变化的范围</p>
+<p>当变为多个变量，如2个时，定义域Domain应该是x的范围+y的范围，值域Range也是由于x与y的变化而变化</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>看一下<strong>精准的定义</strong></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000137546.png" alt="image-20211016000137546"></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p><strong>2变量</strong></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000231501.png" alt="image-20211016000231501"></p>
+<p><strong>3变量</strong></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000244467.png" alt="image-20211016000244467"></p>
+<h2 id="极限Limit"><a href="#极限Limit" class="headerlink" title="极限Limit"></a>极限Limit</h2><p>极限的计算与之前1个变量时的极限一样</p>
+<h3 id="连续-Continuous"><a href="#连续-Continuous" class="headerlink" title="连续 Continuous"></a>连续 Continuous</h3><p>计算极限之前先判断此函数是否连续在此点</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000623002.png" alt="image-20211016000623002"></p>
+<h3 id="极限判断条件"><a href="#极限判断条件" class="headerlink" title="极限判断条件"></a>极限判断条件</h3><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000408181.png" alt="image-20211016000408181"></p>
+<p><strong>判断极限在范围内不存在的条件</strong></p>
+<p>If we can find two paths upon which the function approaches different values as we get near the point then we will know that the limit doesn’t exist.</p>
+<p>如果发现<strong>通过2条路线</strong>接近的是不同的点，则此极限不存在</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/clip_image002-1634357066750.png" alt="Text  Description automatically generated"></p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><p><strong>极限</strong>在某点<strong>存在</strong>的情况</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000521679.png" alt="image-20211016000521679"></p>
+<p><strong>极限不存在</strong>的情况（判断）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016000718628.png" alt="image-20211016000718628"></p>
+<h2 id="偏微分Partial-derivative"><a href="#偏微分Partial-derivative" class="headerlink" title="偏微分Partial derivative"></a>偏微分Partial derivative</h2><p>偏微分的计算本质上是求极限，下面是定义</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016001528003.png" alt="image-20211016001528003"></p>
+<p>多变量的微分计算和之前1个变量的计算一样，</p>
+<p>但是我们多变量求导只对某个特定方向求导：如f_x，是对x方向求导； f_y，是对y方向求导</p>
+<p>希望这张图<a id="figure_1"></a>对理解有帮助</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016001824672.png" alt="image-20211016001824672"></p>
+<p>当我们求导计算时，另几个变量通常会被当做常数项处理</p>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016001957561.png" alt="image-20211016001957561"></p>
+<p>通过上面的<a href="#figure_1">图</a>，我们可以发现求指定方向的求导，其实是求函数在指定方向的tangent line的slope（切线斜率）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016002031720.png" alt="image-20211016002031720"></p>
+<h3 id="二次求导"><a href="#二次求导" class="headerlink" title="二次求导"></a>二次求导</h3><p>二次求导和1个变量的二次求导一样，同样我们要将其他的变量当作常数处理</p>
+<p>有一点需要注意:</p>
+<h4 id="Mixed-Derivative-Theorem"><a href="#Mixed-Derivative-Theorem" class="headerlink" title="Mixed Derivative Theorem"></a>Mixed Derivative Theorem</h4><p>若函数f(x,y)，f_x, f_y, f_xy, f_yx 存在点(a,b)，且在点(a,b)连续，则f_xy(a,b) &#x3D; f_yx(a,b)</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016003538674.png" alt="image-20211016003538674"></p>
+<h5 id="Example-f-xy-a-b-f-yx-a-b"><a href="#Example-f-xy-a-b-f-yx-a-b" class="headerlink" title="Example (f_xy(a,b) !&#x3D; f_yx(a,b))"></a>Example (f_xy(a,b) !&#x3D; f_yx(a,b))</h5><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016004548076.png" alt="image-20211016004548076"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016004615858.png" alt="image-20211016004615858"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016004632815.png" alt="image-20211016004632815"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016004656993.png" alt="image-20211016004656993"></p>
+<h3 id="链式法则chain-rule"><a href="#链式法则chain-rule" class="headerlink" title="链式法则chain rule"></a>链式法则chain rule</h3><p>多变量的链式法则与1个变量的链式法则有点不同（需要加起来）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016003902900.png" alt="image-20211016003902900"></p>
+<p>为了方便做题，我们可以画一张图，如下</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016004937527.png" alt="image-20211016004937527"></p>
+<p>做题的时候，往上套就好；上面只显示2个变量，3个甚至多个同理</p>
+<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h4><p>（1）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016005112033.png" alt="image-20211016005112033"></p>
+<p>这道题要使用反推法</p>
+<p>X &#x3D; X(3,4) &#x3D; 5</p>
+<p>Y &#x3D; Y(3,4) &#x3D; 5</p>
+<p>Z_v(3,4) &#x3D; Z_v(u&#x3D;3,v&#x3D;4) &#x3D; f_x(x&#x3D;5,y&#x3D;5) * X_v(u&#x3D;3,v&#x3D;4) + f_y(x&#x3D;5,y&#x3D;5) * Y_v(u&#x3D;3,v&#x3D;4)</p>
+<p>（2）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016005252832.png" alt="image-20211016005252832"></p>
+<h2 id="方向求导-directional-derivatives"><a href="#方向求导-directional-derivatives" class="headerlink" title="方向求导 directional derivatives"></a>方向求导 directional derivatives</h2><p>沿着特定矢量u方向进行的求导（切线）（我们一般的求导是沿着x或y轴方向）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010104100.png" alt="image-20211016010104100"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010038070.png" alt="image-20211016010038070"></p>
+<p><strong>梯度<a href="#Gradient">Gradient</a>与Directional Derivative之间的关系</strong></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010411513.png" alt="image-20211016010411513"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011254943.png" alt="image-20211016011254943"></p>
+<p>Directional Derivative 与 Gradient变化 （**Max[Du.f]**）</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011224214.png" alt="image-20211016011224214"></p>
+<h3 id="水平面Level-Surface"><a href="#水平面Level-Surface" class="headerlink" title="水平面Level Surface"></a>水平面Level Surface</h3><p>level surface可以看作是高维物体在低维空间的投影</p>
+<p>3 维物体的level surface （level curve）在2 维平面上</p>
+<p>4 维物体的level surface 在3 维平面上</p>
+<p>举个例子</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010828021.png" alt="image-20211016010828021"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010811590.png" alt="image-20211016010811590"></p>
+<h3 id="梯度Gradient"><a href="#梯度Gradient" class="headerlink" title="梯度Gradient"></a>梯度<a id="Gradient">Gradient</a></h3><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016010318281.png" alt="image-20211016010318281"></p>
+<p>梯度是1个向量：在(x,y)点，刚好垂直与对应函数的level curve</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011056694.png" alt="image-20211016011056694"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011041277.png" alt="image-20211016011041277"></p>
+<h2 id="相切平面等式the-equation-of-the-tangent-plane"><a href="#相切平面等式the-equation-of-the-tangent-plane" class="headerlink" title="相切平面等式the equation of the tangent plane"></a>相切平面等式the equation of the tangent plane</h2><p>Tangent Plane 定义： 一个平面在某点与原函数相切</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011602307.png" alt="image-20211016011602307"></p>
+<h3 id="法线normal-line"><a href="#法线normal-line" class="headerlink" title="法线normal line"></a>法线normal line</h3><p>normal line在前面有见过，normal line就是垂直与平面的一个矢量</p>
+<p>normal line的方向就是Gradient的方向</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011739959.png" alt="image-20211016011739959"></p>
+<p><strong>2个变量</strong> z &#x3D; f(x, y)</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011833621.png" alt="image-20211016011833621"></p>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016011941730.png" alt="image-20211016011941730"></p>
+<p>解题步骤：</p>
+<ol>
+<li><p>找出surface的gradient</p>
+</li>
+<li><p>由于平行，tangent plane的normal line相互平行，surface 的 gradient之间的比例与tangent plane系数的比例相当</p>
+</li>
+<li><p>假设存在点(a, b, c)，根据比例带入surface等式，</p>
+</li>
+<li><p>得出a,b, c</p>
+</li>
+</ol>
+<h3 id="线性估计linear-approximation"><a href="#线性估计linear-approximation" class="headerlink" title="线性估计linear approximation"></a>线性估计linear approximation</h3><p>当我们得出一个函数在某点的slope斜率时，我们可以用它来估计周围的点</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012107546.png" alt="image-20211016012107546"></p>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012232980.png" alt="image-20211016012232980"></p>
+<h2 id="最大点与最小点"><a href="#最大点与最小点" class="headerlink" title="最大点与最小点"></a>最大点与最小点</h2><p>当我们只有1个变量时，求导可以帮助我们分析出此函数的Relative Max 或 Min，多个变量同样如此</p>
+<p>首先我们要先找出 critical point</p>
+<h3 id="Critical-Point"><a href="#Critical-Point" class="headerlink" title="Critical Point"></a>Critical Point</h3><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012637952.png" alt="image-20211016012637952"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012659170.png" alt="image-20211016012659170"></p>
+<p>当然我们找到critical point并不意味着我们就找到了Max或Min点，critical point也有可能什么都不是，这需要进一步判断</p>
+<h3 id="相对最大与最小Relative-Local-Max-and-Min"><a href="#相对最大与最小Relative-Local-Max-and-Min" class="headerlink" title="相对最大与最小Relative (Local) Max and Min"></a>相对最大与最小Relative (Local) Max and Min</h3><p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012454575.png" alt="image-20211016012454575"></p>
+<p>简单点说：</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012815273.png" alt="image-20211016012815273"></p>
+<p>D的另一种表示</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016012840470.png" alt="image-20211016012840470"></p>
+<p>把critical point带入这几类中进行判断</p>
+<p>其中有个saddle point解释一下</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013028702.png" alt="image-20211016013028702"></p>
+<h3 id="绝对最大与最小-Absolute-Absolute-Max-and-Min"><a href="#绝对最大与最小-Absolute-Absolute-Max-and-Min" class="headerlink" title="绝对最大与最小 Absolute(Absolute) Max and Min"></a>绝对最大与最小 Absolute(Absolute) Max and Min</h3><p>绝对最大与最小是指在给定一个范围内，此函数的绝对最大或最小值可能是critical point，也有可能是在boundary上，也有可能都不是</p>
+<p>判断方法</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013134112.png" alt="image-20211016013134112"></p>
+<ol>
+<li>找出原来函数的critical point</li>
+<li>通过给定范围找出x与y或其他变量间的关系，形成1个函数，找出此函数的critical point</li>
+<li>找出boundary 上的点</li>
+<li>带入原函数，检查这些点的大小</li>
+</ol>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>（1） Relative Max and Min</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013514100.png" alt="image-20211016013514100"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013549993.png" alt="image-20211016013549993"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013600734.png" alt="image-20211016013600734"></p>
+<p>(2) Absolute Max and Min</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013744835.png" alt="image-20211016013744835"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013820700.png" alt="image-20211016013820700"></p>
+<p>(3) Absolute Max and Min</p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013938900.png" alt="image-20211016013938900"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016013957665.png" alt="image-20211016013957665"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016014054000.png" alt="image-20211016014054000"></p>
+<p><img src="/2021-10-15-Calculus-3-Partial-Derivative/image-20211016014109195.png" alt="image-20211016014109195"></p>
+
+    </div>
+    
+    
+    
+</div>
+                        <footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2024 Yao Xiong
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Yao Xiong
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+
+    </body>
+</html>
