@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -122,7 +122,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/JAVA/" style="color: #00a596">
+                <a href="/tags/JAVA/" style="color: #00bcd4">
                     JAVA
                 </a>
             </span>
@@ -138,13 +138,13 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="（局域网聊天）TCP-IP协议的局域网Socket通信"><a href="#（局域网聊天）TCP-IP协议的局域网Socket通信" class="headerlink" title="（局域网聊天）TCP&#x2F;IP协议的局域网Socket通信"></a>（局域网聊天）TCP&#x2F;IP协议的局域网Socket通信</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>马上开学了，闲着没事做，决定重新温习JAVA功课，于是想起了曾经见过的一个项目：基于JAVA语言的局域网通信，可以参考QQ，如下</p>
+        <h1 id="（局域网聊天）TCP-IP协议的局域网Socket通信"><a href="#（局域网聊天）TCP-IP协议的局域网Socket通信" class="headerlink" title="（局域网聊天）TCP/IP协议的局域网Socket通信"></a>（局域网聊天）TCP/IP协议的局域网Socket通信</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>马上开学了，闲着没事做，决定重新温习JAVA功课，于是想起了曾经见过的一个项目：基于JAVA语言的局域网通信，可以参考QQ，如下</p>
 <span id="more"></span>
 
 <p><strong>一级菜单</strong></p>
 <p><img src="/2021-08-23-JAVA%E5%B1%80%E5%9F%9F%E7%BD%91%E8%81%8A%E5%A4%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F/image-20210823171022391.png" alt="image-20210823171022391"></p>
 <p><strong>二级菜单</strong></p>
-<img src="2021-08-23-JAVA局域网聊天小程序/image-20210823170806043.png" alt="image-20210823170806043" style="zoom: 80%;" />
+<img src="/2021-08-23-JAVA%E5%B1%80%E5%9F%9F%E7%BD%91%E8%81%8A%E5%A4%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F/image-20210823170806043.png" alt="image-20210823170806043" style="zoom: 80%;">
 
 
 
@@ -170,87 +170,735 @@
 <h2 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h2><p>确定完之前的一些东西之后，要开始编码</p>
 <p>我将程序分为<strong>客户端</strong>与<strong>服务端</strong>两部分</p>
 <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><h4 id="User"><a href="#User" class="headerlink" title="User"></a>User</h4><p>当用户打开程序时，程序会自动创建一个User类，此类储存了用户的IP地址和用户电脑的Local Host Name, 这样会方便之后使用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.NetworkInterface;</span><br><span class="line"><span class="keyword">import</span> java.net.SocketException;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> <span class="variable">UID</span> <span class="operator">=</span> <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line">	<span class="keyword">private</span> String Uname=<span class="literal">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">User</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 考虑到我的电脑安装了虚拟机，需要检查具体的IP，所以下面的程序用于扫描本机所有网络端口，根据需要选择相应的ip</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Uname = InetAddress.getLocalHost().getHostName(); <span class="comment">//获取主机名</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (UnknownHostException e1) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		Enumeration&lt;NetworkInterface&gt; i =<span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			i = NetworkInterface.getNetworkInterfaces();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SocketException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		  ArrayList&lt;String&gt; IPlist = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();  </span><br><span class="line">		  <span class="keyword">while</span>(i.hasMoreElements())</span><br><span class="line">		    &#123;</span><br><span class="line">		        <span class="type">NetworkInterface</span> <span class="variable">n</span> <span class="operator">=</span> i.nextElement();</span><br><span class="line">		        Enumeration&lt;InetAddress&gt; ea = n.getInetAddresses();</span><br><span class="line">		        </span><br><span class="line">		        <span class="keyword">while</span>(ea.hasMoreElements())</span><br><span class="line">		        &#123;	</span><br><span class="line">		            <span class="type">InetAddress</span> <span class="variable">a</span> <span class="operator">=</span> ea.nextElement();</span><br><span class="line">		            <span class="keyword">if</span>(a.getHostAddress().toCharArray()[<span class="number">3</span>] ==<span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">		            	IPlist.add(a.getHostAddress());</span><br><span class="line">		            &#125;</span><br><span class="line">		        &#125;</span><br><span class="line">		    &#125;</span><br><span class="line"><span class="comment">//选取对应的IP(根据自己的要求)</span></span><br><span class="line">		  <span class="keyword">for</span>(String ip:IPlist) &#123;</span><br><span class="line">			  <span class="keyword">if</span>(ip.indexOf(<span class="string">&quot;137.&quot;</span>)!=-<span class="number">1</span>) &#123;</span><br><span class="line">				  UID = ip;</span><br><span class="line">				  <span class="keyword">break</span>;</span><br><span class="line">			  &#125;</span><br><span class="line">			  <span class="keyword">if</span>(ip.indexOf(<span class="string">&quot;192.&quot;</span>)!=-<span class="number">1</span>) &#123;</span><br><span class="line">				  UID = ip;</span><br><span class="line">			  &#125;</span><br><span class="line">		  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//获取ID</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getUID</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> UID;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//获取主机名</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getUname</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> Uname;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 
-
+public class User &#123;
+    private String UID = &quot;127.0.0.1&quot;;
+    private String Uname=null;
+    
+    public User()&#123;
+/*
+ * 考虑到我的电脑安装了虚拟机，需要检查具体的IP，所以下面的程序用于扫描本机所有网络端口，根据需要选择相应的ip
+ * */
+        try &#123;
+            Uname = InetAddress.getLocalHost().getHostName(); //获取主机名
+        &#125; catch (UnknownHostException e1) &#123;
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        &#125;
+        Enumeration&lt;NetworkInterface&gt; i =null;
+        try &#123;
+            i = NetworkInterface.getNetworkInterfaces();
+        &#125; catch (SocketException e) &#123;
+            e.printStackTrace();
+        &#125;
+          ArrayList&lt;String&gt; IPlist = new ArrayList&lt;&gt;();  
+          while(i.hasMoreElements())
+            &#123;
+                NetworkInterface n = i.nextElement();
+                Enumeration&lt;InetAddress&gt; ea = n.getInetAddresses();
+                
+                while(ea.hasMoreElements())
+                &#123;    
+                    InetAddress a = ea.nextElement();
+                    if(a.getHostAddress().toCharArray()[3] ==&#39;.&#39;) &#123;
+                        IPlist.add(a.getHostAddress());
+                    &#125;
+                &#125;
+            &#125;
+//选取对应的IP(根据自己的要求)
+          for(String ip:IPlist) &#123;
+              if(ip.indexOf(&quot;137.&quot;)!=-1) &#123;
+                  UID = ip;
+                  break;
+              &#125;
+              if(ip.indexOf(&quot;192.&quot;)!=-1) &#123;
+                  UID = ip;
+              &#125;
+          &#125;
+    &#125;
+    
+    //获取ID
+    public String getUID() &#123;
+        return UID;
+    &#125;
+    
+    //获取主机名
+    public String getUname() &#123;
+        return Uname;
+    &#125;
+&#125;
+</code></pre>
 <h4 id="MessageType"><a href="#MessageType" class="headerlink" title="MessageType"></a>MessageType</h4><p>这是一个接口，接口中的变量都是public static final, 所以可以用来储存一些数据，比如每个数字都有自己的含义。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"><span class="comment">//方便判断</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MessageType</span> &#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">allUsers</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">chat</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">sendFile</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">getFile</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">connect</span> <span class="operator">=</span> <span class="number">4</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">exit</span> <span class="operator">=</span> <span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">package com.peter.Modle;
+//方便判断
+public interface MessageType &#123;
+    int allUsers = 0;
+    int chat = 1;
+    int sendFile = 2;
+    int getFile = 3;
+    int connect = 4;
+    int exit = 9;
+&#125;
+</code></pre>
 <h4 id="Message"><a href="#Message" class="headerlink" title="Message"></a>Message</h4><p>Message是用于客户端向服务器传递信息的载体，里面包括了获取在线用户的容器[ArrayList], 告诉计算机我们要做什么的MessageType(MT), 有Sender和Receiver，还有最重要的Words，这些信息都承载在一个Message对象中，最后要通过Socket的outputStream写给服务器；为保证Message类能够在服务器中正常被读取，我们采用序列化操作，继承Serializable接口，储存了SerialVersionUID.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Message</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String words=<span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="variable">MT</span> <span class="operator">=</span> <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">private</span> String sender=<span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> String receiver=<span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;String&gt; users =<span class="literal">null</span>;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title function_">getUsers</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> users;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUsers</span><span class="params">(ArrayList&lt;String&gt; users)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.users = users;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getSender</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> sender;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSender</span><span class="params">(String sender)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.sender = sender;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getReceiver</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> receiver;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setReceiver</span><span class="params">(String receiver)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.receiver = receiver;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getWords</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> words;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setWords</span><span class="params">(String words)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.words = words;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMT</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> MT;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setMT</span><span class="params">(<span class="type">int</span> mT)</span> &#123;</span><br><span class="line">		MT = mT;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
-
+public class Message implements Serializable&#123;
+    private static final long serialVersionUID = 1L;
+    
+    private String words=null;
+    private int MT = 9;
+    private String sender=null;
+    private String receiver=null;
+    private ArrayList&lt;String&gt; users =null;
+    
+    
+    public ArrayList&lt;String&gt; getUsers() &#123;
+        return users;
+    &#125;
+    public void setUsers(ArrayList&lt;String&gt; users) &#123;
+        this.users = users;
+    &#125;
+    public String getSender() &#123;
+        return sender;
+    &#125;
+    public void setSender(String sender) &#123;
+        this.sender = sender;
+    &#125;
+    public String getReceiver() &#123;
+        return receiver;
+    &#125;
+    public void setReceiver(String receiver) &#123;
+        this.receiver = receiver;
+    &#125;
+    public String getWords() &#123;
+        return words;
+    &#125;
+    public void setWords(String words) &#123;
+        this.words = words;
+    &#125;
+    public int getMT() &#123;
+        return MT;
+    &#125;
+    public void setMT(int mT) &#123;
+        MT = mT;
+    &#125;
+    
+&#125;
+</code></pre>
 <h4 id="UserThread"><a href="#UserThread" class="headerlink" title="UserThread"></a>UserThread</h4><p>用户的线程，每个客户端的开启可以看作是一个进程，main函数是主进程，我们为了让用户开启程序就能接收到消息，任何时候都能接收到消息😉，于是启用多线程服务，UserThread就是一个线程</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//用户线程类，用于接收服务器发送过来的信息</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;<span class="comment">//此线程继承Thread类</span></span><br><span class="line">	<span class="keyword">private</span> Socket UserSocket=<span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;String&gt; allUsers=<span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;String&gt; ChatContent=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="comment">//allUsers 和 ChatContent都使用静态变量的原因是：一旦程序开启，他们就可以一直全局访问	</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">UserThread</span><span class="params">(Socket us)</span> &#123;</span><br><span class="line">		UserSocket = us;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> Socket <span class="title function_">getUserSocket</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> UserSocket;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title function_">getAllUsers</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> allUsers;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title function_">getContent</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> ChatContent;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写Run方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//使用循环表示一直在运行，不然这个线程执行一遍后就不执行了</span></span><br><span class="line">		<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">			ObjectInputStream ois;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				ois = <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(UserSocket.getInputStream());</span><br><span class="line">				<span class="type">Message</span> <span class="variable">mms</span> <span class="operator">=</span> (Message)ois.readObject(); <span class="comment">//如果服务器没有发送数据，通道会一直阻塞</span></span><br><span class="line">				<span class="comment">//服务器向用户发送的message是allUser</span></span><br><span class="line">				<span class="keyword">if</span>(mms.getMT() == MessageType.allUsers) &#123;</span><br><span class="line">					UserThread.allUsers = mms.getUsers();</span><br><span class="line">				<span class="comment">//发送但是信息					</span></span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(mms.getMT() == MessageType.chat) &#123;</span><br><span class="line">					ChatContent.add(mms.getSender()+<span class="string">&quot; 对 &quot;</span>+mms.getReceiver()+<span class="string">&quot; 说:\n &quot;</span>+mms.getWords());</span><br><span class="line">					System.out.println(<span class="string">&quot;过往信息：&quot;</span>);</span><br><span class="line">					<span class="comment">//显示过往消息信息</span></span><br><span class="line">					<span class="keyword">for</span>(String chatContent:ChatContent)</span><br><span class="line">						System.out.println(chatContent);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 
+//用户线程类，用于接收服务器发送过来的信息
+public class UserThread extends Thread&#123;//此线程继承Thread类
+    private Socket UserSocket=null;
+    private static ArrayList&lt;String&gt; allUsers=null;
+    private static ArrayList&lt;String&gt; ChatContent=new ArrayList&lt;&gt;();
+//allUsers 和 ChatContent都使用静态变量的原因是：一旦程序开启，他们就可以一直全局访问    
+    public UserThread(Socket us) &#123;
+        UserSocket = us;
+    &#125;
+    
+    public Socket getUserSocket() &#123;
+        return UserSocket;
+    &#125;
 
+    public ArrayList&lt;String&gt; getAllUsers() &#123;
+        return allUsers;
+    &#125;
+    
+    public ArrayList&lt;String&gt; getContent()&#123;
+        return ChatContent;
+    &#125;
 
-
+//重写Run方法
+    @Override
+    public void run() &#123;
+        //使用循环表示一直在运行，不然这个线程执行一遍后就不执行了
+        while(true) &#123;
+            ObjectInputStream ois;
+            try &#123;
+                ois = new ObjectInputStream(UserSocket.getInputStream());
+                Message mms = (Message)ois.readObject(); //如果服务器没有发送数据，通道会一直阻塞
+                //服务器向用户发送的message是allUser
+                if(mms.getMT() == MessageType.allUsers) &#123;
+                    UserThread.allUsers = mms.getUsers();
+                //发送但是信息                    
+                &#125;else if(mms.getMT() == MessageType.chat) &#123;
+                    ChatContent.add(mms.getSender()+&quot; 对 &quot;+mms.getReceiver()+&quot; 说:\n &quot;+mms.getWords());
+                    System.out.println(&quot;过往信息：&quot;);
+                    //显示过往消息信息
+                    for(String chatContent:ChatContent)
+                        System.out.println(chatContent);
+                &#125;
+                
+            &#125; catch (IOException e) &#123;
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            &#125; catch (ClassNotFoundException e) &#123;
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            &#125;
+        
+            
+            
+        &#125;
+    &#125;
+    
+&#125;
+</code></pre>
 <h4 id="UserConnectService"><a href="#UserConnectService" class="headerlink" title="UserConnectService"></a>UserConnectService</h4><p>开始用户需要将电脑连接到服务器，以此来构建Socket通信,并开启线程</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">ConnectToServer</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">//137.112.237.25是服务器所在IP，10086是监听端口</span></span><br><span class="line">		UserSocket = <span class="keyword">new</span> <span class="title class_">Socket</span>(<span class="string">&quot;137.112.237.25&quot;</span>, <span class="number">10086</span>);</span><br><span class="line">		<span class="comment">//创建Message对象，在这个载体中写入我们的信息</span></span><br><span class="line">           <span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">		message.setMT(MessageType.connect);</span><br><span class="line">		message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//输出流将message对象写给服务器端</span></span><br><span class="line">		<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(UserSocket.getOutputStream());</span><br><span class="line">		output.writeObject(message);</span><br><span class="line">		</span><br><span class="line">           <span class="comment">//我们把这个建立连接的Socket放入到线程，持续监听服务器发送的信息</span></span><br><span class="line">		userThread = <span class="keyword">new</span> <span class="title class_">UserThread</span>(UserSocket);</span><br><span class="line">		userThread.start();<span class="comment">//别忘了开启线程</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">    public static void ConnectToServer() &#123;
+        try &#123;
+            //137.112.237.25是服务器所在IP，10086是监听端口
+            UserSocket = new Socket(&quot;137.112.237.25&quot;, 10086);
+            //创建Message对象，在这个载体中写入我们的信息
+            Message message = new Message();
+            message.setMT(MessageType.connect);
+            message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+            
+            //输出流将message对象写给服务器端
+            ObjectOutputStream output = new ObjectOutputStream(UserSocket.getOutputStream());
+            output.writeObject(message);
+            
+            //我们把这个建立连接的Socket放入到线程，持续监听服务器发送的信息
+            userThread = new UserThread(UserSocket);
+            userThread.start();//别忘了开启线程
+            
+            
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+    &#125;
+</code></pre>
 <p>获取在线用户的IP和名称</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取在线用户IP</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;String&gt; <span class="title function_">GetAllIP</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//建立Message对象</span></span><br><span class="line">		<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">		message.setMT(MessageType.allUsers);</span><br><span class="line">        <span class="comment">//这个是为了方便服务器判断IP，这样就不会发送本机的IP了</span></span><br><span class="line">		message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//发送</span></span><br><span class="line">			<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">			output.writeObject(message);</span><br><span class="line">			<span class="comment">//等待接收IP，网络有延迟</span></span><br><span class="line">			<span class="keyword">if</span>(userThread.getAllUsers() == <span class="literal">null</span>) &#123;</span><br><span class="line">				Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">			&#125;</span><br><span class="line">            <span class="comment">//等一会之后还没有就返回空</span></span><br><span class="line">			<span class="keyword">if</span>(userThread.getAllUsers() == <span class="literal">null</span>)</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">			<span class="keyword">return</span> userThread.getAllUsers();</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//获取在线用户IP
+    public static ArrayList&lt;String&gt; GetAllIP() &#123;
 
-
-
+        //建立Message对象
+        Message message = new Message();
+        message.setMT(MessageType.allUsers);
+        //这个是为了方便服务器判断IP，这样就不会发送本机的IP了
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        try &#123;
+            //发送
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            //等待接收IP，网络有延迟
+            if(userThread.getAllUsers() == null) &#123;
+                Thread.sleep(5000);
+            &#125;
+            //等一会之后还没有就返回空
+            if(userThread.getAllUsers() == null)
+                return null;
+            return userThread.getAllUsers();
+            
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125; catch (InterruptedException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        return null;
+    &#125;
+</code></pre>
 <p>向指定用户传输信息</p>
 <p>这里我们要输入对应的IP地址和信息，由于是Service，我做成了一个静态方法，方便之后在Menus（View）中调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//向指定用户传输信息</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">SendChatContent</span><span class="params">(String receiver, String words)</span>&#123;</span><br><span class="line">       <span class="comment">//同上</span></span><br><span class="line">	<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">	message.setMT(MessageType.chat);</span><br><span class="line">	message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">	message.setReceiver(receiver);</span><br><span class="line">       <span class="comment">//我们要加入发送的时间</span></span><br><span class="line">	<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">	message.setWords(words+<span class="string">&quot;\t&quot;</span>+date.toString());</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">		output.writeObject(message);</span><br><span class="line">		</span><br><span class="line">           <span class="type">String</span> <span class="variable">words1</span> <span class="operator">=</span> message.getSender()+<span class="string">&quot; 对 &quot;</span>+message.getReceiver()+<span class="string">&quot; 说:\n &quot;</span>+message.getWords();</span><br><span class="line">		</span><br><span class="line">           <span class="comment">//userThread.getContent().add(words1);</span></span><br><span class="line">           <span class="comment">//返回发送的内容，到时候在View控制台中打印出来</span></span><br><span class="line">		<span class="keyword">return</span> words1;</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;连接超时，信息未发送&quot;</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<pre><code class="java">  //向指定用户传输信息
+    public static String SendChatContent(String receiver, String words)&#123;
+        //同上
+        Message message =  new Message();
+        message.setMT(MessageType.chat);
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        message.setReceiver(receiver);
+        //我们要加入发送的时间
+        Date date = new Date();
+        message.setWords(words+&quot;\t&quot;+date.toString());
+        
+        try &#123;
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            
+            String words1 = message.getSender()+&quot; 对 &quot;+message.getReceiver()+&quot; 说:\n &quot;+message.getWords();
+            
+            //userThread.getContent().add(words1);
+            //返回发送的内容，到时候在View控制台中打印出来
+            return words1;
 
-
-
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        
+        return &quot;连接超时，信息未发送&quot;;
+    &#125; 
+</code></pre>
 <p>退出服务</p>
 <p>退出之前我们要告诉服务器我们要退出了，让服务器在服务器中删除我们的线程，关闭我们的Socket通道，我们然后直接退出。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//退出服务</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Exit</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="comment">//向服务器发送退出指令</span></span><br><span class="line">	<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">	message.setMT(MessageType.exit);</span><br><span class="line">	message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">		output.writeObject(message);</span><br><span class="line">		System.exit(<span class="number">0</span>);<span class="comment">//系统退出</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">    //退出服务
+    public static void Exit() &#123;
+        //向服务器发送退出指令
+        Message message = new Message();
+        message.setMT(MessageType.exit);
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        
+        try &#123;
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            System.exit(0);//系统退出
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        
+        
+    &#125;
+</code></pre>
 <p>UserConnectService 全部代码，都是public static method</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.peter.Modle.Message;</span><br><span class="line"><span class="keyword">import</span> com.peter.Modle.MessageType;</span><br><span class="line"><span class="keyword">import</span> com.peter.Modle.User;</span><br><span class="line"><span class="keyword">import</span> com.peter.Modle.UserThread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserConnectService</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Socket</span> <span class="variable">UserSocket</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> User user= <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> UserThread userThread;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">ConnectToServer</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			UserSocket = <span class="keyword">new</span> <span class="title class_">Socket</span>(<span class="string">&quot;137.112.237.25&quot;</span>, <span class="number">10086</span>);</span><br><span class="line">			<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">			message.setMT(MessageType.connect);</span><br><span class="line">			message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(UserSocket.getOutputStream());</span><br><span class="line">			output.writeObject(message);</span><br><span class="line">			</span><br><span class="line">			userThread = <span class="keyword">new</span> <span class="title class_">UserThread</span>(UserSocket);</span><br><span class="line">			userThread.start();</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//获取在线用户IP</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;String&gt; <span class="title function_">GetAllIP</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">		message.setMT(MessageType.allUsers);</span><br><span class="line">		message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">			output.writeObject(message);</span><br><span class="line">			<span class="comment">//等待发送IP</span></span><br><span class="line">			<span class="keyword">if</span>(userThread.getAllUsers() == <span class="literal">null</span>) &#123;</span><br><span class="line">				Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(userThread.getAllUsers() == <span class="literal">null</span>)</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">			<span class="keyword">return</span> userThread.getAllUsers();</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//向指定用户传输信息</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">SendChatContent</span><span class="params">(String receiver, String words)</span>&#123;</span><br><span class="line">		<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">		message.setMT(MessageType.chat);</span><br><span class="line">		message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">		message.setReceiver(receiver);</span><br><span class="line">		<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">		message.setWords(words+<span class="string">&quot;\t&quot;</span>+date.toString());</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">			output.writeObject(message);</span><br><span class="line">			<span class="type">String</span> <span class="variable">words1</span> <span class="operator">=</span> message.getSender()+<span class="string">&quot; 对 &quot;</span>+message.getReceiver()+<span class="string">&quot; 说:\n &quot;</span>+message.getWords();</span><br><span class="line">			userThread.getContent().add(words1);</span><br><span class="line">			<span class="keyword">return</span> words1;</span><br><span class="line"></span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;连接超时，信息未发送&quot;</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	</span><br><span class="line">	<span class="comment">//退出服务</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Exit</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">//向服务器发送退出指令</span></span><br><span class="line">		<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>();</span><br><span class="line">		message.setMT(MessageType.exit);</span><br><span class="line">		message.setSender(user.getUname()+<span class="string">&quot;:&quot;</span>+user.getUID());</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(userThread.getUserSocket().getOutputStream());</span><br><span class="line">			output.writeObject(message);</span><br><span class="line">			System.exit(<span class="number">0</span>);<span class="comment">//系统退出</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Service;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
+import com.peter.Modle.Message;
+import com.peter.Modle.MessageType;
+import com.peter.Modle.User;
+import com.peter.Modle.UserThread;
 
+public class UserConnectService &#123;
+    private static Socket UserSocket = null;
+    private static User user= new User();
+    private static UserThread userThread;
+    public static void ConnectToServer() &#123;
+        try &#123;
+            UserSocket = new Socket(&quot;137.112.237.25&quot;, 10086);
+            Message message = new Message();
+            message.setMT(MessageType.connect);
+            message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+            
+            
+            ObjectOutputStream output = new ObjectOutputStream(UserSocket.getOutputStream());
+            output.writeObject(message);
+            
+            userThread = new UserThread(UserSocket);
+            userThread.start();
+            
+            
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+    &#125;
+    
+    //获取在线用户IP
+    public static ArrayList&lt;String&gt; GetAllIP() &#123;
+
+        
+        Message message = new Message();
+        message.setMT(MessageType.allUsers);
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        try &#123;
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            //等待发送IP
+            if(userThread.getAllUsers() == null) &#123;
+                Thread.sleep(5000);
+            &#125;
+            if(userThread.getAllUsers() == null)
+                return null;
+            return userThread.getAllUsers();
+            
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125; catch (InterruptedException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        return null;
+    &#125;
+    
+    //向指定用户传输信息
+    public static String SendChatContent(String receiver, String words)&#123;
+        Message message =  new Message();
+        message.setMT(MessageType.chat);
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        message.setReceiver(receiver);
+        Date date = new Date();
+        message.setWords(words+&quot;\t&quot;+date.toString());
+        
+        try &#123;
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            String words1 = message.getSender()+&quot; 对 &quot;+message.getReceiver()+&quot; 说:\n &quot;+message.getWords();
+            userThread.getContent().add(words1);
+            return words1;
+
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        
+        return &quot;连接超时，信息未发送&quot;;
+    &#125; 
+    
+    //退出服务
+    public static void Exit() &#123;
+        //向服务器发送退出指令
+        Message message = new Message();
+        message.setMT(MessageType.exit);
+        message.setSender(user.getUname()+&quot;:&quot;+user.getUID());
+        
+        try &#123;
+            ObjectOutputStream output = new ObjectOutputStream(userThread.getUserSocket().getOutputStream());
+            output.writeObject(message);
+            System.exit(0);//系统退出
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+        
+        
+    &#125;
+    
+&#125;
+</code></pre>
 <h4 id="Menus"><a href="#Menus" class="headerlink" title="Menus"></a>Menus</h4><p>menus是菜单，一级菜单，二级菜单的显示都在这里，可以说是显示层</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.peter.Service.UserConnectService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Menus</span> &#123;</span><br><span class="line">    <span class="comment">//到时候测试类调用Start方法就好</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Start</span><span class="params">()</span> &#123;</span><br><span class="line">		FirstMenu();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//显示一级菜单</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">FirstMenu</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">boolean</span> <span class="variable">open</span> <span class="operator">=</span><span class="literal">true</span>;</span><br><span class="line">		<span class="type">Scanner</span> <span class="variable">input</span> <span class="operator">=</span><span class="literal">null</span>;</span><br><span class="line">		UserConnectService.ConnectToServer();</span><br><span class="line">        <span class="comment">//一级菜单使用循环，若退出则循环终止</span></span><br><span class="line">		<span class="keyword">while</span>(open) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;\n\n====聊天一级菜单====&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;\t1. 聊天面版&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;\t4.退出&quot;</span>);</span><br><span class="line">			System.out.print(<span class="string">&quot;   选择：&quot;</span>);</span><br><span class="line">			input = <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">			<span class="keyword">switch</span> (input.next()) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="string">&quot;1&quot;</span>:</span><br><span class="line">				Chatting(input);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">				</span><br><span class="line">			<span class="keyword">case</span> <span class="string">&quot;4&quot;</span>:</span><br><span class="line">				UserConnectService.Exit();</span><br><span class="line">				open = <span class="literal">false</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		input.close();</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//二级菜单</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Chatting</span><span class="params">(Scanner input)</span> &#123;</span><br><span class="line">		<span class="type">boolean</span> <span class="variable">open</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//同样使用循环控制，方便持续交流</span></span><br><span class="line">		<span class="keyword">while</span>(open) &#123;</span><br><span class="line">			</span><br><span class="line">			System.out.println(<span class="string">&quot;\n\n====聊天二级菜单(聊天面板)====&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;在线联系人如下：&quot;</span>);</span><br><span class="line">            <span class="comment">//内容的获取都是根据之前的UserConnectService工具类来获得</span></span><br><span class="line">			ArrayList&lt;String&gt; tmpSet = UserConnectService.GetAllIP();</span><br><span class="line">			</span><br><span class="line">            <span class="comment">//若无在线用户，直接不让用户进行交流</span></span><br><span class="line">			<span class="keyword">if</span>(tmpSet == <span class="literal">null</span>) &#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;暂时无上线用户&quot;</span>);</span><br><span class="line">				open = <span class="literal">false</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//有则进行下一步，打印在线用户</span></span><br><span class="line">				<span class="keyword">for</span>(String tmp: tmpSet) &#123;</span><br><span class="line">					System.out.println(tmp);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				System.out.println(<span class="string">&quot;\n\t1.选择人聊天&quot;</span>);</span><br><span class="line">				System.out.println(<span class="string">&quot;\t2.退出&quot;</span>);</span><br><span class="line">				System.out.print(<span class="string">&quot;你的选择：&quot;</span>);</span><br><span class="line">				<span class="type">String</span> <span class="variable">choice</span> <span class="operator">=</span> input.next();</span><br><span class="line">				input.reset();<span class="comment">//为避免scanner的问题，使用reset重启方法</span></span><br><span class="line">				</span><br><span class="line">				<span class="keyword">switch</span> (choice) &#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">&quot;1&quot;</span>:</span><br><span class="line">					</span><br><span class="line">					System.out.print(<span class="string">&quot;聊天对象的IP：&quot;</span>);</span><br><span class="line">					<span class="type">String</span> <span class="variable">receiver</span> <span class="operator">=</span> input.next();</span><br><span class="line">					input.reset();</span><br><span class="line">					System.out.print(<span class="string">&quot;想说的话：&quot;</span>);</span><br><span class="line">					input.nextLine();<span class="comment">//吃掉一个\n</span></span><br><span class="line">					<span class="type">String</span> <span class="variable">words</span> <span class="operator">=</span> input.nextLine();</span><br><span class="line">					input.reset();</span><br><span class="line">                    <span class="comment">//打印刚才发送的信息</span></span><br><span class="line">					System.out.println(UserConnectService.SendChatContent(receiver, words));</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">					</span><br><span class="line">				<span class="keyword">case</span> <span class="string">&quot;2&quot;</span>:</span><br><span class="line">					open = <span class="literal">false</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">default</span>:</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.View;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
+import com.peter.Service.UserConnectService;
 
+import java.util.Scanner;
+import java.util.Set;
 
+public class Menus &#123;
+    //到时候测试类调用Start方法就好
+    public static void Start() &#123;
+        FirstMenu();
+    &#125;
+    //显示一级菜单
+    private static void FirstMenu() &#123;
+        boolean open =true;
+        Scanner input =null;
+        UserConnectService.ConnectToServer();
+        //一级菜单使用循环，若退出则循环终止
+        while(open) &#123;
+            System.out.println(&quot;\n\n====聊天一级菜单====&quot;);
+            System.out.println(&quot;\t1. 聊天面版&quot;);
+            System.out.println(&quot;\t4.退出&quot;);
+            System.out.print(&quot;   选择：&quot;);
+            input = new Scanner(System.in);
+            switch (input.next()) &#123;
+            case &quot;1&quot;:
+                Chatting(input);
+                break;
+                
+            case &quot;4&quot;:
+                UserConnectService.Exit();
+                open = false;
+                break;
+            default:
+                break;
+            &#125;
+        &#125;
+        
+        input.close();
+    
 
+        
+        
+    &#125;
+    
+    //二级菜单
+    private static void Chatting(Scanner input) &#123;
+        boolean open = true;
+        //同样使用循环控制，方便持续交流
+        while(open) &#123;
+            
+            System.out.println(&quot;\n\n====聊天二级菜单(聊天面板)====&quot;);
+            System.out.println(&quot;在线联系人如下：&quot;);
+            //内容的获取都是根据之前的UserConnectService工具类来获得
+            ArrayList&lt;String&gt; tmpSet = UserConnectService.GetAllIP();
+            
+            //若无在线用户，直接不让用户进行交流
+            if(tmpSet == null) &#123;
+                System.out.println(&quot;暂时无上线用户&quot;);
+                open = false;
+            &#125;else &#123;
+                //有则进行下一步，打印在线用户
+                for(String tmp: tmpSet) &#123;
+                    System.out.println(tmp);
+                &#125;
+                
+                System.out.println(&quot;\n\t1.选择人聊天&quot;);
+                System.out.println(&quot;\t2.退出&quot;);
+                System.out.print(&quot;你的选择：&quot;);
+                String choice = input.next();
+                input.reset();//为避免scanner的问题，使用reset重启方法
+                
+                switch (choice) &#123;
+                case &quot;1&quot;:
+                    
+                    System.out.print(&quot;聊天对象的IP：&quot;);
+                    String receiver = input.next();
+                    input.reset();
+                    System.out.print(&quot;想说的话：&quot;);
+                    input.nextLine();//吃掉一个\n
+                    String words = input.nextLine();
+                    input.reset();
+                    //打印刚才发送的信息
+                    System.out.println(UserConnectService.SendChatContent(receiver, words));
+                    break;
+                    
+                case &quot;2&quot;:
+                    open = false;
+                    break;
+                default:
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        
+    &#125;
+&#125;
+</code></pre>
 <h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><h4 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h4><p>服务器终端类，用于控制服务器的开启，需要开启服务器端先实例化一个Terminal对象，传入服务器监听端口</p>
 <p>服务器端是一直进行while循环，用于持续监听是否有新的连接</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 服务器类</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Terminal</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> ServerSocket listener; <span class="comment">//用于监听端口</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Terminal</span><span class="params">(<span class="type">int</span> port)</span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;服务器Start&quot;</span>);</span><br><span class="line">			listener = <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(port); <span class="comment">//确认端口</span></span><br><span class="line">			Socket accept; <span class="comment">//连接的Socket通道</span></span><br><span class="line">			<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">				accept = listener.accept(); <span class="comment">//建立通道连接</span></span><br><span class="line">				<span class="comment">//获取连接后将此socket通道放入线程和线程池中进行管理</span></span><br><span class="line">				<span class="type">ObjectInputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(accept.getInputStream());</span><br><span class="line">				<span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> (Message)input.readObject();<span class="comment">//开始时判断是否是在登录</span></span><br><span class="line">				<span class="keyword">if</span>(message.getMT() == MessageType.connect) &#123;</span><br><span class="line">					<span class="type">ServerThread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerThread</span>(accept, message.getSender());</span><br><span class="line">					System.out.println(message.getSender()+<span class="string">&quot;上线了&quot;</span>);</span><br><span class="line">					thread.start();<span class="comment">//开启线程</span></span><br><span class="line">					ManageClientThreads.addThread(message.getSender(), thread);<span class="comment">//加入到线程池中</span></span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
 
 
-
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+/*
+ * 服务器类
+ * 
+ * */
+public class Terminal &#123;
+    private ServerSocket listener; //用于监听端口
+    public Terminal(int port)&#123;
+        try &#123;
+            System.out.println(&quot;服务器Start&quot;);
+            listener = new ServerSocket(port); //确认端口
+            Socket accept; //连接的Socket通道
+            while(true) &#123;
+                accept = listener.accept(); //建立通道连接
+                //获取连接后将此socket通道放入线程和线程池中进行管理
+                ObjectInputStream input = new ObjectInputStream(accept.getInputStream());
+                Message message = (Message)input.readObject();//开始时判断是否是在登录
+                if(message.getMT() == MessageType.connect) &#123;
+                    ServerThread thread = new ServerThread(accept, message.getSender());
+                    System.out.println(message.getSender()+&quot;上线了&quot;);
+                    thread.start();//开启线程
+                    ManageClientThreads.addThread(message.getSender(), thread);//加入到线程池中
+                &#125;
+                
+                
+            &#125;
+             
+        &#125; catch (IOException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125; catch (ClassNotFoundException e) &#123;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        &#125;
+    &#125;
+    
+&#125;
+</code></pre>
 <h4 id="ServerThread"><a href="#ServerThread" class="headerlink" title="ServerThread"></a>ServerThread</h4><p>服务器的线程类，和客户端的线程类一样，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.peter.Service.ShowOnline;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ServerThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Socket socket;</span><br><span class="line">	<span class="keyword">private</span> String UID;</span><br><span class="line">	<span class="comment">//在服务器端管理的线程，每个线程有对应的UID</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ServerThread</span><span class="params">(Socket s, String id)</span> &#123;</span><br><span class="line">		socket = s;</span><br><span class="line">		UID =id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getUID</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> UID;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> Socket <span class="title function_">getSocket</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> socket;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">//使用循环，使此socket线程一直保持监听状态，若没有内容发过来，则阻塞在此</span></span><br><span class="line">		<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">			Message message;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="type">ObjectInputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(socket.getInputStream());</span><br><span class="line">				message = (Message)input.readObject();</span><br><span class="line">				</span><br><span class="line">				<span class="comment">//判断发送过来的内容</span></span><br><span class="line">				<span class="keyword">if</span>(message.getMT()==MessageType.allUsers) &#123; <span class="comment">//请求所有在线用户</span></span><br><span class="line">					System.out.println(UID+<span class="string">&quot;向服务器请求在线用户&quot;</span>);</span><br><span class="line">					message.setUsers(ShowOnline.getAllIP(UID));</span><br><span class="line">					<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(socket.getOutputStream());</span><br><span class="line">					output.writeObject(message);</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(message.getMT() == MessageType.chat) &#123;<span class="comment">//A用户请求与B用户通信</span></span><br><span class="line">					<span class="type">String</span> <span class="variable">receiver</span> <span class="operator">=</span> message.getReceiver();</span><br><span class="line">					<span class="type">ServerThread</span> <span class="variable">receiverThread</span> <span class="operator">=</span> ManageClientThreads.getThread(receiver);<span class="comment">//我们先根据B用户的名称找到B用户的线程</span></span><br><span class="line">					System.out.println(message.getSender()+<span class="string">&quot;向&quot;</span>+receiver+<span class="string">&quot;发送:\n&quot;</span>+message.getWords());</span><br><span class="line">                    <span class="comment">//判断一下此用户是否存在</span></span><br><span class="line">					<span class="keyword">if</span>(receiverThread!=<span class="literal">null</span>) &#123;</span><br><span class="line">						</span><br><span class="line">						<span class="type">ObjectOutputStream</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(receiverThread.getSocket().getOutputStream());</span><br><span class="line">						output.writeObject(message);</span><br><span class="line">					&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">						<span class="comment">//若不存在，这个怎么处理还没写</span></span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(message.getMT()==MessageType.exit) &#123; <span class="comment">//请求退出</span></span><br><span class="line">					<span class="comment">//退出时从线程池中删除，将socket通道关闭</span></span><br><span class="line">					ManageClientThreads.delThread(UID);</span><br><span class="line">					socket.close();</span><br><span class="line">					System.out.println(message.getSender()+<span class="string">&quot;退出&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>; <span class="comment">//终止循环</span></span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import com.peter.Service.ShowOnline;
+
+public class ServerThread extends Thread&#123;
+    private Socket socket;
+    private String UID;
+    //在服务器端管理的线程，每个线程有对应的UID
+    public ServerThread(Socket s, String id) &#123;
+        socket = s;
+        UID =id;
+    &#125;
+    
+    public String getUID() &#123;
+        return UID;
+    &#125;
+    
+    public Socket getSocket() &#123;
+        return socket;
+    &#125;
 
 
+    @Override
+    public void run() &#123;
+        //使用循环，使此socket线程一直保持监听状态，若没有内容发过来，则阻塞在此
+        while(true) &#123;
+            Message message;
+            try &#123;
+                ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
+                message = (Message)input.readObject();
+                
+                //判断发送过来的内容
+                if(message.getMT()==MessageType.allUsers) &#123; //请求所有在线用户
+                    System.out.println(UID+&quot;向服务器请求在线用户&quot;);
+                    message.setUsers(ShowOnline.getAllIP(UID));
+                    ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
+                    output.writeObject(message);
+                    
+                &#125;
+                
+                else if(message.getMT() == MessageType.chat) &#123;//A用户请求与B用户通信
+                    String receiver = message.getReceiver();
+                    ServerThread receiverThread = ManageClientThreads.getThread(receiver);//我们先根据B用户的名称找到B用户的线程
+                    System.out.println(message.getSender()+&quot;向&quot;+receiver+&quot;发送:\n&quot;+message.getWords());
+                    //判断一下此用户是否存在
+                    if(receiverThread!=null) &#123;
+                        
+                        ObjectOutputStream output = new ObjectOutputStream(receiverThread.getSocket().getOutputStream());
+                        output.writeObject(message);
+                    &#125;else &#123;
+                        //若不存在，这个怎么处理还没写
+                    &#125;
+                    
+                &#125;
+                else if(message.getMT()==MessageType.exit) &#123; //请求退出
+                    //退出时从线程池中删除，将socket通道关闭
+                    ManageClientThreads.delThread(UID);
+                    socket.close();
+                    System.out.println(message.getSender()+&quot;退出&quot;);
+                    break; //终止循环
+                &#125;
+                
+            &#125; catch (IOException e) &#123;
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            &#125; catch (ClassNotFoundException e) &#123;
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            &#125;
+            
+        &#125;
+    &#125;
 
+&#125;
+</code></pre>
 <h4 id="ManageClientThreads"><a href="#ManageClientThreads" class="headerlink" title="ManageClientThreads"></a>ManageClientThreads</h4><p>线程池，管理线程，对线程进行增删查</p>
 <p>每个线程被储存在HashMap中，以用户ID为key, Thread为value，方便查询</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Modle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="comment">//管理线程的类，线程池</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ManageClientThreads</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;String, ServerThread&gt; threads = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">	<span class="comment">//UID为线程Key，socket为value</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addThread</span><span class="params">(String UID, ServerThread s )</span> &#123;</span><br><span class="line">		threads.put(UID, s);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//删除线程</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">delThread</span><span class="params">(String UID)</span> &#123;</span><br><span class="line">		threads.remove(UID);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//获取对应线程</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ServerThread <span class="title function_">getThread</span><span class="params">(String UID)</span> &#123;</span><br><span class="line">		<span class="keyword">for</span>(String id:threads.keySet()) &#123;</span><br><span class="line">			<span class="keyword">if</span>(KMP(id,UID,MatchMap(UID))!=-<span class="number">1</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> threads.get(id);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//由于用户存储的是用户名+IP，而当用户要与另外一个用户通信时输入的是IP地址，所以我们这里需要做字符串匹配以找到符合的字符串</span></span><br><span class="line">	<span class="comment">//使用KMP算法做字符串匹配</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span>[] MatchMap(String dest) &#123;</span><br><span class="line">		<span class="type">int</span>[] map = <span class="keyword">new</span> <span class="title class_">int</span>[dest.length()];</span><br><span class="line">		map[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;dest.length();i++) &#123;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;dest.charAt(i)!=dest.charAt(j))</span><br><span class="line">				j = map[j-<span class="number">1</span>];</span><br><span class="line">			<span class="keyword">if</span>(dest.charAt(i)==dest.charAt(j))</span><br><span class="line">				j++;</span><br><span class="line">			map[i] = j;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> map;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">KMP</span><span class="params">(String st1, String st2, <span class="type">int</span>[] map)</span> &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>, j=<span class="number">0</span>;i&lt;st1.length();i++) &#123;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;st1.charAt(i)!=st2.charAt(j))</span><br><span class="line">				j = map[j-<span class="number">1</span>];</span><br><span class="line">			<span class="keyword">if</span>(st1.charAt(i)==st2.charAt(j))</span><br><span class="line">				j++;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=st2.length())</span><br><span class="line">				<span class="keyword">return</span> i-j+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Modle;
 
-
-
-
-
+import java.util.HashMap;
+//管理线程的类，线程池
+public class ManageClientThreads &#123;
+    public static HashMap&lt;String, ServerThread&gt; threads = new HashMap&lt;&gt;();
+    //UID为线程Key，socket为value
+    public static void addThread(String UID, ServerThread s ) &#123;
+        threads.put(UID, s);
+        
+    &#125;
+    //删除线程
+    public static void delThread(String UID) &#123;
+        threads.remove(UID);
+    &#125;
+    //获取对应线程
+    public static ServerThread getThread(String UID) &#123;
+        for(String id:threads.keySet()) &#123;
+            if(KMP(id,UID,MatchMap(UID))!=-1) &#123;
+                return threads.get(id);
+            &#125;
+                
+        &#125;
+        return null;
+    &#125;
+    
+    //由于用户存储的是用户名+IP，而当用户要与另外一个用户通信时输入的是IP地址，所以我们这里需要做字符串匹配以找到符合的字符串
+    //使用KMP算法做字符串匹配
+    private static int[] MatchMap(String dest) &#123;
+        int[] map = new int[dest.length()];
+        map[0]=0;
+        for(int i=0,j=0;i&lt;dest.length();i++) &#123;
+            while(j&gt;0&amp;&amp;dest.charAt(i)!=dest.charAt(j))
+                j = map[j-1];
+            if(dest.charAt(i)==dest.charAt(j))
+                j++;
+            map[i] = j;
+            
+        &#125;
+        return map;
+    &#125;
+    
+    private static int KMP(String st1, String st2, int[] map) &#123;
+        for(int i=0, j=0;i&lt;st1.length();i++) &#123;
+            while(j&gt;0&amp;&amp;st1.charAt(i)!=st2.charAt(j))
+                j = map[j-1];
+            if(st1.charAt(i)==st2.charAt(j))
+                j++;
+            if(j&gt;=st2.length())
+                return i-j+1;
+        &#125;
+        return -1;
+    &#125;
+    
+&#125;
+</code></pre>
 <h4 id="ShowOnline"><a href="#ShowOnline" class="headerlink" title="ShowOnline"></a>ShowOnline</h4><p>显示所有在线用户，其实就是遍历线程池，将每个Key（除查询本机的用户以外）返回给此查询用户</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.peter.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.peter.Modle.ManageClientThreads;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShowOnline</span> &#123;</span><br><span class="line">	<span class="comment">//根据线程池中的所有线程，获取所有UID，即在线的用户</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;String&gt; <span class="title function_">getAllIP</span><span class="params">(String UID)</span>&#123;</span><br><span class="line">		ArrayList&lt;String&gt; ips = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(ManageClientThreads.threads.keySet());</span><br><span class="line">		ips.remove(UID); <span class="comment">//在线用户查看时，排除用户自己</span></span><br><span class="line">		<span class="keyword">return</span> ips;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.peter.Service;
 
+import java.util.ArrayList;
+import java.util.Set;
 
+import com.peter.Modle.ManageClientThreads;
 
-
-
+public class ShowOnline &#123;
+    //根据线程池中的所有线程，获取所有UID，即在线的用户
+    public static ArrayList&lt;String&gt; getAllIP(String UID)&#123;
+        ArrayList&lt;String&gt; ips = new ArrayList&lt;&gt;(ManageClientThreads.threads.keySet());
+        ips.remove(UID); //在线用户查看时，排除用户自己
+        return ips;
+    &#125;
+&#125;
+</code></pre>
 <h4 id="MessageType和Message"><a href="#MessageType和Message" class="headerlink" title="MessageType和Message"></a>MessageType和Message</h4><p>MessageType和Message与客户端是一样的，MessageType就好像是一个密码本，使客户端与服务器了解彼此要做的事。Message必须要进行序列化操作，同时保证客户端与服务器的Message对象一样，这样在从客户端传输Message对象到服务器端时就不会报错，（Class Not Found Exception）</p>
 <h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>本程序有许多可拓展的地方，如让用户之间可以传输文件，当用户输入错的IP时，服务器会提示用户输入的信息有错误等等。时间有限，部分功能尚未完成，请谅解。</p>
 <h2 id="展示效果"><a href="#展示效果" class="headerlink" title="展示效果"></a>展示效果</h2><p>最后只需要将Menus和Terminal分别放到2个测试类当中就好，这样就能开始进行服务器，2台客户端间的通信了。下面是成果展示：</p>
@@ -301,5 +949,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

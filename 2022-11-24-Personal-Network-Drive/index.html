@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -122,7 +122,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/DIY/" style="color: #ffa2c4">
+                <a href="/tags/DIY/" style="color: #00bcd4">
                     DIY
                 </a>
             </span>
@@ -149,7 +149,7 @@
 <ol start="3">
 <li>Open your Virtual Machine Software in Windows and load the Mirror File.</li>
 </ol>
-<p>Here is a reference video for installing ubuntu in virtual machine: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=x5MhydijWmc&ab_channel=ProgrammingKnowledge">https://www.youtube.com/watch?v=x5MhydijWmc&amp;ab_channel=ProgrammingKnowledge</a></p>
+<p>Here is a reference video for installing ubuntu in virtual machine: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=x5MhydijWmc&amp;ab_channel=ProgrammingKnowledge">https://www.youtube.com/watch?v=x5MhydijWmc&amp;ab_channel=ProgrammingKnowledge</a></p>
 <h2 id="Raspberry-Pi"><a href="#Raspberry-Pi" class="headerlink" title="Raspberry Pi"></a>Raspberry Pi</h2><ol>
 <li>First two steps for Raspberry Pi are similar to virtual machine: go to official website and download mirror file</li>
 <li>Use Raspberry Pi Imager to set up ubuntu system into your SD card. Here is the link for this software: <a target="_blank" rel="noopener" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a></li>
@@ -157,99 +157,92 @@
 </ol>
 <h1 id="Step-2-Install-Related-Software"><a href="#Step-2-Install-Related-Software" class="headerlink" title="Step 2. Install Related Software"></a>Step 2. Install Related Software</h1><p>After installing Ubuntu System, you need to install Apache, MariaDB, and Nextcloud.</p>
 <h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><p>Type the following two commends in ubuntu shell</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install apache2 libapache2-mod-php7.4</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">sudo apt update
+sudo apt install apache2 libapache2-mod-php7.4
+</code></pre>
 <p>7.4 is the version of PHP. After running the second commend, we need to check our php and apache version.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line">apache2 -v</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">php -v
+apache2 -v
+</code></pre>
 <p>if our installed php version is not 7.4, such as 8.1, replace the following php7.4 with php8.1</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl</span><br><span class="line">sudo apt install php7.4-gmp php7.4-bcmath php-imagick php7.4-xml php7.4-zip</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="MySQL-MariaDB"><a href="#MySQL-MariaDB" class="headerlink" title="MySQL &amp; MariaDB"></a>MySQL &amp; MariaDB</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mariadb-server</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">sudo apt install php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl
+sudo apt install php7.4-gmp php7.4-bcmath php-imagick php7.4-xml php7.4-zip
+</code></pre>
+<h2 id="MySQL-amp-MariaDB"><a href="#MySQL-amp-MariaDB" class="headerlink" title="MySQL &amp; MariaDB"></a>MySQL &amp; MariaDB</h2><pre><code class="shell">sudo apt install mariadb-server
+</code></pre>
 <p>After installing mariadb, we need to configure our database.</p>
 <p>Press enter key when promoted for a password</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql start</span><br><span class="line">sudo mysql -uroot -p</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">sudo mysql start
+sudo mysql -uroot -p
+</code></pre>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125000626908.png" alt="image-20221125000626908"></p>
 <p>After typing enter</p>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125000655206.png" alt="image-20221125000655206"></p>
 <p>Typing the following commends after <strong>MariaDB [(none)] &gt;</strong> one by one (<strong>Do not miss ‘;’ in the end of each commend</strong>)</p>
 <p>set <strong>username</strong> as what you want</p>
 <p>set <strong>password</strong> as what you want</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;username&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &#x27;username&#x27;@&#x27;localhost&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="mariadb">CREATE USER &#39;username&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;
+CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+GRANT ALL PRIVILEGES ON nextcloud.* TO &#39;username&#39;@&#39;localhost&#39;;
+FLUSH PRIVILEGES;
+</code></pre>
 <p>Here is my example</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;peter&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;12345678&#x27;;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &#x27;username&#x27;@&#x27;peter&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="mariadb">CREATE USER &#39;peter&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345678&#39;;
+CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+GRANT ALL PRIVILEGES ON nextcloud.* TO &#39;username&#39;@&#39;peter&#39;;
+FLUSH PRIVILEGES;
+</code></pre>
 <p>Try to Quit MariaDB</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code class="mariadb">quit;
+</code></pre>
 <h2 id="Nextcloud"><a href="#Nextcloud" class="headerlink" title="Nextcloud"></a>Nextcloud</h2><p>Go to official website to download the file. Here is the link <a target="_blank" rel="noopener" href="https://nextcloud.com/install">Download</a></p>
 <p>Since we plan to run the server on our laptop or virtual machine or raspberry pi, please choose “DOWNLOAD SERVER”</p>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001401653.png" alt="image-20221125001401653"></p>
 <p>In community projects, choose <strong>Get ZIP file</strong></p>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001453948.png" alt="image-20221125001453948"></p>
 <p>After downloading the file, unzip it in ubuntu</p>
-<p>&#x2F;&#x2F; unzip <strong>tar</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xjvf filename</span><br></pre></td></tr></table></figure>
-
-<p>&#x2F;&#x2F; unzip <strong>zip</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p>// unzip <strong>tar</strong></p>
+<pre><code class="shell">tar -xjvf filename
+</code></pre>
+<p>// unzip <strong>zip</strong></p>
+<pre><code class="shell">unzip filename
+</code></pre>
 <p>Now, all the files will be in folder <strong>nextcloud</strong></p>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125001836959.png" alt="image-20221125001836959"></p>
 <p>Move the folder into apache’s (webserver) directory</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r nextcloud /var/www</span><br></pre></td></tr></table></figure>
-
+<pre><code>cp -r nextcloud /var/www
+</code></pre>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221125002004967.png" alt="image-20221125002004967"></p>
 <h1 id="Step-3-Set-Software-Parameters"><a href="#Step-3-Set-Software-Parameters" class="headerlink" title="Step 3. Set Software Parameters"></a>Step 3. Set Software Parameters</h1><ol>
 <li>Set up authority for apache2. Otherwise, we cannot write any data to our server. <span style="background-color:yellow;"><strong>It is important</strong></span></li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R www-data:www-data nextcloud</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">chown -R www-data:www-data nextcloud
+</code></pre>
 <ol start="2">
 <li>Config apache server</li>
 </ol>
 <p>we will use vim to add file “nextcloud.conf”</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/sites-available</span><br><span class="line">sudo vim nextcloud.conf</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">cd /etc/apache2/sites-available
+sudo vim nextcloud.conf
+</code></pre>
 <p>Type the following in nextcloud.conf</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Alias /nextcloud &quot;/var/www/nextcloud/&quot;</span><br><span class="line">LoadModule ssl_module modules/mod_ssl.so</span><br><span class="line">&lt;Directory /var/www/nextcloud/&gt;</span><br><span class="line">  Require all granted</span><br><span class="line">  AllowOverride All</span><br><span class="line">  Options FollowSymLinks MultiViews</span><br><span class="line"></span><br><span class="line">  &lt;IfModule mod_dav.c&gt;</span><br><span class="line">    Dav off</span><br><span class="line">  &lt;/IfModule&gt;</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="php+HTML">Alias /nextcloud &quot;/var/www/nextcloud/&quot;
+LoadModule ssl_module modules/mod_ssl.so
+&lt;Directory /var/www/nextcloud/&gt;
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
 
-
-
+  &lt;IfModule mod_dav.c&gt;
+    Dav off
+  &lt;/IfModule&gt;
+&lt;/Directory&gt;
+</code></pre>
 <ol start="3">
 <li>Check apache status and Done</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status apache2</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">sudo systemctl status apache2
+</code></pre>
 <p>Now, you can input your IP address on your browser</p>
 <p><code>192.168../nextcloud/</code></p>
 <p><img src="/2022-11-24-Personal-Network-Drive/image-20221124233608644.png" alt="image-20221124233608644"></p>
@@ -258,19 +251,33 @@
 <p>Free Dynamic Domain: <a target="_blank" rel="noopener" href="https://www.noip.com/">Free Dynamic Domain</a></p>
 <p>In the link, the author is using Nginx, but we use Apache, so we need to add the config in our apache server folder.</p>
 <p><strong>Replace ‘Your IP’  &amp; ‘Your Domain’</strong> in the following text</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Alias /nextcloud &quot;/var/www/nextcloud/&quot;</span><br><span class="line">LoadModule ssl_module modules/mod_ssl.so</span><br><span class="line">&lt;Directory /var/www/nextcloud/&gt;</span><br><span class="line">  Require all granted</span><br><span class="line">  AllowOverride All</span><br><span class="line">  Options FollowSymLinks MultiViews</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;IfModule mod_dav.c&gt;</span><br><span class="line">    Dav off</span><br><span class="line">  &lt;/IfModule&gt;</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost &#x27;Your IP&#x27;:443&gt;</span><br><span class="line">        DocumentRoot /var/www/nextcloud</span><br><span class="line">        ServerName &#x27;Your Domain&#x27;</span><br><span class="line">        SSLEngine on</span><br><span class="line">        SSLCertificateFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/cert.pem</span><br><span class="line">        SSLCertificateKeyFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/privkey.pem</span><br><span class="line">        SSLCertificateChainFile /etc/letsencrypt/live/&#x27;Your Domain&#x27;/chain.pem</span><br><span class="line"></span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="php+HTML">Alias /nextcloud &quot;/var/www/nextcloud/&quot;
+LoadModule ssl_module modules/mod_ssl.so
+&lt;Directory /var/www/nextcloud/&gt;
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
 
 
+  &lt;IfModule mod_dav.c&gt;
+    Dav off
+  &lt;/IfModule&gt;
+&lt;/Directory&gt;
 
+&lt;VirtualHost &#39;Your IP&#39;:443&gt;
+        DocumentRoot /var/www/nextcloud
+        ServerName &#39;Your Domain&#39;
+        SSLEngine on
+        SSLCertificateFile /etc/letsencrypt/live/&#39;Your Domain&#39;/cert.pem
+        SSLCertificateKeyFile /etc/letsencrypt/live/&#39;Your Domain&#39;/privkey.pem
+        SSLCertificateChainFile /etc/letsencrypt/live/&#39;Your Domain&#39;/chain.pem
+
+&lt;/VirtualHost&gt;
+</code></pre>
 <p>Copy these texts and replace ‘nextcloud.conf’</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/sites-available</span><br><span class="line">sudo vim nextcloud.conf</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<pre><code class="shell">cd /etc/apache2/sites-available
+sudo vim nextcloud.conf
+</code></pre>
 <h1 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h1><ol>
 <li>Network Error: 99</li>
 </ol>
@@ -317,5 +324,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

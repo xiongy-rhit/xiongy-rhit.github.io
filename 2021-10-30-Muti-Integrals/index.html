@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -122,14 +122,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #00a596">
+                <a href="/tags/%E6%95%B0%E5%AD%A6/" style="color: #00bcd4">
                     数学
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #00bcd4">
+                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/" style="color: #ffa2c4">
                     微积分
                 </a>
             </span>
@@ -155,7 +155,7 @@
 <h3 id="Double-Integral-Over-Rectangles"><a href="#Double-Integral-Over-Rectangles" class="headerlink" title="Double Integral Over Rectangles"></a>Double Integral Over Rectangles</h3><p>Double Integral Over Rectangles就是说求一个函数在2段不同轴方向的函数的体积</p>
 <p>按照基本的求积分公式代值即可，由内而外</p>
 <p><img src="/2021-10-30-Muti-Integrals/image-20211031141332905.png" alt="image-20211031141332905"></p>
-<p>按照<mark>Fubini’s Theorem</mark>: 函数f(x,y)若在区间 <mark>a&lt;&#x3D; x &lt;&#x3D; b, c &lt;&#x3D; y &lt;&#x3D; d</mark> 内 continuous连续，则x,y求积分的顺序可以交换，图如下</p>
+<p>按照<mark>Fubini’s Theorem</mark>: 函数f(x,y)若在区间 <mark>a&lt;= x &lt;= b, c &lt;= y &lt;= d</mark> 内 continuous连续，则x,y求积分的顺序可以交换，图如下</p>
 <p><img src="/2021-10-30-Muti-Integrals/image-20211031141642781.png" alt="image-20211031141642781"></p>
 <p>当我们求积分，一个方向不好开始时，可以换一个方向，按照Fubini理论，指不定柳暗花明又一村</p>
 <h3 id="Double-Integral-Over-Regions"><a href="#Double-Integral-Over-Regions" class="headerlink" title="Double Integral Over Regions"></a>Double Integral Over Regions</h3><p>根据被包围的范围，求出函数在这个范围内的体积。判断范围，根据范围列式是多重积分的一大难点</p>
@@ -175,7 +175,7 @@
 <h4 id="例题2"><a href="#例题2" class="headerlink" title="例题2."></a>例题2.</h4><p>有时候我们只知道函数公式，同时给出的式子无法帮助我们直接求出答案</p>
 <p>为了求出这段体积，我们需要根据给出的范围画出图像，然后根据Fubini法则变换计算的顺序</p>
 <p><img src="/2021-10-30-Muti-Integrals/image-20211031144335878.png" alt="image-20211031144335878"></p>
-<p>hint： 把式子转为int(int(sqrt(x^5)+1,x&#x3D;y^(1&#x2F;4)..2),y&#x3D;0..16) 对于判断范围其实更为直观一点</p>
+<p>hint： 把式子转为int(int(sqrt(x^5)+1,x=y^(1/4)..2),y=0..16) 对于判断范围其实更为直观一点</p>
 <h3 id="Double-Integral-Geometry-Meaning"><a href="#Double-Integral-Geometry-Meaning" class="headerlink" title="Double Integral (Geometry Meaning)"></a>Double Integral (Geometry Meaning)</h3><p>1重积分，当函数为1时，计算的是线段的长度（1维）</p>
 <p>2重积分，当函数为1时，计算的是包围的面积（2维）</p>
 <p>图如下<img src="/2021-10-30-Muti-Integrals/image-20211101115536575.png" alt="image-20211101115536575"></p>
@@ -259,5 +259,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

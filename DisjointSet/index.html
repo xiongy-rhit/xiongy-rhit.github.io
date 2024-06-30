@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -122,7 +122,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/java/" style="color: #ff7d73">
+                <a href="/tags/java/" style="color: #03a9f4">
                     java
                 </a>
             </span>
@@ -138,7 +138,7 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="/DisjointSet/image-20210501132259731.png" alt="image-20210501132259731"></p>
+        <h1 id><a href="#" class="headerlink" title></a></h1><p><img src="/DisjointSet/image-20210501132259731.png" alt="image-20210501132259731"></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>并查集是一种数据结构，其实现简单，仅仅需要几行代码与一个数组就可以实现；</p>
 <ol>
 <li>创建一个数组，用于储存每个顶点的父结点，默认都是自己</li>
@@ -149,25 +149,52 @@
 <p>我们自动生成迷宫时，也会需要使用disjoint方法，当入口与出口构成回路时，我们就完成了迷宫的设计</p>
 <span id="more"></span>
 
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="type">int</span> s[];</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Disjoint1</span><span class="params">(<span class="type">int</span> numElements)</span> &#123;</span><br><span class="line">    s = <span class="keyword">new</span> <span class="title class_">int</span>[numElements];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.length;i++)</span><br><span class="line">        s[i] = -<span class="number">1</span>; <span class="comment">//初始化默认每个点的根节点就是自己，即-1</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code class="java">private int s[];
+public Disjoint1(int numElements) &#123;
+    s = new int[numElements];
+    for(int i=0;i&lt;s.length;i++)
+        s[i] = -1; //初始化默认每个点的根节点就是自己，即-1
 
+&#125;
+</code></pre>
+<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><pre><code class="java">//非递归版本
+public int find(int x) &#123;
+    int temp=x;
+    while(s[temp]!=-1)
+        temp = s[temp];
+    return temp;
+&#125;
+</code></pre>
+<pre><code class="java">//递归版本
+public int find(int x) &#123;
+    if(s[x] &lt;0)
+        return x;
+    else &#123;
+        return find(s[x]); 
+    &#125;
+&#125;
+</code></pre>
+<h3 id="并"><a href="#并" class="headerlink" title="并"></a>并</h3><pre><code class="java">public void union(int root1, int root2) &#123;
+    if(s[root2]&lt;s[root1]) //root2 is depper
+        s[root1] = root2; //make root2 new root
+    else &#123;
+        if(s[root1] == s[root2]) 
+            s[root1] --;  //Update height if same
+        s[root2] = root1; //make root1 new root
 
+    &#125;
 
-<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归版本</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="type">int</span> temp=x;</span><br><span class="line">    <span class="keyword">while</span>(s[temp]!=-<span class="number">1</span>)</span><br><span class="line">        temp = s[temp];</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归版本</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(s[x] &lt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> find(s[x]); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="并"><a href="#并" class="headerlink" title="并"></a>并</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> root1, <span class="type">int</span> root2)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(s[root2]&lt;s[root1]) <span class="comment">//root2 is depper</span></span><br><span class="line">        s[root1] = root2; <span class="comment">//make root2 new root</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[root1] == s[root2]) </span><br><span class="line">            s[root1] --;  <span class="comment">//Update height if same</span></span><br><span class="line">        s[root2] = root1; <span class="comment">//make root1 new root</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+&#125;
+</code></pre>
 <h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>对于路径压缩，我们是在find函数中进行修改，当我们寻找到一个顶点的根节点后，在递归时，我们把剩下的顶点的根节点都设为最后一个顶点的根节点，这样可以简化下次递归的深度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(s[x] &lt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> s[x] = find(s[x]); <span class="comment">//path compression, decrease the running time</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public int find(int x) &#123;
+    if(s[x] &lt;0)
+        return x;
+    else &#123;
+        return s[x] = find(s[x]); //path compression, decrease the running time
+    &#125;
+&#125;
+</code></pre>
 <p>当然，这种方法也有个缺点，如下图</p>
 <p><img src="/DisjointSet/image-20210501132306016.png" alt="image-20210501132306016"></p>
 <p>我们如果使用find(4),这样可以使整个树扁平化</p>
@@ -177,14 +204,198 @@
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="判断是否构成环路"><a href="#判断是否构成环路" class="headerlink" title="判断是否构成环路"></a>判断是否构成环路</h3><p>传入一个二维数组，包含这张图的信息</p>
 <p>每个顶点对应的下标按照英文字母的顺序排列，从0开始</p>
 <p><img src="/DisjointSet/image-20210501144130550.png" alt="image-20210501144130550"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> DisjointSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CircleJudge</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="type">int</span>[][] a= &#123;</span><br><span class="line">				&#123;<span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">				&#123;<span class="number">0</span>, <span class="number">2</span>&#125;,</span><br><span class="line">				&#123;<span class="number">0</span>, <span class="number">4</span>&#125;,</span><br><span class="line">				&#123;<span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">				&#123;<span class="number">2</span>, <span class="number">4</span>&#125;,</span><br><span class="line">				&#123;<span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">		&#125;;</span><br><span class="line">		isCircle(a, <span class="number">5</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span>[] p;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">/*查找root*/</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(p[x] &lt;<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> x;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> p[x] = find(p[x]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*合并,前提是没构成环路*/</span></span><br><span class="line">    <span class="comment">//构成环路返回true</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">		<span class="type">int</span> x=find(i);</span><br><span class="line">		<span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span>find(j);</span><br><span class="line">		<span class="keyword">if</span>(x!=y) &#123;</span><br><span class="line">			<span class="keyword">if</span>(p[y] &lt; p[x])</span><br><span class="line">				p[x]= y;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				p[y] =x;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">isCircle</span><span class="params">(<span class="type">int</span>[][] a, <span class="type">int</span> len)</span> &#123;</span><br><span class="line">		<span class="comment">/*初始化*/</span></span><br><span class="line">        p = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;p.length;i++)</span><br><span class="line">			p[i]=-<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">		<span class="type">boolean</span> rst;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span>[] i:a) &#123;</span><br><span class="line">			rst = union(i[<span class="number">0</span>],i[<span class="number">1</span>]);</span><br><span class="line">			<span class="keyword">if</span>(rst) &#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;These data include circle&quot;</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">package DisjointSet;
 
+public class CircleJudge &#123;
 
+    public static void main(String[] args) &#123;
+        // TODO Auto-generated method stub
+        int[][] a= &#123;
+                &#123;0, 1&#125;,
+                &#123;0, 2&#125;,
+                &#123;0, 4&#125;,
+                &#123;1, 2&#125;,
+                &#123;2, 4&#125;,
+                &#123;2, 3&#125;,
+        &#125;;
+        isCircle(a, 5);
+    &#125;
+    
+    private static int[] p;
+    
+    /*查找root*/
+    private static int find(int x) &#123;
+        if(p[x] &lt;0)
+            return x;
+        else &#123;
+            return p[x] = find(p[x]);
+        &#125;
+    &#125;
+    
+    
+    /*合并,前提是没构成环路*/
+    //构成环路返回true
+    private static boolean union(int i, int j) &#123;
+        int x=find(i);
+        int y =find(j);
+        if(x!=y) &#123;
+            if(p[y] &lt; p[x])
+                p[x]= y;
+            else &#123;
+                p[y] =x;
+            &#125;
+            return false;
+        &#125;else &#123;
+            return true;
+        &#125;
+    &#125;
+    
+    public static void isCircle(int[][] a, int len) &#123;
+        /*初始化*/
+        p = new int[len];
+        for(int i=0;i&lt;p.length;i++)
+            p[i]=-1;
+        
+        
+        boolean rst;
+        for(int[] i:a) &#123;
+            rst = union(i[0],i[1]);
+            if(rst) &#123;
+                System.out.println(&quot;These data include circle&quot;);
+                break;
+            &#125;
+        &#125;
+        
+    &#125;
 
+&#125;
+</code></pre>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><pre><code class="java">package algorithm;
 
+import java.util.Collections;
+import java.util.LinkedList;
 
-<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> algorithm;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Kruskar算法</span></span><br><span class="line"><span class="comment"> * 1. 创建每条边的List</span></span><br><span class="line"><span class="comment"> * 2. 把边添加进List</span></span><br><span class="line"><span class="comment"> * 3. 对List排序</span></span><br><span class="line"><span class="comment"> * 4. 从头到尾读取List， 判断边的两个顶点是否形成回路</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 23881</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KruskalAlgorithm</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line"><span class="comment">//		String[] data = &#123;&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;&#125;;</span></span><br><span class="line"><span class="comment">//		int[][] weight= &#123;</span></span><br><span class="line"><span class="comment">//				&#123;0,3,3,7&#125;,</span></span><br><span class="line"><span class="comment">//				&#123;3,0,2,4&#125;,</span></span><br><span class="line"><span class="comment">//				&#123;3,2,0,6&#125;,</span></span><br><span class="line"><span class="comment">//				&#123;7,4,6,0&#125;</span></span><br><span class="line"><span class="comment">//		&#125;;</span></span><br><span class="line">		</span><br><span class="line">		String[] data = &#123;<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>,<span class="string">&quot;E&quot;</span>,<span class="string">&quot;F&quot;</span>,<span class="string">&quot;G&quot;</span>&#125;;</span><br><span class="line">		<span class="type">int</span>[][] weight= &#123;</span><br><span class="line">				&#123;<span class="number">0</span>,<span class="number">12</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">16</span>,<span class="number">14</span>&#125;,</span><br><span class="line">				&#123;<span class="number">12</span>,<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">7</span>,<span class="number">0</span>&#125;,</span><br><span class="line">				&#123;<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">0</span>&#125;,</span><br><span class="line">				&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">				&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">8</span>&#125;,</span><br><span class="line">				&#123;<span class="number">16</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">9</span>&#125;,</span><br><span class="line">				&#123;<span class="number">14</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		Kruskar(data, weight);</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Kruskar</span><span class="params">(String[] data, <span class="type">int</span>[][] weight)</span> &#123;</span><br><span class="line">		<span class="type">boolean</span>[][] isVisited = <span class="keyword">new</span> <span class="title class_">boolean</span>[data.length][data.length];</span><br><span class="line">		LinkedList&lt;Edge&lt;String&gt;&gt; list =  <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		LinkedList&lt;Edge&lt;String&gt;&gt; result =  <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;weight.length;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;weight.length;j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(isVisited[i][j] == <span class="literal">false</span>&amp;&amp; isVisited[j][i] == <span class="literal">false</span> &amp;&amp; weight[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">					list.add(<span class="keyword">new</span> <span class="title class_">Edge</span>&lt;String&gt;(i, j, weight[i][j]));</span><br><span class="line">					isVisited[i][j] = <span class="literal">true</span>;</span><br><span class="line">					isVisited[j][i] = <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Collections.sort(list);</span><br><span class="line">		<span class="keyword">for</span>(Edge&lt;String&gt; e:list) </span><br><span class="line">			System.out.println(e.print(data));</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span>[] ends = <span class="keyword">new</span> <span class="title class_">int</span>[data.length];</span><br><span class="line">		<span class="keyword">for</span>(Edge&lt;String&gt; e:list) &#123;</span><br><span class="line">			<span class="keyword">if</span>(result.size() == data.length-<span class="number">1</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//克鲁斯卡尔算法精髓, Disjoint Set</span></span><br><span class="line">			<span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> GetEnd(ends, e.x);</span><br><span class="line">			<span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> GetEnd(ends, e.y);</span><br><span class="line">			<span class="comment">//判断终点是否是一样的，即是否形成回路</span></span><br><span class="line">			<span class="keyword">if</span>(m !=n) &#123;</span><br><span class="line">				ends[m]=n;</span><br><span class="line">				result.add(e);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(Edge&lt;String&gt; e:result) </span><br><span class="line">			System.out.println(e.print(data));</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获取对应下标的终点</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> ends</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> i</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">GetEnd</span><span class="params">(<span class="type">int</span>[] ends, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">		<span class="keyword">while</span>(ends[i] !=<span class="number">0</span>)</span><br><span class="line">			i = ends[i];</span><br><span class="line">		<span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Edge</span>&lt;E&gt; <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Edge&lt;String&gt;&gt;&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">int</span> x;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">int</span> y;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">int</span> weight;</span><br><span class="line">		Edge(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> w)&#123;</span><br><span class="line">			x = a;</span><br><span class="line">			y = b;</span><br><span class="line">			weight = w;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">public</span> String <span class="title function_">print</span><span class="params">(E[] data)</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> data[x]+<span class="string">&quot; &quot;</span>+data[y]+<span class="string">&quot; : &quot;</span>+weight;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Edge&lt;String&gt; e)</span> &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">			<span class="keyword">return</span> weight -e.weight;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+/**
+ * Kruskar算法
+ * 1. 创建每条边的List
+ * 2. 把边添加进List
+ * 3. 对List排序
+ * 4. 从头到尾读取List， 判断边的两个顶点是否形成回路
+ * @author 23881
+ *
+ */
+public class KruskalAlgorithm &#123;
 
+    public static void main(String[] args) &#123;
+        // TODO Auto-generated method stub
+        
+//        String[] data = &#123;&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;&#125;;
+//        int[][] weight= &#123;
+//                &#123;0,3,3,7&#125;,
+//                &#123;3,0,2,4&#125;,
+//                &#123;3,2,0,6&#125;,
+//                &#123;7,4,6,0&#125;
+//        &#125;;
+        
+        String[] data = &#123;&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;&#125;;
+        int[][] weight= &#123;
+                &#123;0,12,0,0,0,16,14&#125;,
+                &#123;12,0,10,0,0,7,0&#125;,
+                &#123;0,10,0,3,5,6,0&#125;,
+                &#123;0,0,3,0,4,0,0&#125;,
+                &#123;0,0,5,4,0,2,8&#125;,
+                &#123;16,7,6,0,2,0,9&#125;,
+                &#123;14,0,0,0,8,9,0&#125;
+        &#125;;
+        
+        Kruskar(data, weight);
+        
+
+    &#125;
+    
+    public static void Kruskar(String[] data, int[][] weight) &#123;
+        boolean[][] isVisited = new boolean[data.length][data.length];
+        LinkedList&lt;Edge&lt;String&gt;&gt; list =  new LinkedList&lt;&gt;();
+        LinkedList&lt;Edge&lt;String&gt;&gt; result =  new LinkedList&lt;&gt;();
+        for(int i=0;i&lt;weight.length;i++) &#123;
+            for(int j=0;j&lt;weight.length;j++) &#123;
+                if(isVisited[i][j] == false&amp;&amp; isVisited[j][i] == false &amp;&amp; weight[i][j] != 0) &#123;
+                    list.add(new Edge&lt;String&gt;(i, j, weight[i][j]));
+                    isVisited[i][j] = true;
+                    isVisited[j][i] = true;
+                &#125;
+            &#125;
+        &#125;
+        
+        Collections.sort(list);
+        for(Edge&lt;String&gt; e:list) 
+            System.out.println(e.print(data));
+        System.out.println();
+        
+        int[] ends = new int[data.length];
+        for(Edge&lt;String&gt; e:list) &#123;
+            if(result.size() == data.length-1)
+                break;
+            
+            
+            //克鲁斯卡尔算法精髓, Disjoint Set
+            int m = GetEnd(ends, e.x);
+            int n = GetEnd(ends, e.y);
+            //判断终点是否是一样的，即是否形成回路
+            if(m !=n) &#123;
+                ends[m]=n;
+                result.add(e);
+            &#125;
+                
+            
+            
+            
+        &#125;
+        
+        for(Edge&lt;String&gt; e:result) 
+            System.out.println(e.print(data));
+    
+
+        
+        
+    &#125;
+    
+    /**
+     * 获取对应下标的终点
+     * @param ends
+     * @param i
+     * @return
+     */
+    private static int GetEnd(int[] ends, int i) &#123;
+        while(ends[i] !=0)
+            i = ends[i];
+        return i;
+    &#125;
+    
+    private static class Edge&lt;E&gt; implements Comparable&lt;Edge&lt;String&gt;&gt;&#123;
+        public int x;
+        public int y;
+        public int weight;
+        Edge(int a, int b, int w)&#123;
+            x = a;
+            y = b;
+            weight = w;
+        &#125;
+        
+        public String print(E[] data) &#123;
+            return data[x]+&quot; &quot;+data[y]+&quot; : &quot;+weight;
+        &#125;
+
+        @Override
+        public int compareTo(Edge&lt;String&gt; e) &#123;
+            // TODO Auto-generated method stub
+            return weight -e.weight;
+        &#125;
+        
+    &#125;
+
+&#125;
+</code></pre>
 
     </div>
     
@@ -219,5 +430,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

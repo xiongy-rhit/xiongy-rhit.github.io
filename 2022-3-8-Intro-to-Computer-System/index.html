@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -315,15 +315,15 @@
 </tr>
 </tbody></table>
 <p>(Unsigned Binary) 当二进制数据长度为 n 时：</p>
-<p>min: 0										max: 2^n -1</p>
+<p>min: 0                                        max: 2^n -1</p>
 <p>(Signed Binary) 当二进制数据长度为 n 时：</p>
-<p>min: -2^(n-1)							max：-2^(n-1) -1</p>
+<p>min: -2^(n-1)                            max：-2^(n-1) -1</p>
 <h1 id="计算机地址与内存"><a href="#计算机地址与内存" class="headerlink" title="计算机地址与内存"></a>计算机地址与内存</h1><p>计算机内部元器件抽象图：</p>
 <p><img src="/2022-3-8-Intro-to-Computer-System/image-20220309133038457.png" alt="image-20220309133038457"></p>
 <p>计算机需要读取数据和存储数据，所以本章将介绍在Main Memory内存中，计算机是如何寻找数据以及存储数据的</p>
 <h2 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h2><p>内存中的数据以二进制的方式存储，每8个二进制数据对应1个地址，我们将这1个地址的大小称为1 byte （1字节）</p>
-<p>1 byte &#x3D; 8 bits (1字节 &#x3D; 8 比特)</p>
-<p>indices &#x3D; addresses (location)</p>
+<p>1 byte = 8 bits (1字节 = 8 比特)</p>
+<p>indices = addresses (location)</p>
 <p>内存地址，每个地址间相差1字节数据，图如下</p>
 <p><img src="/2022-3-8-Intro-to-Computer-System/image-20220309134838489.png" alt="image-20220309134838489"></p>
 <p>8-bit CPU 可寻地址大小为 2^8 Byte</p>
@@ -335,7 +335,7 @@
 <p>低数据位对应低地址，小端机器</p>
 <p>Big Endian 大端</p>
 <p>高数据位对应低地址，大端机器</p>
-<p><span style='color:pink'>举例说明</span></p>
+<p><span style="color:pink">举例说明</span></p>
 <p>数据： 0x deadbeef </p>
 <table>
 <thead>
@@ -405,7 +405,7 @@
 <tbody><tr>
 <td>add</td>
 <td>add r0, r1, r2</td>
-<td>add r1 and r2 and assign the result to r0 (ro &#x3D; r1+r2)</td>
+<td>add r1 and r2 and assign the result to r0 (ro = r1+r2)</td>
 </tr>
 <tr>
 <td>str</td>
@@ -420,7 +420,7 @@
 <tr>
 <td>sub</td>
 <td>sub r0, r1, #1</td>
-<td>subtract r1 and #1 and assign the result to r0 (r0 &#x3D; r1-1)</td>
+<td>subtract r1 and #1 and assign the result to r0 (r0 = r1-1)</td>
 </tr>
 <tr>
 <td>b</td>
@@ -455,12 +455,12 @@
 <tr>
 <td>mov</td>
 <td>mov r0, #3</td>
-<td>assign number 3 to r0 (r0 &#x3D; 3)</td>
+<td>assign number 3 to r0 (r0 = 3)</td>
 </tr>
 </tbody></table>
-<h3 id="ldr-指令"><a href="#ldr-指令" class="headerlink" title="ldr 指令"></a>ldr 指令</h3><p>Conditional Branching (if &#x2F; else)</p>
+<h3 id="ldr-指令"><a href="#ldr-指令" class="headerlink" title="ldr 指令"></a>ldr 指令</h3><p>Conditional Branching (if / else)</p>
 <p>cmp r0, #3</p>
-<p>ble .LOOP &#x2F;&#x2F;r0 &lt;&#x3D; 3</p>
+<p>ble .LOOP //r0 &lt;= 3</p>
 <p>ble : less or equal to</p>
 <p>blt : less than</p>
 <p>bgt : greater than</p>
@@ -471,7 +471,7 @@
 <li>made: with flip-flop (6 transistors)</li>
 <li>volatile: need power to sustain the data</li>
 <li>size: relatively big</li>
-<li>cost: $ 5000 &#x2F;GB</li>
+<li>cost: $ 5000 /GB</li>
 <li>where: CPU registers, L1 cache</li>
 </ul>
 <p>Cache</p>
@@ -483,7 +483,7 @@
 <li><p>Hit rate: % of finding the data in the cache</p>
 </li>
 <li><p>Average speed: P(hit) * t_cache_hit  + (1-P(hit)) * t_miss</p>
-<p>​					 &#x3D; P(hit) * t_cache_hit  + P(cache_miss) * t_miss</p>
+<p>​                     = P(hit) * t_cache_hit  + P(cache_miss) * t_miss</p>
 </li>
 </ul>
 <p>Dynamic RAM</p>
@@ -510,83 +510,143 @@
 <li>Not random</li>
 <li>not volatile</li>
 <li>size: larger than SSD</li>
-<li>speed: 200 MB&#x2F;S</li>
-<li>cost: $ 0.01  &#x2F; GB</li>
+<li>speed: 200 MB/S</li>
+<li>cost: $ 0.01  / GB</li>
 </ul>
-<h1 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>struct_variable.x &#x3D; 1; &#x2F;&#x2F;struct结构体 （stack上的）</p>
-<p>(*struct_variable).x &#x3D; 1;</p>
-<p>struct_pointer-&gt;y &#x3D; ‘d’; &#x2F;&#x2F; struct pointe是结构体指针</p>
+<h1 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>struct_variable.x = 1; //struct结构体 （stack上的）</p>
+<p>(*struct_variable).x = 1;</p>
+<p>struct_pointer-&gt;y = ‘d’; // struct pointe是结构体指针</p>
 <h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>pointers enable us to access memory addresses in C</p>
 <p>Syntax:</p>
 <ol>
-<li>Declaring a pointer variable: &lt;type&gt;* <variable_name>  (type is the stored data &#x2F; object stored at this address)</li>
+<li>Declaring a pointer variable: &lt;type&gt;* <variable_name>  (type is the stored data / object stored at this address)</variable_name></li>
 </ol>
-<p>int* xp &#x2F;&#x2F; xp is a pointer of an in object</p>
+<p>int* xp // xp is a pointer of an in object</p>
 <ol start="2">
-<li>Get the address of a variable &#x2F; object: &amp; <variable_name></li>
+<li>Get the address of a variable / object: &amp; <variable_name></variable_name></li>
 </ol>
-<p>int x &#x3D; 5;</p>
-<p>xp &#x3D; &x;</p>
+<p>int x = 5;</p>
+<p>xp = &x;</p>
 <ol start="3">
-<li>Access the data with an address :  *&lt;pointer&gt; &#x2F;&#x2F;similar to assembly[ ]</li>
+<li>Access the data with an address :  *&lt;pointer&gt; //similar to assembly[ ]</li>
 </ol>
 <p>int y;</p>
-<p>y &#x3D; *xp; &#x2F;&#x2F; 把xp指向的地址的data赋值给y</p>
-<p>*xp &#x3D; 3 &#x2F;&#x2F;write &#x2F; update the data xp points to as 3, 更新指向地址的数据</p>
+<p>y = *xp; // 把xp指向的地址的data赋值给y</p>
+<p>*xp = 3 //write / update the data xp points to as 3, 更新指向地址的数据</p>
 <p>在32位机器上，指针大小为4字节</p>
 <p>指针加1，按照指向地址向上移动对应的字节大小</p>
 <p>shot 类型的指针地址 +1, 向上移动2字节</p>
 <p>increase N size of the pointer</p>
 <p>总结出来， *p 代表指针指向地址的值，而 p 本身是指向位置的地址</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">8</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">5</span>;</span><br><span class="line">   <span class="type">int</span>* p = &amp;a; <span class="comment">//指针p 指向 a的地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p); <span class="comment">//打印地址</span></span><br><span class="line">   p = &amp;b; <span class="comment">//把指针指向 b的地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p); <span class="comment">//打印地址</span></span><br><span class="line"></span><br><span class="line">   *p = a; <span class="comment">//把a的值赋值给指针指向的那个地址</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, *p, b); <span class="comment">//打印指针指向的值的变化</span></span><br></pre></td></tr></table></figure>
+<pre><code class="c">    int a = 8;
+    int b = 5;
+    int* p = &amp;a; //指针p 指向 a的地址
+    printf(&quot;%d\n&quot;, p); //打印地址
+    p = &amp;b; //把指针指向 b的地址
+    printf(&quot;%d\n&quot;, p); //打印地址
 
-
-
+    *p = a; //把a的值赋值给指针指向的那个地址
+    printf(&quot;%d %d&quot;, *p, b); //打印指针指向的值的变化
+</code></pre>
 <p>数组与指针</p>
 <p>使用指针比较结构体中2个字符串的大小，并将长的输出</p>
 <p>方法1，使用指针遍历，（不使用数组下标）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">print_longer</span><span class="params">(<span class="keyword">struct</span> two_things* input)</span>&#123;</span><br><span class="line">     </span><br><span class="line">	<span class="type">int</span> firstLength = <span class="number">0</span>, secondLength = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (*input-&gt;thing_one != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        input-&gt;thing_one++;</span><br><span class="line">        firstLength++;</span><br><span class="line">    &#125;</span><br><span class="line">    input-&gt;thing_one -= firstLength;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( *input-&gt;thing_two != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        input-&gt;thing_two++;</span><br><span class="line">        secondLength++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    input-&gt;thing_two -= secondLength;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (firstLength &gt; secondLength)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_one);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_two);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="C">void print_longer(struct two_things* input)&#123;
+     
+    int firstLength = 0, secondLength = 0;
+    while (*input-&gt;thing_one != &#39;\0&#39;)
+    &#123;
+        input-&gt;thing_one++;
+        firstLength++;
+    &#125;
+    input-&gt;thing_one -= firstLength;
 
+    while ( *input-&gt;thing_two != &#39;\0&#39;)
+    &#123;
+        input-&gt;thing_two++;
+        secondLength++;
+    &#125;
 
+    input-&gt;thing_two -= secondLength;
 
+    if (firstLength &gt; secondLength)
+        printf(&quot;%s&quot;, input-&gt;thing_one);
+    else
+        printf(&quot;%s&quot;, input-&gt;thing_two);
+&#125;
+</code></pre>
 <p>方法2，使用数组下标遍历</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">print_longer</span><span class="params">(<span class="keyword">struct</span> two_things* input)</span>&#123;</span><br><span class="line">   </span><br><span class="line">  <span class="type">int</span> firstLength = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(input-&gt;thing_one[firstLength] != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">      firstLength ++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> secondLength = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(input-&gt;thing_two[secondLength] != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">      secondLength ++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(firstLength &gt; secondLength)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_one);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, input-&gt;thing_two);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="C">void print_longer(struct two_things* input)&#123;
+   
+  int firstLength = 0;
+  while(input-&gt;thing_one[firstLength] != &#39;\0&#39;)&#123;
+      firstLength ++;
+  &#125;
+  
+  int secondLength = 0;
+  while(input-&gt;thing_two[secondLength] != &#39;\0&#39;)&#123;
+      secondLength ++;
+  &#125;
+  
+  if(firstLength &gt; secondLength)
+    printf(&quot;%s&quot;, input-&gt;thing_one);
+  else
+    printf(&quot;%s&quot;, input-&gt;thing_two);
 
-
-
-
-
-
-
-
-
+&#125;
+</code></pre>
 <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="堆与栈-Stack-and-Heap"><a href="#堆与栈-Stack-and-Heap" class="headerlink" title="堆与栈 Stack and Heap"></a>堆与栈 Stack and Heap</h2><p>stack</p>
-<p>​	store local variables, return addresses</p>
-<p>​	static</p>
-<p>​	not persistent (memory space won’t be available after function return)</p>
+<p>​    store local variables, return addresses</p>
+<p>​    static</p>
+<p>​    not persistent (memory space won’t be available after function return)</p>
 <p>scanf</p>
-<p>​	keyboard input to the program</p>
+<p>​    keyboard input to the program</p>
 <p>heap</p>
-<p>​	dynamic</p>
-<p>​	persistent (available in the memory after function return)</p>
+<p>​    dynamic</p>
+<p>​    persistent (available in the memory after function return)</p>
 <p>malloc</p>
-<p>​	pointer &#x3D; malloc (# of bytes)</p>
+<p>​    pointer = malloc (# of bytes)</p>
 <p>free</p>
-<p>​	free(pointer)</p>
+<p>​    free(pointer)</p>
 <p>sizeof</p>
-<p>​	sizeof(malloc出来的地址，大小就是指针大小)</p>
-<p>​	be sure not to use it to measure the length since it only gives us the size of data type (char, int, sturct结构体)</p>
-<p>​	</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude<span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span>* array1 = <span class="built_in">malloc</span>(<span class="number">256</span>);</span><br><span class="line">    <span class="type">char</span> array2[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, array1, array2); <span class="comment">//32位机器使用4B 作为指针</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">OUTPUT</span></span><br><span class="line"><span class="comment">4, 128</span></span><br><span class="line"><span class="comment">数组在stack中， array1在heap中</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>​    sizeof(malloc出来的地址，大小就是指针大小)</p>
+<p>​    be sure not to use it to measure the length since it only gives us the size of data type (char, int, sturct结构体)</p>
+<p>​    </p>
+<pre><code class="c">#inlcude&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+void main()&#123;
+    char* array1 = malloc(256);
+    char array2[128];
+    printf(&quot;%d %d&quot;, array1, array2); //32位机器使用4B 作为指针
+&#125;
 
-
-
+/*
+OUTPUT
+4, 128
+数组在stack中， array1在heap中
+*/
+</code></pre>
 <p>Memory leakage</p>
-<p>​	be sure to free your malloc</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; stdlib .h &gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; stdio .h &gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt; string .h &gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">printOnce</span> <span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">char</span> * c = <span class="built_in">malloc</span> (<span class="number">10</span>) ;</span><br><span class="line">	<span class="built_in">strncpy</span> (c , <span class="string">&quot; Amadeus !&quot;</span>, <span class="number">10</span>) ;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%s\n&quot;</span>, c ) ;</span><br><span class="line">	<span class="built_in">free</span> ( c );</span><br><span class="line">	<span class="keyword">return</span> c ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">( <span class="type">int</span> argc , <span class="type">char</span> ** argv )</span> &#123;</span><br><span class="line">	<span class="type">char</span> * c ;</span><br><span class="line">	c = printOnce () ;</span><br><span class="line">	<span class="built_in">printf</span> (<span class="string">&quot;%s\n&quot;</span>, c ) ; <span class="comment">// print again</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>​    be sure to free your malloc</p>
+<pre><code class="C"># include &lt; stdlib .h &gt;
+# include &lt; stdio .h &gt;
+# include &lt; string .h &gt;
 
+char * printOnce () &#123;
+    char * c = malloc (10) ;
+    strncpy (c , &quot; Amadeus !&quot;, 10) ;
+    printf (&quot;%s\n&quot;, c ) ;
+    free ( c );
+    return c ;
+&#125;
 
-
+int main ( int argc , char ** argv ) &#123;
+    char * c ;
+    c = printOnce () ;
+    printf (&quot;%s\n&quot;, c ) ; // print again
+    return 0;
+&#125;
+</code></pre>
 
     </div>
     
@@ -621,5 +681,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

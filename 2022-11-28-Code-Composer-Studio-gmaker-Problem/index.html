@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -118,10 +118,13 @@
     </div>
     <div class="content" v-pre>
         <h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>When using Code Composer Studio to build sample program for MSP-EXP432P4111, I meet a problem like the following one.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gmake: *** No rule to make target &#x27;callbacks.obj&#x27;, needed by &#x27;all&#x27;.</span><br><span class="line">gmake: No rule to make target `C:/ti/ ....&#x27;</span><br><span class="line">gmake: No rule to make target `C:/ti/ ....&#x27;</span><br><span class="line">gmake: No rule to make target `C:/ti/ ....&#x27;</span><br><span class="line">gmake: No rule to make target `C:/ti/ ....&#x27;</span><br><span class="line">Gmake main obj Error 1 gmake: Target &#x27;all&#x27; not remade because of errors</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="shell">gmake: *** No rule to make target &#39;callbacks.obj&#39;, needed by &#39;all&#39;.
+gmake: No rule to make target `C:/ti/ ....&#39;
+gmake: No rule to make target `C:/ti/ ....&#39;
+gmake: No rule to make target `C:/ti/ ....&#39;
+gmake: No rule to make target `C:/ti/ ....&#39;
+Gmake main obj Error 1 gmake: Target &#39;all&#39; not remade because of errors
+</code></pre>
 <h1 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h1><p><strong>Check Your Directory Path &amp; Your System Language</strong></p>
 <ol>
 <li>Check the directory path does not contain space or other characters (such as Chinese)</li>
@@ -162,5 +165,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

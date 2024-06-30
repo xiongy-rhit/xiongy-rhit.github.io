@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 7.2.0"></head>
+    <meta name="generator" content="Hexo 5.4.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:2147483647;justify-content:space-between;background:#fff;transition:all 0.3s ease-out;-webkit-user-select:none;-moz-user-select:none;user-select:none"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
         <div id="layout">
@@ -143,12 +143,173 @@
 <p>我这里放一串示例代码，全部可以到下面的链接中下载</p>
 <p><a target="_blank" rel="noopener" href="https://download.csdn.net/download/peterbearXY/18116736">https://download.csdn.net/download/peterbearXY/18116736</a></p>
 <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><p>选择排序：排序部分（利用线程）+演示部分</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//排序部分</span></span><br><span class="line"><span class="keyword">package</span> SelectSorting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.Panel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SelectAlgorithm</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span>[] arr;</span><br><span class="line">	<span class="keyword">private</span> Panel p;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">SelectAlgorithm</span><span class="params">(<span class="type">int</span>[] arr, Panel p)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.arr = arr;</span><br><span class="line">		<span class="built_in">this</span>.p = p;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++) &#123;</span><br><span class="line">			<span class="type">int</span> <span class="variable">smallest</span> <span class="operator">=</span>i;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;arr.length;j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(arr[j] &lt; arr[smallest])</span><br><span class="line">					smallest = j;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(i != smallest) &#123;</span><br><span class="line">				<span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">				arr[i] = arr[smallest];</span><br><span class="line">				arr[smallest] = temp;</span><br><span class="line">				p.repaint();</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">				&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">					<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">//排序部分
+package SelectSorting;
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//展示部分</span></span><br><span class="line"><span class="keyword">package</span> SelectSorting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.Graphics;</span><br><span class="line"><span class="keyword">import</span> java.awt.Panel;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.JButton;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SelectDrawing</span> <span class="keyword">extends</span> <span class="title class_">JFrame</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> MyPanel panel;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">new</span> <span class="title class_">SelectDrawing</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">SelectDrawing</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">		<span class="type">int</span>[] arr = &#123;<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">1</span>&#125;;</span><br><span class="line">		panel = <span class="keyword">new</span> <span class="title class_">MyPanel</span>();</span><br><span class="line">		panel.InitData(arr);</span><br><span class="line">		<span class="built_in">this</span>.add(panel);</span><br><span class="line">		<span class="built_in">this</span>.setSize(<span class="number">800</span>, <span class="number">600</span>);</span><br><span class="line">		<span class="built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		<span class="built_in">this</span>.setVisible(<span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyPanel</span> <span class="keyword">extends</span> <span class="title class_">Panel</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span>[] arr;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span>[] originArr;</span><br><span class="line">	<span class="keyword">private</span> JButton start;</span><br><span class="line">	<span class="keyword">private</span> JButton reset;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span>[] getArr() &#123;</span><br><span class="line">		<span class="keyword">return</span> arr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">InitData</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.arr = arr;</span><br><span class="line">		<span class="built_in">this</span>.originArr = Arrays.copyOf(arr, arr.length);</span><br><span class="line">		</span><br><span class="line">		start = <span class="keyword">new</span> <span class="title class_">JButton</span>();</span><br><span class="line">		</span><br><span class="line">		start.setText(<span class="string">&quot;开始&quot;</span>);</span><br><span class="line">		start.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent arg0)</span> &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				StartToSort();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		start.setVisible(<span class="literal">true</span>);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		reset = <span class="keyword">new</span> <span class="title class_">JButton</span>();</span><br><span class="line">		reset.setText(<span class="string">&quot;重置&quot;</span>);</span><br><span class="line">		reset.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">				ReSetArr();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		<span class="built_in">this</span>.add(start);</span><br><span class="line">		<span class="built_in">this</span>.add(reset);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//重置</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ReSetArr</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		arr = Arrays.copyOf(originArr, originArr.length);</span><br><span class="line">		<span class="built_in">this</span>.repaint();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//开始排序</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">StartToSort</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="type">SelectAlgorithm</span> <span class="variable">sort</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SelectAlgorithm</span>(arr, <span class="built_in">this</span>);</span><br><span class="line">		sort.start();</span><br><span class="line">				</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//绘制图像</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">InitRects</span><span class="params">(Graphics g)</span> &#123;</span><br><span class="line">		<span class="type">int</span> x=<span class="number">100</span>;</span><br><span class="line">		<span class="type">int</span> y=<span class="number">500</span>;</span><br><span class="line">		<span class="type">int</span> <span class="variable">preY</span> <span class="operator">=</span><span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i:arr) &#123;</span><br><span class="line">			y -= i*<span class="number">50</span> - preY;</span><br><span class="line">			g.drawRect(x, y, <span class="number">20</span>, i*<span class="number">50</span>);</span><br><span class="line">			x+=<span class="number">20</span>;</span><br><span class="line">			preY = i*<span class="number">50</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">paint</span><span class="params">(Graphics g)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="built_in">super</span>.paint(g);</span><br><span class="line">		InitRects(g);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+import java.awt.Panel;
+
+public class SelectAlgorithm extends Thread&#123;
+    private int[] arr;
+    private Panel p;
+    public SelectAlgorithm(int[] arr, Panel p) &#123;
+        this.arr = arr;
+        this.p = p;
+    &#125;
+
+    @Override
+    public void run() &#123;
+        // TODO Auto-generated method stub
+        
+        for(int i=0;i&lt;arr.length-1;i++) &#123;
+            int smallest =i;
+            for(int j=i;j&lt;arr.length;j++) &#123;
+                if(arr[j] &lt; arr[smallest])
+                    smallest = j;
+            &#125;
+            
+            if(i != smallest) &#123;
+                int temp = arr[i];
+                arr[i] = arr[smallest];
+                arr[smallest] = temp;
+                p.repaint();
+                try &#123;
+                    Thread.sleep(1000);
+                &#125; catch (InterruptedException e) &#123;
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;
+        
+        
+        
+    &#125;
+    
+    
+&#125;
+</code></pre>
+<pre><code class="java">//展示部分
+package SelectSorting;
+
+import java.awt.Graphics;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 
 
+public class SelectDrawing extends JFrame&#123;
+    private MyPanel panel;
+    public static void main(String[] args) &#123;
+        // TODO Auto-generated method stub
+        new SelectDrawing();
+    &#125;
+    
+    public SelectDrawing() &#123;
+        // TODO Auto-generated constructor stub
+        int[] arr = &#123;6,3,7,1&#125;;
+        panel = new MyPanel();
+        panel.InitData(arr);
+        this.add(panel);
+        this.setSize(800, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        
+        this.setVisible(true);
+    &#125;
+
+&#125;
+
+class MyPanel extends Panel&#123;
+    private int[] arr;
+    private int[] originArr;
+    private JButton start;
+    private JButton reset;
+    
+    public int[] getArr() &#123;
+        return arr;
+    &#125;
+
+
+    public void InitData(int[] arr) &#123;
+        this.arr = arr;
+        this.originArr = Arrays.copyOf(arr, arr.length);
+        
+        start = new JButton();
+        
+        start.setText(&quot;开始&quot;);
+        start.addActionListener(new ActionListener() &#123;
+            
+            @Override
+            public void actionPerformed(ActionEvent arg0) &#123;
+                // TODO Auto-generated method stub
+                StartToSort();
+            &#125;
+        &#125;);
+        start.setVisible(true);
+        
+        
+        reset = new JButton();
+        reset.setText(&quot;重置&quot;);
+        reset.addActionListener(new ActionListener() &#123;
+            
+            @Override
+            public void actionPerformed(ActionEvent e) &#123;
+                // TODO Auto-generated method stub
+                ReSetArr();
+            &#125;
+        &#125;);
+        
+        this.add(start);
+        this.add(reset);
+    &#125;
+    
+    //重置
+    private void ReSetArr() &#123;
+        // TODO Auto-generated method stub
+        arr = Arrays.copyOf(originArr, originArr.length);
+        this.repaint();
+    &#125;
+
+    //开始排序
+    private void StartToSort() &#123;
+        // TODO Auto-generated method stub
+        SelectAlgorithm sort = new SelectAlgorithm(arr, this);
+        sort.start();
+                
+
+    &#125;
+
+    //绘制图像
+    private void InitRects(Graphics g) &#123;
+        int x=100;
+        int y=500;
+        int preY =0;
+        for(int i:arr) &#123;
+            y -= i*50 - preY;
+            g.drawRect(x, y, 20, i*50);
+            x+=20;
+            preY = i*50;
+        &#125;
+        
+        
+        
+    &#125;
+    
+    
+    @Override
+    public void paint(Graphics g) &#123;
+        // TODO Auto-generated method stub
+        super.paint(g);
+        InitRects(g);
+    &#125;
+    
+&#125;
+</code></pre>
 <p><img src="/%E9%83%A8%E5%88%86%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96/image-20210426094223962.png" alt="image-20210426094223962"></p>
 
     </div>
@@ -184,5 +345,5 @@
         
 
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
